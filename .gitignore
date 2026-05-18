@@ -12,10 +12,12 @@ build/
 .env*.local
 
 # Large media files (handled via hosting CDN / external URL)
-*.mp4
+
 *.zip
 *.tar.gz
 
 # OS files
 .DS_Store
 Thumbs.db
+
+integrations.md

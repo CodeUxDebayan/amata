@@ -56,7 +56,7 @@ export default function ImageBreak() {
     <section ref={sectionRef} className={styles.imgBreak}>
       <video
         ref={videoRef}
-        src="/videos/showreel.mp4"
+        src="/videos/showreel.webm"
         className={styles.video}
         autoPlay
         muted
