@@ -30,28 +30,41 @@ export default function LearnPage() {
 
       {/* Certifications */}
       <section className={styles.certSection}>
-        <h2 className="serif text-center" style={{ marginBottom: '3rem', fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
-          Certified Purity
-        </h2>
-        <div className={styles.certLogos}>
-          {certifications.map((c) => (
-            <span key={c} className="serif">{c}</span>
-          ))}
+        <div className={styles.certContainer}>
+          <div className={styles.certHeader}>
+            <span className={styles.eyebrow}>Our Standards</span>
+            <h2 className="serif">Certified Purity</h2>
+          </div>
+          <div className={styles.certLogos}>
+            {certifications.map((c) => (
+              <div key={c} className={styles.certItem}>
+                <div className={styles.certDot}></div>
+                <span className="serif">{c}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Testimonials */}
       <section className={styles.testimonials}>
-        <h2 className="serif text-center" style={{ marginBottom: '4rem', fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
-          Customer Insights
-        </h2>
-        <div className={styles.testGrid}>
-          {testimonials.map((t) => (
-            <div key={t.author} className={styles.testItem}>
-              <blockquote className="serif">{t.quote}</blockquote>
-              <div className={styles.testAuthor}>— {t.author}</div>
-            </div>
-          ))}
+        <div className={styles.testContainer}>
+          <div className={styles.testHeader}>
+            <span className={styles.eyebrow}>Insights</span>
+            <h2 className="serif">Voices of Amata</h2>
+          </div>
+          <div className={styles.testGrid}>
+            {testimonials.map((t) => (
+              <div key={t.author} className={styles.testItem}>
+                <div className={styles.quoteMark}>"</div>
+                <blockquote className="serif">{t.quote.replace(/"/g, '')}</blockquote>
+                <div className={styles.testAuthorLine}>
+                  <div className={styles.authorLine}></div>
+                  <div className={styles.testAuthor}>{t.author}</div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -66,29 +79,39 @@ export default function LearnPage() {
             />
           </div>
           <div className={styles.podContent}>
-            <div className={styles.podLabel}>Listen Now</div>
-            <h3 className="serif" style={{ fontSize: '2.2rem', marginBottom: '1rem' }}>The Roots of Wellness</h3>
-            <p style={{ opacity: 0.8, lineHeight: 1.6, marginBottom: '2rem' }}>
-              Join us as we discuss the gut-brain axis, mindfulness, and the origins of Moroheiya.
+            <div className={styles.podMeta}>
+              <span className={styles.podLabel}>Audio Series</span>
+              <span className={styles.podDuration}>45 Min</span>
+            </div>
+            <h3 className="serif">The Roots of Wellness</h3>
+            <p>
+              Join us as we discuss the gut-brain axis, mindfulness, and the origins of Moroheiya in this exclusive interview.
             </p>
-            <button className={styles.playBtn}>▶ Play Episode</button>
+            <button className={styles.playBtn}>
+              <span className={styles.playIcon}>▶</span> Listen Episode
+            </button>
           </div>
         </div>
       </section>
 
       {/* Ritual video */}
       <section className={styles.ritualSection}>
-        <h2 className="serif" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', marginBottom: '2rem' }}>The Ritual</h2>
-        <p style={{ fontSize: '1.25rem', lineHeight: 1.8, opacity: 0.8, marginBottom: '2rem' }}>
-          A vibrant, earthy infusion that bridges two ancient worlds. A moment of zen in your daily routine.
-        </p>
+        <div className={styles.ritualHeader}>
+          <span className={styles.eyebrow}>Experience</span>
+          <h2 className="serif">The Daily Ritual</h2>
+          <p>
+            A vibrant, earthy infusion that bridges two ancient worlds. A moment of zen in your daily routine.
+          </p>
+        </div>
         <div className={styles.vidMask}>
           <img
             src="https://images.unsplash.com/photo-1517594422361-5eeb8ae275a9?q=80&w=1470&auto=format&fit=crop"
             loading="lazy"
             alt="Tea ritual"
           />
-          <div className={`serif ${styles.playTxt}`}>Play Film</div>
+          <div className={styles.playOverlay}>
+            <div className={`serif ${styles.playTxt}`}>Play Film</div>
+          </div>
         </div>
       </section>
 

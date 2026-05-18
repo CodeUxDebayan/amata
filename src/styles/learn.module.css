@@ -1,30 +1,65 @@
-.certSection { padding: 10vh 4vw; background: var(--c-white); border-bottom: 1px solid rgba(10,45,51,0.05); text-align: center; }
-.certLogos { display: flex; justify-content: center; gap: 4rem; margin-top: 3rem; flex-wrap: wrap; opacity: 0.6; }
-.certLogos span { font-family: var(--font-serif); font-size: 1.5rem; }
+/* Common Eyebrow Typography */
+.eyebrow { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--c-deep); opacity: 0.6; margin-bottom: 0.5rem; }
 
-.testimonials { padding: 10vh 4vw; text-align: center; background: var(--c-sand); }
-.testGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; max-width: 1000px; margin: 0 auto; }
-.testItem { padding: 2rem; }
-.testItem blockquote { font-family: var(--font-serif); font-size: clamp(1.2rem, 2vw, 1.8rem); line-height: 1.4; margin-bottom: 1.5rem; color: var(--c-deep); font-style: italic; }
-.testAuthor { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; }
+/* Certifications */
+.certSection { padding: 10vh 4vw; background: var(--c-white); border-bottom: 1px solid rgba(10,45,51,0.05); }
+.certContainer { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.certHeader h2 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 3rem; color: var(--c-deep); }
+.certLogos { display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; width: 100%; border-top: 1px solid rgba(10,45,51,0.1); padding-top: 3rem; }
+.certItem { display: flex; align-items: center; gap: 1rem; opacity: 0.8; }
+.certDot { width: 8px; height: 8px; background: var(--c-sky); border-radius: 50%; }
+.certItem span { font-size: 1.5rem; color: var(--c-deep); }
 
-.podcastSection { padding: 10vh 4vw 15vh; max-width: 900px; margin: 0 auto; }
-.podcastCard { display: flex; background: var(--c-deep); color: var(--c-white); border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-.podImg { width: 40%; }
+/* Testimonials */
+.testimonials { padding: 12vh 4vw; background: var(--c-sand); }
+.testContainer { max-width: 1200px; margin: 0 auto; }
+.testHeader { text-align: center; margin-bottom: 5rem; }
+.testHeader h2 { font-size: clamp(2.5rem, 5vw, 4rem); color: var(--c-deep); }
+.testGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 4rem; }
+.testItem { position: relative; padding: 3rem; background: rgba(255, 255, 255, 0.4); border-radius: 20px; border: 1px solid rgba(10,45,51,0.05); transition: transform 0.4s ease, box-shadow 0.4s ease; }
+.testItem:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+.quoteMark { position: absolute; top: 1rem; left: 1.5rem; font-size: 6rem; font-family: var(--font-serif); color: var(--c-sky); opacity: 0.2; line-height: 1; }
+.testItem blockquote { font-size: clamp(1.4rem, 2vw, 1.8rem); line-height: 1.6; margin-bottom: 2rem; color: var(--c-deep); position: relative; z-index: 2; }
+.testAuthorLine { display: flex; align-items: center; gap: 1rem; }
+.authorLine { height: 1px; width: 40px; background: var(--c-deep); opacity: 0.3; }
+.testAuthor { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--c-deep); font-weight: 600; }
+
+/* Podcast */
+.podcastSection { padding: 12vh 4vw; max-width: 1200px; margin: 0 auto; }
+.podcastCard { display: flex; background: var(--c-deep); color: var(--c-white); border-radius: 32px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+.podImg { width: 45%; position: relative; }
 .podImg img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.podContent { padding: 4rem 3rem; width: 60%; display: flex; flex-direction: column; justify-content: center; }
-.podLabel { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--c-sky); margin-bottom: 1rem; }
-.playBtn { align-self: flex-start; background: var(--c-sand); color: var(--c-deep); border: none; padding: 1rem 2rem; border-radius: 100px; font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: transform 0.3s; }
-.playBtn:hover { transform: scale(1.05); }
+.podContent { padding: 5rem 4rem; width: 55%; display: flex; flex-direction: column; justify-content: center; }
+.podMeta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; }
+.podLabel { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--c-sky); }
+.podDuration { font-size: 0.8rem; opacity: 0.6; }
+.podContent h3 { font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 1.5rem; line-height: 1.1; }
+.podContent p { font-size: 1.1rem; opacity: 0.8; line-height: 1.7; margin-bottom: 3rem; max-width: 90%; }
+.playBtn { align-self: flex-start; display: flex; align-items: center; gap: 1rem; background: transparent; color: var(--c-white); border: 1px solid rgba(255,255,255,0.3); padding: 1rem 2rem; border-radius: 100px; font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s; }
+.playIcon { color: var(--c-sky); }
+.playBtn:hover { background: var(--c-white); color: var(--c-deep); border-color: var(--c-white); }
+.playBtn:hover .playIcon { color: var(--c-deep); }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .podcastCard { flex-direction: column; }
-  .podImg { width: 100%; height: 250px; }
-  .podContent { width: 100%; padding: 2rem; }
+  .podImg { width: 100%; height: 350px; }
+  .podContent { width: 100%; padding: 3rem 2rem; }
+  .testGrid { grid-template-columns: 1fr; }
 }
 
-.ritualSection { padding: 10vh 4vw 20vh; text-align: center; max-width: 1000px; margin: 0 auto; }
-.vidMask { width: 100%; aspect-ratio: 16/9; border-radius: 30px; overflow: hidden; position: relative; display: flex; align-items: center; justify-content: center; margin-top: 4rem; }
-.vidMask img { width: 100%; height: 120%; object-fit: cover; position: absolute; top: -10%; opacity: 0.8; display: block; }
-.playTxt { position: relative; z-index: 10; font-size: 3rem; color: var(--c-white); mix-blend-mode: difference; cursor: pointer; transition: transform 0.4s; }
-.vidMask:hover .playTxt { transform: scale(1.1) skewX(-5deg); }
+/* Ritual */
+.ritualSection { padding: 12vh 4vw; text-align: center; max-width: 1400px; margin: 0 auto; }
+.ritualHeader { max-width: 700px; margin: 0 auto 4rem auto; }
+.ritualHeader h2 { font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 1.5rem; color: var(--c-deep); }
+.ritualHeader p { font-size: 1.25rem; line-height: 1.8; opacity: 0.8; color: var(--c-deep); }
+.vidMask { width: 100%; aspect-ratio: 21/9; border-radius: 40px; overflow: hidden; position: relative; display: flex; align-items: center; justify-content: center; }
+.vidMask img { width: 100%; height: 120%; object-fit: cover; position: absolute; top: -10%; display: block; filter: brightness(0.9); }
+.playOverlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(10,45,51,0.2); transition: background 0.4s ease; cursor: pointer; }
+.playTxt { position: relative; z-index: 10; font-size: clamp(2rem, 4vw, 3rem); color: var(--c-white); background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 1.5rem 3rem; border-radius: 100px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.vidMask:hover .playOverlay { background: rgba(10,45,51,0.4); }
+.vidMask:hover .playTxt { transform: scale(1.05); background: var(--c-sky); border-color: var(--c-sky); color: var(--c-deep); }
+
+@media (max-width: 768px) {
+  .vidMask { aspect-ratio: 16/9; border-radius: 20px; }
+  .certLogos { gap: 2rem; flex-direction: column; }
+}
