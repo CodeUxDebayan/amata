@@ -1,0 +1,131 @@
+.footer {
+  background: var(--c-black);
+  color: var(--c-sand);
+  padding: 10vh 4vw 2vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.overlapGrid { display: grid; }
+
+.top {
+  grid-area: 1 / 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  position: relative;
+  z-index: 10;
+  text-shadow: 0 4px 12px rgba(10, 45, 51, 0.8);
+}
+@media (min-width: 1024px) {
+  .top { grid-template-columns: 1fr 1fr; }
+}
+
+.col h4 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+  color: var(--c-sky);
+  text-shadow: none;
+}
+.col ul { list-style: none; }
+.col ul li { margin-bottom: 1rem; }
+.col ul li a {
+  font-size: 1.2rem;
+  font-family: var(--font-serif);
+  transition: color 0.3s, letter-spacing 0.4s;
+}
+.col ul li a:hover { color: var(--c-white); letter-spacing: 3px; }
+
+.emailForm {
+  display: flex;
+  border-bottom: 1px solid var(--c-sky);
+  padding-bottom: 1rem;
+}
+.emailInput {
+  background: none;
+  border: none;
+  color: var(--c-white);
+  font-family: var(--font-sans);
+  flex: 1;
+  outline: none;
+  cursor: none;
+  text-shadow: none;
+  font-size: 0.9rem;
+}
+.joinBtn {
+  color: var(--c-sand);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  cursor: none;
+  text-shadow: none;
+}
+.joinedMsg {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.fLinks {
+  display: flex;
+  justify-content: flex-end;
+  gap: 4rem;
+}
+
+.hugeFoooterWrap {
+  grid-area: 1 / 1;
+  position: relative;
+  text-align: center;
+  margin-bottom: 4rem;
+  z-index: 1;
+  margin-top: auto;
+  padding-top: 10vh;
+}
+
+.footerWatermark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-jp);
+  font-size: clamp(5rem, 18vw, 20rem);
+  color: rgba(234, 211, 157, 0.055);
+  pointer-events: none;
+  z-index: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  letter-spacing: -0.03em;
+}
+
+.hugeFooter {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+.hugeFooter img {
+  width: auto;
+  height: 300px;
+  display: block;
+  opacity: 0.4;
+  margin: 0 auto 0 0;
+  filter: brightness(0) invert(1) sepia(1) saturate(0%) hue-rotate(214deg) brightness(115%);
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(234, 211, 157, 0.18);
+  padding-top: 2rem;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 1;
+}

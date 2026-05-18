@@ -1,0 +1,52 @@
+.imgBreak {
+  width: 100%;
+  height: 80vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.video {
+  width: 100%;
+  height: 130%;
+  object-fit: cover;
+  position: absolute;
+  top: -15%;
+}
+
+.text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(3rem, 8vw, 8rem);
+  color: var(--c-white);
+  mix-blend-mode: overlay;
+}
+
+.soundToggle {
+  position: absolute;
+  bottom: 4vw;
+  right: 4vw;
+  z-index: 10;
+  color: var(--c-white);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba(10, 45, 51, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 0.6rem 1.2rem;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: none;
+}
+.soundToggle:hover {
+  background: rgba(10, 45, 51, 0.5);
+  border-color: var(--c-sand);
+}
+.soundToggle span {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}

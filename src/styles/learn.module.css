@@ -1,0 +1,30 @@
+.certSection { padding: 10vh 4vw; background: var(--c-white); border-bottom: 1px solid rgba(10,45,51,0.05); text-align: center; }
+.certLogos { display: flex; justify-content: center; gap: 4rem; margin-top: 3rem; flex-wrap: wrap; opacity: 0.6; }
+.certLogos span { font-family: var(--font-serif); font-size: 1.5rem; }
+
+.testimonials { padding: 10vh 4vw; text-align: center; background: var(--c-sand); }
+.testGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; max-width: 1000px; margin: 0 auto; }
+.testItem { padding: 2rem; }
+.testItem blockquote { font-family: var(--font-serif); font-size: clamp(1.2rem, 2vw, 1.8rem); line-height: 1.4; margin-bottom: 1.5rem; color: var(--c-deep); font-style: italic; }
+.testAuthor { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; }
+
+.podcastSection { padding: 10vh 4vw 15vh; max-width: 900px; margin: 0 auto; }
+.podcastCard { display: flex; background: var(--c-deep); color: var(--c-white); border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+.podImg { width: 40%; }
+.podImg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.podContent { padding: 4rem 3rem; width: 60%; display: flex; flex-direction: column; justify-content: center; }
+.podLabel { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--c-sky); margin-bottom: 1rem; }
+.playBtn { align-self: flex-start; background: var(--c-sand); color: var(--c-deep); border: none; padding: 1rem 2rem; border-radius: 100px; font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: transform 0.3s; }
+.playBtn:hover { transform: scale(1.05); }
+
+@media (max-width: 768px) {
+  .podcastCard { flex-direction: column; }
+  .podImg { width: 100%; height: 250px; }
+  .podContent { width: 100%; padding: 2rem; }
+}
+
+.ritualSection { padding: 10vh 4vw 20vh; text-align: center; max-width: 1000px; margin: 0 auto; }
+.vidMask { width: 100%; aspect-ratio: 16/9; border-radius: 30px; overflow: hidden; position: relative; display: flex; align-items: center; justify-content: center; margin-top: 4rem; }
+.vidMask img { width: 100%; height: 120%; object-fit: cover; position: absolute; top: -10%; opacity: 0.8; display: block; }
+.playTxt { position: relative; z-index: 10; font-size: 3rem; color: var(--c-white); mix-blend-mode: difference; cursor: pointer; transition: transform 0.4s; }
+.vidMask:hover .playTxt { transform: scale(1.1) skewX(-5deg); }

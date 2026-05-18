@@ -1,0 +1,39 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: var(--c-deep);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  overflow: hidden;
+}
+
+.loaderText {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  letter-spacing: 0.5em;
+  color: var(--c-sand);
+  overflow: hidden;
+}
+
+.loaderInner {
+  display: inline-block;
+  transform: translateY(100%);
+}
+
+.loaderSub {
+  font-family: var(--font-jp);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: rgba(234, 211, 157, 0.35);
+  overflow: hidden;
+}
+
+.loaderSubInner {
+  display: inline-block;
+  transform: translateY(100%);
+  opacity: 0;
+}

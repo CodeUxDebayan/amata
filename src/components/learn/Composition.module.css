@@ -1,0 +1,17 @@
+.section {
+  padding: 10vh 8vw 15vh;
+  background: var(--c-sand);
+}
+.heading { margin-bottom: 4rem; font-size: clamp(2rem, 4vw, 3rem); }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-top: 4rem; }
+.card {
+  background: rgba(255,255,255,0.4);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(10,45,51,0.05);
+  transition: transform 0.4s;
+}
+.card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.6); }
+.icon { font-size: 2.5rem; margin-bottom: 1.5rem; }
+.name { font-size: 1.5rem; margin-bottom: 1rem; color: var(--c-deep); }
+.body { line-height: 1.6; opacity: 0.8; }

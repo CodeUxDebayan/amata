@@ -1,0 +1,99 @@
+.journey {
+  padding: 20vh 4vw;
+  background: var(--c-sand);
+  color: var(--c-deep);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.content { position: relative; z-index: 2; }
+
+.title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  margin-bottom: 15vh;
+}
+
+.lineWrapper {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.brushSvg {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.step {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 15vh;
+  position: relative;
+  width: 50%;
+  padding-right: 4rem;
+  text-align: right;
+}
+.step:nth-child(even) {
+  margin-left: 50%;
+  justify-content: flex-start;
+  padding-right: 0;
+  padding-left: 4rem;
+  text-align: left;
+}
+
+.dot {
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background: var(--c-sand);
+  border: 2px solid var(--c-deep);
+  border-radius: 50%;
+  z-index: 3;
+  transition: background 0.3s, transform 0.3s;
+}
+.step:nth-child(even) .dot { right: auto; left: -6px; }
+
+.active .dot {
+  background: var(--c-deep);
+  transform: translateY(-50%) scale(1.4);
+}
+
+.num {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--c-matcha);
+  margin-bottom: 0.5rem;
+}
+
+.text {
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.sub {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0.8rem;
+  opacity: 0.65;
+}
+
+.jp {
+  font-family: var(--font-jp);
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  color: var(--c-terracotta);
+  opacity: 0.6;
+  margin-top: 0.5rem;
+}

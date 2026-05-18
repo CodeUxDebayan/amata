@@ -1,0 +1,170 @@
+/* ── Section ── */
+.section {
+  padding: 14vh 6vw 16vh;
+  background: linear-gradient(180deg, var(--c-parchment) 0%, #ba9971 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Background decorative glyphs ── */
+.bgGlyph1 {
+  position: absolute;
+  top: 6%;
+  right: 4%;
+  font-family: var(--font-jp);
+  font-size: clamp(6rem, 18vw, 16rem);
+  color: var(--c-terracotta);
+  opacity: 0.035;
+  pointer-events: none;
+  line-height: 1;
+  user-select: none;
+}
+
+.bgGlyph2 {
+  position: absolute;
+  bottom: 4%;
+  left: 3%;
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 10vw, 9rem);
+  color: var(--c-matcha);
+  opacity: 0.04;
+  pointer-events: none;
+  line-height: 1;
+  user-select: none;
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  margin-bottom: 7vh;
+}
+
+.label {
+  font-family: var(--font-jp);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--c-terracotta);
+  margin-bottom: 1.2rem;
+  opacity: 0.8;
+}
+
+.heading {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  color: var(--c-deep);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+/* ── Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+/* ── Card ── */
+.card {
+  background: var(--c-white);
+  border: 1px solid rgba(10, 45, 51, 0.07);
+  border-radius: 20px;
+  padding: 2.2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  transition: box-shadow 0.35s ease, transform 0.35s ease, border-color 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--c-terracotta), var(--c-matcha));
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.card:hover {
+  box-shadow: 0 12px 40px rgba(10, 45, 51, 0.08);
+  transform: translateY(-4px);
+  border-color: rgba(10, 45, 51, 0.12);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* ── Stars ── */
+.stars {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.starFilled {
+  color: var(--c-saffron);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.starEmpty {
+  color: var(--c-saffron);
+  font-size: 1rem;
+  line-height: 1;
+  opacity: 0.25;
+}
+
+/* ── Quote ── */
+.quote {
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  line-height: 1.75;
+  color: var(--c-deep);
+  font-style: italic;
+  opacity: 0.85;
+  flex: 1;
+  margin: 0;
+}
+
+/* ── Footer ── */
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(10, 45, 51, 0.06);
+}
+
+.author {
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--c-deep);
+}
+
+.dividerDot {
+  color: var(--c-terracotta);
+  opacity: 0.5;
+  font-size: 0.9rem;
+}
+
+.authorTitle {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--c-deep);
+  opacity: 0.45;
+  text-transform: uppercase;
+}

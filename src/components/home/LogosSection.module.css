@@ -1,0 +1,23 @@
+.logos {
+  padding: 12vh 0;
+  background: var(--c-white);
+  border-top: 1px solid rgba(10, 45, 51, 0.08);
+  border-bottom: 1px solid rgba(10, 45, 51, 0.08);
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  gap: 10rem;
+  width: max-content;
+  align-items: center;
+}
+
+.item {
+  font-size: 1.8rem;
+  color: var(--c-deep);
+  opacity: 0.35;
+  white-space: nowrap;
+  transition: opacity 0.4s;
+}
+.item:hover { opacity: 0.8; }

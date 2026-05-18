@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Next.js build output and caches
+.next/
+out/
+
+# Production builds
+build/
+
+# Local env files (secrets)
+.env*.local
+
+# Large media files (handled via hosting CDN / external URL)
+*.mp4
+*.zip
+*.tar.gz
+
+# OS files
+.DS_Store
+Thumbs.db

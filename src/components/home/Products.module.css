@@ -1,0 +1,132 @@
+.products {
+  background: var(--c-light-green);
+  color: var(--c-deep);
+  padding: 12vh 4vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.geo {
+  position: absolute;
+  top: -15%;
+  left: -12%;
+  width: 55%;
+  aspect-ratio: 1;
+  pointer-events: none;
+  opacity: 0.08;
+}
+
+.sectionTitle {
+  font-size: clamp(3rem, 7vw, 6rem);
+  margin-bottom: 8vh;
+  text-align: center;
+  color: var(--c-deep);
+  position: relative;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10vh;
+  position: relative;
+  z-index: 1;
+}
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4vw;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+}
+
+.imgMask {
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  position: relative;
+  border-radius: 16px;
+  display: block;
+  cursor: none;
+  box-shadow: 0 10px 40px rgba(10, 45, 51, 0.05);
+}
+.imgPrimary {
+  width: 100%;
+  height: 130%;
+  object-fit: cover;
+  position: absolute;
+  top: -15%;
+  left: 0;
+  z-index: 1;
+  border-radius: 16px;
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.imgReveal {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  transform: translateY(101%);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card:hover .imgPrimary { transform: scale(1.06); }
+.card:hover .imgReveal  { transform: translateY(0); }
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(10, 45, 51, 0.12);
+  padding-bottom: 1rem;
+}
+.title { font-size: 2.2rem; color: var(--c-deep); letter-spacing: -0.5px; }
+.price { font-size: 1.5rem; color: var(--c-terracotta); font-weight: 500; }
+
+.desc {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  color: rgba(10, 45, 51, 0.75);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.magneticWrap { display: inline-block; }
+
+.addBtn { padding: 1rem 2.5rem; }
+
+.learnLink {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.8;
+  transition: opacity 0.3s, letter-spacing 0.4s;
+  cursor: none;
+  color: var(--c-deep);
+  font-weight: 500;
+}
+.learnLink:hover { opacity: 1; letter-spacing: 4px; color: var(--c-terracotta); }
+
+.viewAllRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 8vh;
+  position: relative;
+  z-index: 10;
+}

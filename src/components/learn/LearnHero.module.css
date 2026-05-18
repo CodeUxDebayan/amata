@@ -1,0 +1,24 @@
+.hero {
+  padding: 25vh 4vw 10vh;
+  text-align: center;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--c-sand);
+}
+
+.title {
+  font-size: clamp(4rem, 10vw, 10rem);
+  color: var(--c-deep);
+  margin-bottom: 2rem;
+}
+
+.sub {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  opacity: 0.8;
+}
