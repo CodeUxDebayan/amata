@@ -1,12 +1,12 @@
 import Layout from '../src/components/layout/Layout';
 import JournalHero from '../src/components/journal/JournalHero';
-import JournalCarousel from '../src/components/journal/JournalCarousel.jsx';
+import JournalGrid from '../src/components/journal/JournalGrid.jsx';
 
 export default function JournalPage() {
   return (
-    <Layout title="Amata | Journal">
+    <Layout title="Amata | Journal — Brew Master's Insights">
       <JournalHero />
-      <JournalCarousel />
+      <JournalGrid />
     </Layout>
   );
 }

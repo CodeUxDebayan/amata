@@ -1,0 +1,129 @@
+.section {
+  background: var(--c-deep);
+  padding: 12vh 4vw 14vh;
+  overflow: hidden;
+}
+
+.header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 6rem;
+}
+
+.eyebrow {
+  font-family: var(--font-jp);
+  font-size: 0.7rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--c-matcha);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.title {
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  color: var(--c-sand);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+.title em {
+  font-style: normal;
+  color: var(--c-sky);
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(234, 211, 157, 0.65);
+}
+
+/* ── Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(234, 211, 157, 0.1);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.4s, background 0.4s, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+}
+.card:hover {
+  border-color: rgba(234, 211, 157, 0.25);
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-8px);
+}
+
+.cardTop {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.statValue {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.statLabel {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--c-sand);
+  opacity: 0.9;
+}
+
+.statSub {
+  font-size: 0.72rem;
+  color: rgba(234, 211, 157, 0.5);
+  letter-spacing: 0.5px;
+}
+
+.cardDesc {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: rgba(234, 211, 157, 0.65);
+  flex: 1;
+}
+
+/* Colored bottom accent bar */
+.cardBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+.card:hover .cardBar { opacity: 1; }
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; }
+  .card { opacity: 1; }
+}

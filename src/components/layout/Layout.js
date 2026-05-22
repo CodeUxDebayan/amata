@@ -5,6 +5,8 @@ import CartModal from '../cart/CartModal';
 import Cursor from '../ui/Cursor';
 import Noise from '../ui/Noise';
 import BgmToggle from '../ui/BgmToggle';
+import WhatsAppButton from '../ui/WhatsAppButton';
+import FaqBot from '../ui/FaqBot';
 
 export default function Layout({ children, title = 'Amata | The Art of Moroheiya', navTheme, hideFooter }) {
   return (
@@ -21,6 +23,8 @@ export default function Layout({ children, title = 'Amata | The Art of Moroheiya
       <BgmToggle />
       <Nav theme={navTheme} />
       <CartModal />
+      <WhatsAppButton />
+      <FaqBot />
 
       <main>{children}</main>
 

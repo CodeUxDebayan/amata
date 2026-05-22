@@ -50,7 +50,6 @@
   font-family: var(--font-sans);
   flex: 1;
   outline: none;
-  cursor: none;
   text-shadow: none;
   font-size: 0.9rem;
 }
@@ -59,7 +58,6 @@
   text-transform: uppercase;
   font-size: 0.75rem;
   letter-spacing: 1px;
-  cursor: none;
   text-shadow: none;
 }
 .joinedMsg {
@@ -128,4 +126,57 @@
   letter-spacing: 1px;
   position: relative;
   z-index: 1;
+}
+
+/* ── Mobile Breakpoints ── */
+@media (max-width: 768px) {
+  .top {
+    gap: 3rem;
+  }
+
+  .fLinks {
+    justify-content: flex-start;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .hugeFooter img {
+    height: 180px;
+    margin: 0 auto;
+  }
+
+  .hugeFoooterWrap {
+    padding-top: 5vh;
+    margin-bottom: 2rem;
+  }
+
+  .bottom {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+
+  .emailForm {
+    flex-direction: column;
+    gap: 1rem;
+    border-bottom: none;
+    padding-bottom: 0;
+    border: 1px solid rgba(134, 197, 214, 0.4);
+    border-radius: 12px;
+    padding: 1rem;
+  }
+
+  .joinBtn {
+    align-self: flex-start;
+    border: 1px solid rgba(234, 211, 157, 0.3);
+    padding: 0.5rem 1.5rem;
+    border-radius: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fLinks {
+    flex-direction: column;
+    gap: 2rem;
+  }
 }

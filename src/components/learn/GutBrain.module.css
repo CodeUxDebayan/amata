@@ -1,0 +1,165 @@
+.section {
+  background: var(--c-sand);
+  padding: 12vh 4vw 14vh;
+  overflow: hidden;
+}
+
+.header {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 6rem;
+}
+
+.eyebrow {
+  font-family: var(--font-jp);
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--c-matcha);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.title {
+  font-size: clamp(3rem, 5.5vw, 5rem);
+  color: var(--c-deep);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+.title em { font-style: normal; color: var(--c-matcha); }
+
+.subtitle {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--c-deep);
+  opacity: 0.75;
+}
+
+/* ── Pathway ── */
+.pathway {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.stepWrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.step {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem 2.5rem;
+  background: rgba(255,255,255,0.5);
+  border-radius: 24px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(10,45,51,0.08);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+}
+.step:hover {
+  transform: translateX(6px);
+  box-shadow: 0 12px 40px rgba(10,45,51,0.1);
+}
+.stepRight:hover { transform: translateX(-6px); }
+
+.stepOrb {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 0;
+}
+.stepEmoji { font-size: 1.6rem; line-height: 1; }
+.stepNum {
+  font-family: var(--font-sans);
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+.stepContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.organTag {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: 1px solid;
+  padding: 0.25rem 0.8rem;
+  border-radius: 100px;
+  width: fit-content;
+}
+
+.stepTitle {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  color: var(--c-deep);
+}
+
+.stepDesc {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--c-deep);
+  opacity: 0.75;
+}
+
+/* Connector */
+.connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50px;
+  margin: 4px 0;
+  transform-origin: top;
+}
+
+.connectorLine {
+  width: 2px;
+  flex: 1;
+  background: linear-gradient(to bottom, rgba(10,45,51,0.2), rgba(10,45,51,0.1));
+}
+
+.connectorArrow {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid;
+  opacity: 0.4;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .step {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+  .stepOrb { width: 56px; height: 56px; }
+  .stepEmoji { font-size: 1.3rem; }
+}
+
+@media (max-width: 600px) {
+  .step { padding: 1.5rem; border-radius: 16px; opacity: 1; }
+  .stepRight:hover { transform: none; }
+  .step:hover { transform: none; box-shadow: none; }
+}

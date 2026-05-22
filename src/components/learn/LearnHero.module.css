@@ -1,24 +1,133 @@
 .hero {
-  padding: 25vh 4vw 10vh;
-  text-align: center;
-  min-height: 80vh;
+  position: relative;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background: var(--c-sand);
+  justify-content: center;
+  overflow: hidden;
+  background: var(--c-deep);
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 60% at 70% 50%, rgba(70,119,12,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 50% at 20% 80%, rgba(184,105,58,0.12) 0%, transparent 60%),
+    linear-gradient(160deg, #0a2d33 0%, #061a1e 50%, #0f1f12 100%);
+  background-size: cover;
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 18, 20, 0.45);
+  z-index: 1;
+}
+
+/* Floating botanical leaves */
+.floatLeaf {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+}
+.leaf1 { top: 10%; right: 8%; width: clamp(80px, 12vw, 160px); opacity: 0.7; }
+.leaf2 { bottom: 20%; left: 6%; width: clamp(60px, 9vw, 120px); opacity: 0.5; }
+
+.content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: 20vh 6vw 15vh;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-family: var(--font-jp);
+  font-size: clamp(0.6rem, 1.2vw, 0.8rem);
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: rgba(70, 119, 12, 0.9);
+  margin-bottom: 2rem;
+  display: block;
+  opacity: 0;
 }
 
 .title {
-  font-size: clamp(4rem, 10vw, 10rem);
-  color: var(--c-deep);
-  margin-bottom: 2rem;
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 11vw, 10rem);
+  color: var(--c-sand);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+}
+.title em {
+  font-style: normal;
+  color: var(--c-matcha);
+  display: block;
 }
 
-.sub {
-  max-width: 600px;
-  margin: 0 auto;
-  font-size: 1.25rem;
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  color: rgba(234, 211, 157, 0.75);
   line-height: 1.8;
-  opacity: 0.8;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  opacity: 0;
+}
+.subtitle span {
+  font-family: var(--font-jp);
+  font-size: 0.85em;
+  opacity: 0.65;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.scrollCta {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: rgba(234, 211, 157, 0.6);
+  text-decoration: none;
+  opacity: 0;
+  transition: color 0.3s;
+}
+.scrollCta:hover { color: var(--c-sand); }
+
+.scrollLine {
+  display: block;
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, rgba(234, 211, 157, 0.5));
+  animation: scroll-drop 2s ease-in-out infinite;
+}
+
+@keyframes scroll-drop {
+  0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
+  50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
+}
+
+.bottomBleed {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 12vh;
+  background: linear-gradient(to bottom, transparent, var(--c-sand));
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .content { padding: 18vh 6vw 12vh; }
+  .leaf1 { display: none; }
 }

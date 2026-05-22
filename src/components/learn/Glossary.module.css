@@ -136,3 +136,14 @@
   opacity: 0.75;
   color: var(--c-deep);
 }
+
+@media (max-width: 480px) {
+  .card { padding: 2rem 1.5rem; }
+  .langRow {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .langCol { width: 100%; }
+  .verticalRule { display: none; }
+  .termName { font-size: 1.4rem; }
+}

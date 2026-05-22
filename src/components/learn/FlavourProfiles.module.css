@@ -1,0 +1,202 @@
+.section {
+  background: var(--c-white);
+  padding: 12vh 4vw 14vh;
+  overflow: hidden;
+}
+
+.header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 4rem;
+  opacity: 0;
+}
+
+.eyebrow {
+  font-family: var(--font-jp);
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--c-matcha);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.title {
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  color: var(--c-deep);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.title em { font-style: normal; color: var(--blend-color, var(--c-terracotta)); transition: color 0.4s; }
+
+/* ── Tabs ── */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.7rem 2rem;
+  border: 1px solid rgba(10,45,51,0.2);
+  border-radius: 100px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--c-deep);
+  background: transparent;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+.tab:hover { border-color: var(--c-deep); }
+.tabActive { font-weight: 600; }
+
+.tabJp {
+  font-family: var(--font-jp);
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  opacity: 0.6;
+}
+
+/* ── Panel ── */
+.panel {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--blend-bg, #f4f8ee);
+  border-radius: 32px;
+  padding: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  opacity: 0;
+  transition: background 0.5s ease;
+}
+
+.panelLeft, .panelRight {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Blend badge */
+.blendBadge {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1rem 1.8rem;
+  border-radius: 12px;
+  width: fit-content;
+}
+.blendName {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: #fff;
+}
+.blendTagline {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.75);
+}
+
+.blendDesc {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--c-deep);
+  opacity: 0.85;
+}
+
+/* Notes */
+.notesGroup { display: flex; flex-direction: column; gap: 1rem; }
+.notesTitle {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--c-deep);
+  opacity: 0.5;
+}
+
+.noteChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.noteChip {
+  font-size: 0.78rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 100px;
+  border: 1px solid;
+  font-family: var(--font-sans);
+  letter-spacing: 0.5px;
+}
+
+/* Sensory wheel */
+.wheelGroup { display: flex; flex-direction: column; gap: 1rem; }
+.wheel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.wheelItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.92rem;
+  color: var(--c-deep);
+  opacity: 0.85;
+}
+.wheelDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Brew guide */
+.brewGuide { display: flex; flex-direction: column; gap: 1rem; }
+.brewStats {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.brewStat {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.brewIcon { font-size: 1.5rem; }
+.brewVal {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--c-deep);
+}
+.brewKey {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--c-deep);
+  opacity: 0.5;
+  margin-top: 2px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .panel {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 2.5rem 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .brewStats { gap: 1rem; }
+  .panel { border-radius: 20px; }
+}
