@@ -14,6 +14,7 @@
   --c-deep: #0a2d33;
   --c-black: #000000;
   --c-terracotta: #b8693a;
+  --c-terracotta-dark: #553721;
   --c-saffron: #d4943a;
   --c-ink: #111820;
   --c-ink-light: rgb(38, 138, 161);
@@ -99,8 +100,9 @@ img, video {
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.035;
-  background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="n"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23n)"/%3E%3C/svg%3E');
+  opacity: 0.04;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAzp85uAAAABlBMVEUAAAD///+l2Z/dAAAAVklEQVR4AewaftIAAAAGRklEQVQI12NgwAUM+AADPGBkYIDzGfCBgQHGM+ADBkYGBgYGEGBmYGBhQAKMDAwsDAwsDFDAyMDAwoAEDAwMLAxIwMDAwMKABAwMDCwMSMDAAP1qAC3Z50YkAAAAAElFTkSuQmCC");
+  background-repeat: repeat;
 }
 
 /* ── CURSOR (pointer:fine / mouse devices only) ── */
@@ -239,4 +241,28 @@ img, video {
   line-height: 0.75;
   margin-bottom: 4rem;
   color: var(--c-white);
+}
+
+/* ── BREEZE TEXT ANIMATION (Hardware Accelerated Compositor-Thread Sway) ── */
+.breeze-text .word {
+  display: inline-block;
+  animation: breeze-sway 6s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.breeze-text .word:nth-child(2n) {
+  animation-duration: 7s;
+  animation-delay: -2s;
+}
+.breeze-text .word:nth-child(3n) {
+  animation-duration: 5s;
+  animation-delay: -4s;
+}
+
+@keyframes breeze-sway {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(2px, -5px, 0) rotate(1.2deg);
+  }
 }

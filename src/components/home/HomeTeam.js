@@ -46,7 +46,7 @@ export default function HomeTeam() {
 
   return (
     <section ref={sectionRef} className={styles.team}>
-      <h2 className={`serif text-center split-text ${styles.heading}`}>The Brew Masters</h2>
+      <h2 className={`serif text-center split-text ${styles.heading}`}>The Steep Founders</h2>
       <div className={styles.grid}>
         {members.map((m) => (
           <div key={m.name} className={styles.card}>

@@ -111,8 +111,8 @@ export default function Philosophy() {
         <div className={styles.label}>Our Philosophy · 哲学</div>
         <div className={styles.rule} />
         <p className={styles.hint}>
-          Where the <span className="text-sky">stillness</span> of Zen meets the{' '}
-          <span className="text-sky">warmth</span> of Ayurveda.
+          Where the <span className="text-terracotta">stillness</span> of Zen meets the{' '}
+          <span className="text-terracotta">warmth</span> of Ayurveda.
         </p>
         <p className={styles.axisCopy}>
           Harmonizing the <strong>Gut-Brain Axis</strong> through the ritualistic consumption of organic, nutrient-dense botanicals.

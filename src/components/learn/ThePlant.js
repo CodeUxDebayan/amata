@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import styles from './ThePlant.module.css';
 
 export default function ThePlant() {
@@ -16,13 +17,13 @@ export default function ThePlant() {
         gsap.fromTo(`.${styles.visual}`,
           { x: -60, opacity: 0 },
           { x: 0, opacity: 1, duration: 1.2, ease: 'power3.out',
-            scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' }
+            scrollTrigger: { trigger: sectionRef.current, start: 'top 75%', toggleActions: 'play reverse play reverse' }
           }
         );
         gsap.fromTo(`.${styles.textBlock}`,
           { x: 60, opacity: 0 },
           { x: 0, opacity: 1, duration: 1.2, ease: 'power3.out', delay: 0.15,
-            scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' }
+            scrollTrigger: { trigger: sectionRef.current, start: 'top 75%', toggleActions: 'play reverse play reverse' }
           }
         );
       }, sectionRef);
@@ -37,11 +38,12 @@ export default function ThePlant() {
         {/* Visual column */}
         <div className={styles.visual}>
           <div className={styles.imgFrame}>
-            <img
-              src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?q=80&w=1470&auto=format&fit=crop"
+            <Image
+              src="/images/Corchorus_olitorius_2.jpg"
               alt="Moroheiya jute plant leaves"
               className={styles.img}
-              loading="lazy"
+              fill
+              sizes="(max-width: 900px) 100vw, 50vw"
             />
             <div className={styles.imgLabel}>
               <span>Corchorus olitorius</span>

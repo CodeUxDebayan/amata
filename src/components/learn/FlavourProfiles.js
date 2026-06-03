@@ -55,12 +55,12 @@ export default function FlavourProfiles() {
         gsap.fromTo(`.${styles.header}`,
           { y: 40, opacity: 0 },
           { y: 0, opacity: 1, duration: 1, ease: 'power3.out',
-            scrollTrigger: { trigger: sectionRef.current, start: 'top 80%' } }
+            scrollTrigger: { trigger: sectionRef.current, start: 'top 80%', toggleActions: 'play reverse play reverse' } }
         );
         gsap.fromTo(`.${styles.panel}`,
           { y: 60, opacity: 0 },
           { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.2,
-            scrollTrigger: { trigger: sectionRef.current, start: 'top 80%' } }
+            scrollTrigger: { trigger: sectionRef.current, start: 'top 80%', toggleActions: 'play reverse play reverse' } }
         );
       }, sectionRef);
     }
@@ -95,7 +95,7 @@ export default function FlavourProfiles() {
       </div>
 
       {/* Main panel */}
-      <div className={styles.panel} key={blend.id}>
+      <div className={styles.panel}>
         <div className={styles.panelLeft}>
           <div className={styles.blendBadge} style={{ background: blend.color }}>
             <span className={styles.blendName}>{blend.name}</span>

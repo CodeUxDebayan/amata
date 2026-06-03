@@ -27,7 +27,6 @@
   z-index: 1;
   background: linear-gradient(to bottom, rgba(10,10,10,0.056), rgba(255,255,255,0.051));
   pointer-events: none;
-  backdrop-filter: blur(1px);
 }
 
 .mandala {

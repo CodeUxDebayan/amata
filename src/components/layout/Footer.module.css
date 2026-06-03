@@ -1,9 +1,10 @@
 .footer {
-  background: var(--c-black);
+  background: var(--c-terracotta-dark);
   color: var(--c-sand);
   padding: 10vh 4vw 2vw;
   position: relative;
   overflow: hidden;
+  font-family: var(--font-serif);
 }
 
 .overlapGrid { display: grid; }
@@ -71,6 +72,7 @@
   display: flex;
   justify-content: flex-end;
   gap: 4rem;
+  font-family: var(--font-serif);
 }
 
 .hugeFoooterWrap {

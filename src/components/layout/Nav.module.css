@@ -11,10 +11,11 @@
   z-index: 10000;
   transition: all 0.4s ease;
   pointer-events: none;
-  background: rgba(246, 237, 224, 0.08);
+  background: rgba(10, 45, 51, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(10, 45, 51, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--c-white);
 }
 
 .nav > * { pointer-events: all; }
@@ -92,7 +93,7 @@
   display: block;
   height: 1.5px;
   width: 100%;
-  background: var(--c-deep);
+  background: var(--c-white);
   border-radius: 2px;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
   transform-origin: center;

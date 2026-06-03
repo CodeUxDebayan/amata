@@ -60,8 +60,7 @@ export default function LearnHero() {
       <div className={styles.content}>
         <p className={styles.eyebrow}>モロヘイヤ · Corchorus olitorius</p>
         <h1 className={`${styles.title}`}>
-          What is<br />
-          <em>Moroheiya?</em>
+          What is <em>Moroheiya?</em>
         </h1>
         <p className={styles.subtitle}>
           The King's Vegetable — grown in the Bengal Delta, refined in the spirit of Kyoto.<br />
@@ -73,8 +72,6 @@ export default function LearnHero() {
         </a>
       </div>
 
-      {/* Bottom edge gradient bleed */}
-      <div className={styles.bottomBleed} />
     </section>
   );
 }

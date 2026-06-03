@@ -4,7 +4,11 @@ import JournalGrid from '../src/components/journal/JournalGrid.jsx';
 
 export default function JournalPage() {
   return (
-    <Layout title="Amata | Journal — Brew Master's Insights">
+    <Layout 
+      title="Amata | The Journal — Prebiotic Living & Vagus Nerve Science"
+      description="Read insights and research on prebiotic ingredients, Ayurvedic wellness, micro-rituals, and scientific developments around the gut-brain axis."
+      canonical="https://amata.in/journal"
+    >
       <JournalHero />
       <JournalGrid />
     </Layout>

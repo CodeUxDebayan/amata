@@ -48,12 +48,19 @@ export default function WhySpecial() {
       if (!active || !sectionRef.current) return;
 
       ctx = gsap.context(() => {
+        // Animate Header
+        gsap.fromTo(`.${styles.header}`,
+          { y: 40, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1, ease: 'power3.out',
+            scrollTrigger: { trigger: sectionRef.current, start: 'top 80%', toggleActions: 'play reverse play reverse' } }
+        );
+        // Animate Cards
         gsap.utils.toArray(`.${styles.card}`).forEach((card, i) => {
           gsap.fromTo(card,
             { y: 60, opacity: 0 },
             {
-              y: 0, opacity: 1, duration: 0.9, ease: 'power3.out', delay: i * 0.1,
-              scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' }
+              y: 0, opacity: 1, duration: 0.9, ease: 'power3.out', delay: 0.2 + (i * 0.1),
+              scrollTrigger: { trigger: sectionRef.current, start: 'top 75%', toggleActions: 'play reverse play reverse' }
             }
           );
         });

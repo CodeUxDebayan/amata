@@ -5,22 +5,22 @@ const steps = [
   {
     num: '01', color: '#46770c', title: 'Cultivation',
     desc: 'We apply centuries-old Japanese shade-growing techniques to Indian soil. Covering the Moroheiya plants before harvest dramatically increases their chlorophyll and L-theanine levels.',
-    img: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1613&auto=format&fit=crop',
+    img: '/images/Cultivation.jpg',
   },
   {
     num: '02', color: '#b8693a', title: 'Harvest',
     desc: 'Hand-picked at dawn by artisanal farmers, we select only the youngest, most tender leaves. This meticulous process ensures the highest nutrient density and a naturally sweet, earthy flavor.',
-    img: 'https://images.unsplash.com/photo-1518118014377-cecb6c6218f2?q=80&w=1470&auto=format&fit=crop',
+    img: '/images/Harvest.jpg',
   },
   {
-    num: '03', color: '#86c5d6', title: 'Refinement',
+    num: '03', color: '#5194dbff', title: 'Refinement',
     desc: 'The freshly harvested leaves undergo rapid steaming — a critical technique borrowed from Kyoto\'s matcha masters. This halts oxidation instantly, locking in the vibrant emerald green.',
-    img: 'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?q=80&w=1470&auto=format&fit=crop',
+    img: '/images/Refinement.jpg',
   },
   {
     num: '04', color: '#46770c', title: 'Synthesis',
     desc: 'Slowly ground in traditional granite mills, the leaves are transformed into a micro-fine powder. This ensures the infusion suspends beautifully in water.',
-    img: 'https://images.unsplash.com/photo-1620860882101-1b29fc438b45?q=80&w=1510&auto=format&fit=crop',
+    img: '/images/Synthesis.jpg',
   },
 ];
 
@@ -58,7 +58,7 @@ export default function TimelineJourney() {
               { y: 50, opacity: 0 },
               {
                 y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: i * 0.2,
-                scrollTrigger: { trigger: step, start: 'top 75%' },
+                scrollTrigger: { trigger: step, start: 'top 75%', toggleActions: 'play reverse play reverse' },
               }
             );
           });

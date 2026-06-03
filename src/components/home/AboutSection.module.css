@@ -3,7 +3,7 @@
   position: relative;
   background: var(--c-ink);
   overflow: hidden;
-  padding: 14vh 8vw 0;
+  padding: 14vh 8vw;
 }
 
 .bg {
@@ -33,7 +33,7 @@
   font-size: 0.65rem;
   letter-spacing: 0.4em;
   text-transform: uppercase;
-  color: var(--c-terracotta);
+  color: var(--c-white);
   opacity: 0.85;
   margin-bottom: 2.5rem;
   display: flex;

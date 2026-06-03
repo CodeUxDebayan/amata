@@ -11,17 +11,13 @@
 .bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse 60% 60% at 70% 50%, rgba(70,119,12,0.18) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 50% at 20% 80%, rgba(184,105,58,0.12) 0%, transparent 60%),
-    linear-gradient(160deg, #0a2d33 0%, #061a1e 50%, #0f1f12 100%);
-  background-size: cover;
+  background: url('/images/Corchorus_olitorius.jpg') no-repeat center / cover;
 }
 
 .bgOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(6, 18, 20, 0.45);
+  background: rgba(6, 18, 20, 0.65);
   z-index: 1;
 }
 
@@ -62,11 +58,13 @@
   letter-spacing: -0.02em;
   margin-bottom: 2.5rem;
   opacity: 0;
+  text-align: center;
 }
 .title em {
   font-style: normal;
   color: var(--c-matcha);
   display: block;
+  margin-left: -50px
 }
 
 .subtitle {
@@ -115,16 +113,7 @@
   100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
 }
 
-.bottomBleed {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 12vh;
-  background: linear-gradient(to bottom, transparent, var(--c-sand));
-  z-index: 2;
-  pointer-events: none;
-}
+
 
 /* Mobile */
 @media (max-width: 768px) {

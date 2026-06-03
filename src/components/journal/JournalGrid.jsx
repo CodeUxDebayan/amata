@@ -1,59 +1,45 @@
 import { useState } from 'react';
 import ArticleModal from './ArticleModal';
+import blogsData from '../../../BlogsData.json';
 import styles from './JournalGrid.module.css';
 
-const articles = [
-  {
-    id: 1,
-    title: 'The Prebiotic Path to Deep REM Sleep',
-    tag: 'Sleep',
-    tagColor: '#3b6ea5',
-    featured: true,
-    excerpt: 'Our bodies operate on a circadian rhythm heavily influenced by the flora in our gut. Recent studies have illuminated the profound connection between prebiotic fiber intake and improved sleep architecture — and Moroheiya sits at the centre of this story.',
-    body: 'Our bodies operate on a circadian rhythm heavily influenced by the flora in our gut. Recent studies have illuminated the profound connection between prebiotic fiber intake and improved sleep architecture. Moroheiya, often referred to as the King\'s Vegetable, is extraordinarily rich in complex polysaccharides that act as high-grade fuel for beneficial gut bacteria, initiating a cascade of restorative physiological responses that guide the mind into deep, uninterrupted slumber.',
-    readTime: '6 min',
-  },
-  {
-    id: 2,
-    title: 'Mucilage: The Misunderstood Miracle',
-    tag: 'Digestion',
-    tagColor: '#2d6a4f',
-    excerpt: 'Mucilage has long been dismissed as a strange texture anomaly. But modern nutritional science is revealing it as one of nature\'s most sophisticated prebiotic delivery systems.',
-    body: 'Mucilage has long been dismissed as a strange texture anomaly in Moroheiya. But modern nutritional science is revealing it as one of nature\'s most sophisticated prebiotic delivery systems. This gel-like substance coats the gut lining, reduces inflammation, and feeds the beneficial bacteria that regulate everything from mood to immunity.',
-    readTime: '5 min',
-  },
-  {
-    id: 3,
-    title: 'L-Theanine meets Prebiotics',
-    tag: 'Mental Clarity',
-    tagColor: '#6a3d9a',
-    excerpt: 'The combination of L-Theanine from Moroheiya\'s chlorophyll-rich leaves and its prebiotic polysaccharides creates a synergistic calm that no synthetic supplement can replicate.',
-    body: 'The combination of L-Theanine from Moroheiya\'s chlorophyll-rich leaves and its prebiotic polysaccharides creates a synergistic calm that no synthetic supplement can replicate. L-Theanine modulates alpha brain waves, promoting a state of focused relaxation, while the prebiotics stabilise mood through the gut-brain axis.',
-    readTime: '4 min',
-  },
-  {
-    id: 4,
-    title: 'Carbon Negative Cultivation',
-    tag: 'Sustainability',
-    tagColor: '#46770c',
-    excerpt: 'Moroheiya cultivation, when practiced with regenerative agricultural principles, sequesters more carbon than it emits — a rare and beautiful alchemy between plant and planet.',
-    body: 'Moroheiya cultivation, when practiced with regenerative agricultural principles, sequesters more carbon than it emits. Our Bengal Delta farms use zero synthetic inputs, intercrop with nitrogen-fixing plants, and return all organic matter to the soil — creating a closed loop that gives back more than it takes.',
-    readTime: '4 min',
-  },
-  {
-    id: 5,
-    title: 'The Art of Slow Living',
-    tag: 'Lifestyle',
-    tagColor: '#b8693a',
-    excerpt: 'In a world optimised for speed, the Amata ritual is an act of radical deceleration. Brewing tea is not merely preparation — it is the practice itself.',
-    body: 'In a world optimised for speed, the Amata ritual is an act of radical deceleration. Brewing tea is not merely preparation — it is the practice itself. The three minutes of steeping become a meditation. The warmth of the cup becomes an anchor to the present moment.',
-    readTime: '3 min',
-  },
-];
+const articles = (blogsData.blogs || []).map((blog, index) => {
+  const primaryKeyword = blog.seo_keywords?.primary_keyword || blog.seoKeywords?.[0] || 'Wellness';
+  const metaDescription = blog.meta_description || blog.metaDescription || '';
+  
+  const colors = ['#2d6a4f', '#b8693a', '#3b6ea5', '#6a3d9a', '#46770c'];
+  const tagColor = colors[index % colors.length];
+  
+  const wordCount = blog.content ? blog.content.split(/\s+/).length : 0;
+  const readTime = Math.max(3, Math.ceil(wordCount / 200)) + ' min';
+  const excerpt = metaDescription || (blog.content ? blog.content.slice(0, 150) + '...' : '');
 
-// Brand-safe placeholder image (green botanical / matcha texture)
-const PLACEHOLDER_IMG = 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?q=80&w=1400&auto=format&fit=crop';
-const FEATURED_IMG = 'https://images.unsplash.com/photo-1563911302283-d2bc129e7570?q=80&w=1600&auto=format&fit=crop';
+  // Premium botanical/wellness images matching the content index
+  const img = `https://images.unsplash.com/photo-${[
+    '1522075469751-3a6694fb2f61',
+    '1606149059549-6042addafc52',
+    '1544367567-0f2fcb009e0b',
+    '1501625902148-5231c518d6e3',
+    '1490730141103-6cac27aaab94',
+    '1556679343-c7306c1976bc',
+    '1563911302283-d2bc129e7570',
+    '1518118014377-cecb6c6218f2',
+    '1564890369478-c89ca6d9cde9',
+    '1620860882101-1b29fc438b45'
+  ][index % 10]}?q=80&w=1200&auto=format&fit=crop`;
+
+  return {
+    id: blog.id || `blog-${index}`,
+    title: blog.title,
+    tag: primaryKeyword.charAt(0).toUpperCase() + primaryKeyword.slice(1),
+    tagColor,
+    featured: index === 0,
+    excerpt,
+    body: blog.content,
+    readTime,
+    img,
+  };
+});
 
 export default function JournalGrid() {
   const [modal, setModal] = useState(null);
@@ -75,7 +61,7 @@ export default function JournalGrid() {
             aria-label={`Read: ${featured.title}`}
           >
             <div className={styles.featImg}>
-              <img src={FEATURED_IMG} alt={featured.title} loading="lazy" className={styles.featImgEl} />
+              <img src={featured.img} alt={featured.title} loading="lazy" className={styles.featImgEl} />
               <div className={styles.featOverlay} />
               <div className={styles.featContent}>
                 <span className={styles.tag} style={{ background: featured.tagColor }}>{featured.tag}</span>
@@ -103,7 +89,7 @@ export default function JournalGrid() {
               aria-label={`Read: ${article.title}`}
             >
               <div className={styles.cardImg}>
-                <img src={PLACEHOLDER_IMG} alt={article.title} loading="lazy" className={styles.cardImgEl} />
+                <img src={article.img} alt={article.title} loading="lazy" className={styles.cardImgEl} />
               </div>
               <div className={styles.cardBody}>
                 <span className={styles.tag} style={{ background: article.tagColor }}>{article.tag}</span>
@@ -119,7 +105,7 @@ export default function JournalGrid() {
         </div>
       </div>
 
-      {modal && <ArticleModal article={{ ...modal, img: modal.featured ? FEATURED_IMG : PLACEHOLDER_IMG }} onClose={() => setModal(null)} />}
+      {modal && <ArticleModal article={modal} onClose={() => setModal(null)} />}
     </section>
   );
 }

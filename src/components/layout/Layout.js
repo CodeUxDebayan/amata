@@ -8,14 +8,38 @@ import BgmToggle from '../ui/BgmToggle';
 import WhatsAppButton from '../ui/WhatsAppButton';
 import FaqBot from '../ui/FaqBot';
 
-export default function Layout({ children, title = 'Amata | The Art of Moroheiya', navTheme, hideFooter }) {
+export default function Layout({ 
+  children, 
+  title = 'Amata | The Art of Moroheiya', 
+  description = 'Amata — premium Moroheiya wellness teas bridging Ayurveda and Japanese tea culture.', 
+  navTheme, 
+  hideFooter,
+  ogImage = '/images/white-logo.png',
+  ogType = 'website',
+  canonical
+}) {
   return (
     <>
       <Head>
         <title>{title}</title>
-        <meta name="description" content="Amata — premium Moroheiya wellness teas bridging Ayurveda and Japanese tea culture." />
+        <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content={ogType} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={ogImage} />
+        {canonical && <meta property="og:url" content={canonical} />}
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={ogImage} />
+
+        {canonical && <link rel="canonical" href={canonical} />}
       </Head>
 
       <Cursor />

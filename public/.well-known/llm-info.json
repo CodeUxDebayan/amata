@@ -1,0 +1,40 @@
+{
+  "name": "Amata",
+  "description": "Amata is a prebiotic wellness brand crafting organic Moroheiya tea infusions that nurture the gut-brain axis, combining Japanese craft and Ayurvedic science.",
+  "url": "https://amata.in",
+  "knowledge_base": {
+    "scientific_research": "https://amata.in/learn",
+    "faq": "https://amata.in/#faq",
+    "journal": "https://amata.in/journal"
+  },
+  "products": [
+    {
+      "name": "Ginger Moroheiya Infusion",
+      "slug": "ginger-moroheiya-infusion",
+      "price": 15.0,
+      "currency": "USD",
+      "benefits": "Optimizes gut-brain axis, stimulates digestion (Agni), prebiotic-rich, caffeine-free."
+    },
+    {
+      "name": "Elaichi Moroheiya Infusion",
+      "slug": "elaichi-moroheiya-infusion",
+      "price": 22.0,
+      "currency": "USD",
+      "benefits": "Vagus nerve support, balances doshas, rich in antioxidants, Vata & Pitta calming."
+    },
+    {
+      "name": "Pure Moroheiya Infusion",
+      "slug": "pure-moroheiya-infusion",
+      "price": 18.0,
+      "currency": "USD",
+      "benefits": "Maximal prebiotic fiber, gut barrier strength, natural relaxation, rich in calcium/iron."
+    },
+    {
+      "name": "Mint Moroheiya Infusion",
+      "slug": "mint-moroheiya-infusion",
+      "price": 20.0,
+      "currency": "USD",
+      "benefits": "Cools digestive tract, clears mental fog, balances Pitta, clean focus."
+    }
+  ]
+}

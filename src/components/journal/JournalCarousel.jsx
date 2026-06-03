@@ -1,39 +1,44 @@
 import { useEffect, useRef, useState } from 'react';
 import ArticleModal from './ArticleModal';
+import blogsData from '../../../BlogsData.json';
 import styles from './JournalCarousel.module.css';
 
-const articles = [
-  {
-    title: 'The Prebiotic Path to Deep REM Sleep',
-    tag: 'Sleep',
-    img: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1480&auto=format&fit=crop',
-    body: 'Our bodies operate on a circadian rhythm heavily influenced by the flora in our gut. Recent studies have illuminated the profound connection between prebiotic fiber intake and improved sleep architecture. Moroheiya, often referred to as the King\'s Vegetable, is extraordinarily rich in complex polysaccharides that act as high-grade fuel for beneficial gut bacteria, initiating a cascade of restorative physiological responses that guide the mind into deep, uninterrupted slumber.',
-  },
-  {
-    title: 'Mucilage: The Misunderstood Miracle',
-    tag: 'Digestion',
-    img: 'https://images.unsplash.com/photo-1606149059549-6042addafc52?q=80&w=1500&auto=format&fit=crop',
-    body: 'Mucilage has long been dismissed as a strange texture anomaly in Moroheiya. But modern nutritional science is revealing it as one of nature\'s most sophisticated prebiotic delivery systems. This gel-like substance coats the gut lining, reduces inflammation, and feeds the beneficial bacteria that regulate everything from mood to immunity.',
-  },
-  {
-    title: 'L-Theanine meets Prebiotics',
-    tag: 'Mental Clarity',
-    img: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1520&auto=format&fit=crop',
-    body: 'The combination of L-Theanine from Moroheiya\'s chlorophyll-rich leaves and its prebiotic polysaccharides creates a synergistic calm that no synthetic supplement can replicate. L-Theanine modulates alpha brain waves, promoting a state of focused relaxation, while the prebiotics stabilise mood through the gut-brain axis.',
-  },
-  {
-    title: 'Carbon Negative Cultivation',
-    tag: 'Sustainability',
-    img: 'https://images.unsplash.com/photo-1501625902148-5231c518d6e3?q=80&w=1467&auto=format&fit=crop',
-    body: 'Moroheiya cultivation, when practiced with regenerative agricultural principles, sequesters more carbon than it emits. Our Bengal Delta farms use zero synthetic inputs, intercrop with nitrogen-fixing plants, and return all organic matter to the soil — creating a closed loop that gives back more than it takes.',
-  },
-  {
-    title: 'The Art of Slow Living',
-    tag: 'Lifestyle',
-    img: 'https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=80&w=1470&auto=format&fit=crop',
-    body: 'In a world optimised for speed, the Amata ritual is an act of radical deceleration. Brewing tea is not merely preparation — it is the practice itself. The three minutes of steeping become a meditation. The warmth of the cup becomes an anchor to the present moment.',
-  },
-];
+const articles = (blogsData.blogs || []).map((blog, index) => {
+  const primaryKeyword = blog.seo_keywords?.primary_keyword || blog.seoKeywords?.[0] || 'Wellness';
+  const metaDescription = blog.meta_description || blog.metaDescription || '';
+  
+  const colors = ['#2d6a4f', '#b8693a', '#3b6ea5', '#6a3d9a', '#46770c'];
+  const tagColor = colors[index % colors.length];
+  
+  const wordCount = blog.content ? blog.content.split(/\s+/).length : 0;
+  const readTime = Math.max(3, Math.ceil(wordCount / 200)) + ' min';
+  const excerpt = metaDescription || (blog.content ? blog.content.slice(0, 150) + '...' : '');
+
+  const img = `https://images.unsplash.com/photo-${[
+    '1522075469751-3a6694fb2f61',
+    '1606149059549-6042addafc52',
+    '1544367567-0f2fcb009e0b',
+    '1501625902148-5231c518d6e3',
+    '1490730141103-6cac27aaab94',
+    '1556679343-c7306c1976bc',
+    '1563911302283-d2bc129e7570',
+    '1518118014377-cecb6c6218f2',
+    '1564890369478-c89ca6d9cde9',
+    '1620860882101-1b29fc438b45'
+  ][index % 10]}?q=80&w=1200&auto=format&fit=crop`;
+
+  return {
+    id: blog.id || `blog-${index}`,
+    title: blog.title,
+    tag: primaryKeyword.charAt(0).toUpperCase() + primaryKeyword.slice(1),
+    tagColor,
+    featured: index === 0,
+    excerpt,
+    body: blog.content,
+    readTime,
+    img,
+  };
+});
 
 const palette = ['#f7f9f4', '#faf5f2', '#f2f8fa', '#f9f6ef', '#f5f9f5'];
 

@@ -1,5 +1,6 @@
 import { useRef, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useCart } from '../../context/CartContext';
 import styles from './Products.module.css';
 
@@ -10,8 +11,20 @@ function ProductCard({ product }) {
   return (
     <div ref={cardRef} className={styles.card}>
       <Link href={`/product/${product.slug}`} className={styles.imgMask}>
-        <img src={product.primaryImage} className={styles.imgPrimary} alt={product.name} />
-        <img src={product.hoverImage}   className={styles.imgReveal}  alt={`${product.name} – ritual`} />
+        <Image
+          src={product.primaryImage}
+          className={styles.imgPrimary}
+          alt={product.name}
+          fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />
+        <Image
+          src={product.hoverImage}
+          className={styles.imgReveal}
+          alt={`${product.name} – ritual`}
+          fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />
       </Link>
       <div className={styles.head}>
         <h3 className={`serif ${styles.title}`}>{product.name}</h3>

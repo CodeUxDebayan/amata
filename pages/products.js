@@ -1,5 +1,6 @@
 import { useRef, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Layout from '../src/components/layout/Layout';
 import { useCart } from '../src/context/CartContext';
 import products from '../src/data/products';
@@ -27,8 +28,20 @@ function ProductCard({ product }) {
   return (
     <div ref={cardRef} className={styles.card}>
       <Link href={`/product/${product.slug}`} className={styles.imgMask}>
-        <img src={product.primaryImage} className={styles.imgPrimary} alt={product.name} />
-        <img src={product.hoverImage}   className={styles.imgReveal}  alt={`${product.name} – ritual`} />
+        <Image
+          src={product.primaryImage}
+          className={styles.imgPrimary}
+          alt={product.name}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+        <Image
+          src={product.hoverImage}
+          className={styles.imgReveal}
+          alt={`${product.name} – ritual`}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
       </Link>
       
       <div className={styles.cardBody}>
@@ -82,7 +95,11 @@ export default function ProductsPage() {
   }, []);
 
   return (
-    <Layout title="Amata | The Moroheiya Infusions Collection">
+    <Layout 
+      title="Amata | Prebiotic Moroheiya Infusions Collection"
+      description="Browse the full collection of Amata's organic Moroheiya infusions, including Ginger, Elaichi, Mint, and Pure. Formulated for gut health and mental clarity."
+      canonical="https://amata.in/products"
+    >
       <div ref={pageRef} className={styles.page}>
         <header className={styles.header}>
           <div className={styles.label}>Our Collections · コレクション</div>

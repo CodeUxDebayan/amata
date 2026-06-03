@@ -34,17 +34,6 @@ export default function JournalHero() {
 
   return (
     <section ref={sectionRef} className={styles.hero}>
-      {/* Botanical SVG accents */}
-      <svg className={`${styles.accent} ${styles.accent1}`} viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50 0 C70 30 90 50 50 100 C10 50 30 30 50 0 Z" fill="var(--c-matcha)" />
-      </svg>
-      <svg className={`${styles.accent} ${styles.accent2}`} viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50 0 C80 10 90 40 50 100 C10 40 20 10 50 0 Z" fill="var(--c-terracotta)" />
-      </svg>
-      <svg className={`${styles.accent} ${styles.accent3}`} viewBox="0 0 80 120" xmlns="http://www.w3.org/2000/svg">
-        <path d="M40 0 C65 25 70 70 40 120 C10 70 15 25 40 0 Z" fill="var(--c-sky)" />
-      </svg>
-
       <p className={styles.eyebrow}>Brew Master's Insights · 知識と洞察</p>
       <h1 className={`serif ${styles.title}`}>Journal</h1>
       <p className={styles.sub}>

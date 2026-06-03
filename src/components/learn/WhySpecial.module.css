@@ -81,7 +81,7 @@
   font-family: var(--font-serif);
   font-size: clamp(3rem, 5vw, 4.5rem);
   line-height: 1;
-  letter-spacing: -0.02em;
+  margin: 1rem 0;
 }
 
 .statLabel {

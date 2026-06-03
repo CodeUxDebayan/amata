@@ -158,20 +158,7 @@ function SplitTextInit() {
           }
         });
 
-        // Breeze animation — gentle sway on words with .breeze-text parent
-        document.querySelectorAll('.breeze-text .word').forEach((el) => {
-          function sway() {
-            if (!isActive) return;
-            gsap.to(el, {
-              y: gsap.utils.random(-5, 5),
-              rotation: gsap.utils.random(-1.5, 1.5),
-              duration: gsap.utils.random(3, 6),
-              ease: 'sine.inOut',
-              onComplete: sway,
-            });
-          }
-          setTimeout(sway, 2000);
-        });
+        // Breeze animation is now handled natively via optimized hardware-accelerated CSS in globals.css
       });
 
       ScrollTrigger.refresh();

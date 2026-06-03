@@ -28,10 +28,33 @@ export default function HowToBrew() {
       gsap.registerPlugin(ScrollTrigger);
       if (!active || !sectionRef.current) return;
       ctx = gsap.context(() => {
+        // Animate Header
         gsap.fromTo(`.${styles.header}`,
           { y: 40, opacity: 0 },
           { y: 0, opacity: 1, duration: 1, ease: 'power3.out',
-            scrollTrigger: { trigger: sectionRef.current, start: 'top 80%' } }
+            scrollTrigger: { trigger: sectionRef.current, start: 'top 80%', toggleActions: 'play reverse play reverse' } }
+        );
+        // Animate Toggle
+        gsap.fromTo(`.${styles.toggle}`,
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.2,
+            scrollTrigger: { trigger: sectionRef.current, start: 'top 80%', toggleActions: 'play reverse play reverse' } }
+        );
+        // Animate Cards
+        gsap.utils.toArray(`.${styles.stepCard}`).forEach((card, i) => {
+          gsap.fromTo(card,
+            { y: 50, opacity: 0 },
+            {
+              y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', delay: 0.3 + (i * 0.1),
+              scrollTrigger: { trigger: sectionRef.current, start: 'top 75%', toggleActions: 'play reverse play reverse' }
+            }
+          );
+        });
+        // Animate Tip
+        gsap.fromTo(`.${styles.tip}`,
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.8,
+            scrollTrigger: { trigger: sectionRef.current, start: 'top 80%', toggleActions: 'play reverse play reverse' } }
         );
       }, sectionRef);
     }

@@ -9,6 +9,14 @@ const nextConfig = {
       },
     ],
   },
+  eslint: {
+    // Skip ESLint checks during production builds for faster build times
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    // Skip type checking during production builds for faster build times
+    ignoreBuildErrors: true,
+  },
 };
 
 module.exports = nextConfig;

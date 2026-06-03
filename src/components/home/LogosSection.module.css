@@ -21,3 +21,99 @@
   transition: opacity 0.4s;
 }
 .item:hover { opacity: 0.8; }
+
+/* ── Clickable Compliances ── */
+.compliancesContainer {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.compliancesTitle {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--c-terracotta);
+  font-family: var(--font-sans);
+}
+
+.compliancesGrid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4rem;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.complianceItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 160px;
+}
+
+.complianceItem:hover {
+  transform: translateY(-5px);
+}
+
+.complianceIconWrapper {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: var(--c-white);
+  box-shadow: 0 10px 30px rgba(10, 45, 51, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border: 1px solid rgba(10, 45, 51, 0.04);
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.complianceItem:hover .complianceIconWrapper {
+  box-shadow: 0 15px 35px rgba(70, 119, 12, 0.12);
+  border-color: rgba(70, 119, 12, 0.15);
+}
+
+.complianceIcon {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.complianceName {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--c-deep);
+  text-align: center;
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .logos {
+    padding: 8vh 0;
+  }
+  .compliancesGrid {
+    gap: 2.5rem;
+  }
+  .complianceItem {
+    width: 130px;
+  }
+  .complianceIconWrapper {
+    width: 80px;
+    height: 80px;
+  }
+}
+

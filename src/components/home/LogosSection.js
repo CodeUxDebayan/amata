@@ -1,35 +1,29 @@
-import { useEffect, useRef } from 'react';
+import Link from 'next/link';
 import styles from './LogosSection.module.css';
 
-const logos = ['USDA ORGANIC', 'JAS CERTIFIED', 'INDIA ORGANIC', 'AYUSH PREMIUM', 'VEGAN SOCIETY', 'NON-GMO PROJECT'];
+const compliances = [
+  { name: 'BQM- ORGANIC', icon: '/images/icon_cert/BQM.png' },
+  { name: 'BQM- HACCP', icon: '/images/icon_cert/BQM.png' },
+  { name: 'WHOGMP', icon: '/images/icon_cert/Screenshot 2026-06-03 220055.png' },
+  { name: 'FSSAI', icon: '/images/icon_cert/FSSAI.png' },
+];
 
 export default function LogosSection() {
-  const trackRef = useRef(null);
-
-  useEffect(() => {
-    let gsap;
-    async function init() {
-      const mod = await import('gsap');
-      gsap = mod.gsap || mod.default;
-      if (!trackRef.current) return;
-      gsap.to(trackRef.current, {
-        x: '-50%',
-        duration: 20,
-        ease: 'none',
-        repeat: -1,
-      });
-    }
-    init();
-  }, []);
-
-  const doubled = [...logos, ...logos];
-
   return (
     <section className={styles.logos}>
-      <div ref={trackRef} className={styles.track}>
-        {doubled.map((l, i) => (
-          <div key={i} className={`serif ${styles.item}`}>{l}</div>
-        ))}
+      {/* Interactive compliances grid */}
+      <div className={styles.compliancesContainer}>
+        <h3 className={styles.compliancesTitle}>Accreditations & Quality Standards</h3>
+        <div className={styles.compliancesGrid}>
+          {compliances.map((c, idx) => (
+            <Link key={idx} href="/compliances" className={styles.complianceItem}>
+              <div className={styles.complianceIconWrapper}>
+                <img src={c.icon} alt={`${c.name} Icon`} className={styles.complianceIcon} />
+              </div>
+              <span className={styles.complianceName}>{c.name}</span>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );

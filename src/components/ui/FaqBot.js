@@ -200,9 +200,15 @@ export default function FaqBot() {
 
         {/* Reset */}
         <div className={styles.footer}>
-          <button className={styles.resetBtn} onClick={resetChat}>
-            ↺ Ask something else
-          </button>
+          <a
+            className={styles.resetBtn}
+            href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919999999999'}?text=${encodeURIComponent("Hello! I'd like to ask our Tea masters a question about Amata Moroheiya tea.")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
+          >
+            💬 Ask our Tea masters
+          </a>
           <span className={styles.footerTag}>Powered by Amata · アマタ</span>
         </div>
       </div>

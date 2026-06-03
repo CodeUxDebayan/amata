@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight } from '@phosphor-icons/react';
 import styles from './AboutSection.module.css';
 
@@ -134,9 +135,12 @@ export default function AboutSection() {
         {/* RIGHT — image */}
         <div className={styles.imgWrap}>
           <div className={styles.imgInner}>
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?q=80&w=1364&auto=format&fit=crop"
               alt="Amata Moroheiya cultivation"
+              fill
+              sizes="(max-width: 900px) 100vw, 50vw"
+              priority={false}
               className={styles.img}
             />
           </div>

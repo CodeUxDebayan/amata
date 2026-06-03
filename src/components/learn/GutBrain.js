@@ -51,7 +51,7 @@ export default function GutBrain() {
           gsap.fromTo(el,
             { x: i % 2 === 0 ? -50 : 50, opacity: 0 },
             { x: 0, opacity: 1, duration: 1, ease: 'power3.out',
-              scrollTrigger: { trigger: el, start: 'top 80%' } }
+              scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play reverse play reverse' } }
           );
         });
         // Animate connector lines
@@ -59,7 +59,7 @@ export default function GutBrain() {
           gsap.fromTo(el,
             { scaleY: 0 },
             { scaleY: 1, duration: 0.8, ease: 'power2.out',
-              scrollTrigger: { trigger: el, start: 'top 85%' } }
+              scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play reverse play reverse' } }
           );
         });
       }, sectionRef);

@@ -78,7 +78,7 @@ export default function FaqSection() {
         <h2 className={`serif ${styles.sectionTitle} split-text`}>
           <span className="text-terracotta">Questions</span>
           <br />
-          <span className="text-sky">&amp;</span>{' '}
+          <span className="text-terracotta">&amp;</span>{' '}
           <span className="text-matcha">Answers</span>
         </h2>
         <p className={styles.subtitle}>
