@@ -149,17 +149,45 @@
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-  .step {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.2rem;
+  .section {
+    padding: 6vh 4vw;
   }
-  .stepOrb { width: 56px; height: 56px; }
-  .stepEmoji { font-size: 1.3rem; }
-}
-
-@media (max-width: 600px) {
-  .step { padding: 1.5rem; border-radius: 16px; opacity: 1; }
+  .header {
+    margin-bottom: 3rem;
+  }
+  .step {
+    padding: 1.25rem 1rem;
+    gap: 1rem;
+    align-items: center;
+    flex-direction: row;
+    opacity: 1 !important;
+  }
+  .stepOrb {
+    width: 48px;
+    height: 48px;
+  }
+  .stepEmoji {
+    font-size: 1.2rem;
+  }
+  .stepNum {
+    font-size: 0.5rem;
+    margin-top: 1px;
+  }
+  .stepTitle {
+    font-size: 1.15rem;
+  }
+  .stepDesc {
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+  .organTag {
+    font-size: 0.55rem;
+    padding: 0.15rem 0.5rem;
+  }
+  .connector {
+    height: 25px;
+    margin: 2px 0;
+  }
   .stepRight:hover { transform: none; }
   .step:hover { transform: none; box-shadow: none; }
 }

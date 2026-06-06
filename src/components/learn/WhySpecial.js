@@ -48,6 +48,12 @@ export default function WhySpecial() {
       if (!active || !sectionRef.current) return;
 
       ctx = gsap.context(() => {
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+          gsap.set(`.${styles.header}`, { y: 0, opacity: 1 });
+          gsap.set(`.${styles.card}`, { y: 0, opacity: 1 });
+          return;
+        }
         // Animate Header
         gsap.fromTo(`.${styles.header}`,
           { y: 40, opacity: 0 },

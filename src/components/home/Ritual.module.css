@@ -125,3 +125,25 @@
   55%      { opacity: 0.75; transform: translateY(-5px);  }
   75%,100% { opacity: 0;    transform: translateY(-10px); }
 }
+
+@media (max-width: 768px) {
+  .ritual {
+    min-height: auto;
+    padding: 6vh 4vw;
+  }
+  .label {
+    margin-bottom: 3vh;
+  }
+  .group {
+    margin-bottom: 3vh;
+  }
+  .divider {
+    margin: 1.5rem 0;
+  }
+  .time {
+    margin-bottom: 0.75rem;
+  }
+  .word {
+    font-size: clamp(1.4rem, 6vw, 2.2rem);
+  }
+}

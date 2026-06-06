@@ -40,6 +40,15 @@ export default function TimelineJourney() {
       if (!active || !sectionRef.current) return;
 
       ctx = gsap.context(() => {
+        const isMobile = window.innerWidth <= 768;
+
+        if (isMobile) {
+          gsap.set(progressRef.current, { height: '100%' });
+          gsap.set(`.${styles.stepContent}`, { y: 0, opacity: 1 });
+          gsap.set(`.${styles.stepMedia}`, { y: 0, opacity: 1 });
+          return;
+        }
+
         if (progressRef.current) {
           gsap.fromTo(progressRef.current, 
             { height: '0%' },

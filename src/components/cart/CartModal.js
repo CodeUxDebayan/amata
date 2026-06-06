@@ -24,7 +24,7 @@ export default function CartModal() {
       {/* Drawer */}
       <div className={`${styles.modal} ${isOpen ? styles.modalOpen : ''}`}>
         <div className={styles.header}>
-          <h2 className="serif">Your Satchel</h2>
+          <h2 className="serif">Your Satchel Bag</h2>
           <button className={styles.closeBtn} onClick={() => setIsOpen(false)} aria-label="Close cart">
             <X size={22} />
           </button>
@@ -32,7 +32,7 @@ export default function CartModal() {
 
         <div className={styles.items}>
           {items.length === 0 ? (
-            <p className={styles.emptyMsg}>Your satchel is empty.</p>
+            <p className={styles.emptyMsg}>Your satchel bag is empty.</p>
           ) : (
             items.map((item) => (
               <div key={item.id} className={styles.item}>

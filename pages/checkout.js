@@ -100,7 +100,7 @@ export default function CheckoutPage() {
     return (
       <Layout title="Amata | Checkout" hideFooter>
         <div className={styles.emptyState}>
-          <h2 className="serif">Your satchel is empty.</h2>
+          <h2 className="serif">Your satchel bag is empty.</h2>
           <Link href="/" className="amata-btn">Explore the Blends</Link>
         </div>
       </Layout>

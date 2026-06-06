@@ -91,6 +91,11 @@ export default function Glossary() {
       if (!active || !containerRef.current) return;
 
       ctx = gsap.context(() => {
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+          gsap.set(`.${styles.card}`, { y: 0, opacity: 1 });
+          return;
+        }
         gsap.utils.toArray(`.${styles.card}`).forEach((card) => {
           gsap.fromTo(card,
             { y: 35, opacity: 0 },

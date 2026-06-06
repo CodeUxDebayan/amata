@@ -14,43 +14,7 @@ export default function ImageBreak() {
     setMuted(!muted);
   }
 
-  useEffect(() => {
-    let ctx;
-    let active = true;
 
-    async function init() {
-      const { gsap }          = await import('gsap');
-      const { ScrollTrigger } = await import('gsap/ScrollTrigger');
-      gsap.registerPlugin(ScrollTrigger);
-
-      if (!active || !sectionRef.current) return;
-
-      ctx = gsap.context(() => {
-        if (videoRef.current) {
-          gsap.fromTo(videoRef.current,
-            { y: '-20%' },
-            {
-              y: '20%', ease: 'none',
-              scrollTrigger: {
-                trigger: sectionRef.current,
-                start: 'top bottom', end: 'bottom top', scrub: true,
-              },
-            }
-          );
-        }
-      }, sectionRef);
-
-      ScrollTrigger.refresh();
-    }
-
-    const timer = setTimeout(init, 100);
-
-    return () => {
-      active = false;
-      clearTimeout(timer);
-      ctx?.revert();
-    };
-  }, []);
 
   return (
     <section ref={sectionRef} className={styles.imgBreak}>

@@ -53,19 +53,23 @@ export default function Journey() {
       fillPath.style.strokeDashoffset = len;
 
       ctx = gsap.context(() => {
+        const isMobile = window.innerWidth <= 768;
+
         gsap.to(fillPath, {
           strokeDashoffset: 0,
           ease: 'none',
           scrollTrigger: {
             trigger: wrapper,
-            start: 'top center', end: 'bottom center', scrub: true,
+            start: isMobile ? 'top 80%' : 'top center',
+            end: isMobile ? 'bottom 80%' : 'bottom center',
+            scrub: true,
           },
         });
 
         document.querySelectorAll(`.${styles.step}`).forEach((step) => {
           ScrollTrigger.create({
             trigger: step,
-            start: 'center center+=100',
+            start: isMobile ? 'top 80%' : 'center center+=100',
             onEnter:     () => step.classList.add(styles.active),
             onLeaveBack: () => step.classList.remove(styles.active),
           });

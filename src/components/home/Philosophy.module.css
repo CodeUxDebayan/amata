@@ -114,3 +114,38 @@
   opacity: 0.06;
   pointer-events: none;
 }
+
+@media (max-width: 768px) {
+  .philosophy {
+    min-height: auto;
+    padding: 8vh 6vw;
+    gap: 2.5rem;
+  }
+  .left {
+    gap: 1rem;
+  }
+  .rule {
+    height: 40px;
+  }
+  .hint, .axisCopy {
+    max-width: 100%;
+  }
+  .right {
+    margin-top: 1.5rem;
+  }
+  .jpQuote {
+    margin-bottom: 1rem;
+  }
+  .jpQuoteSub {
+    margin-top: -0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .quote {
+    margin-bottom: 2rem;
+    line-height: 1.2;
+    letter-spacing: -2px;
+  }
+  .attr {
+    padding-top: 1.2rem;
+  }
+}

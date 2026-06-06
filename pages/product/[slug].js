@@ -98,7 +98,7 @@ export default function ProductPage({ product }) {
               className={`amata-btn amata-btn--sand ${styles.addBtn}`}
               onClick={() => addItem(product)}
             >
-              Add to Satchel
+              Add to Satchel Bag
             </button>
           </div>
 

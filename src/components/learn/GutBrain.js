@@ -47,6 +47,12 @@ export default function GutBrain() {
       gsap.registerPlugin(ScrollTrigger);
       if (!active || !sectionRef.current) return;
       ctx = gsap.context(() => {
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+          gsap.set(`.${styles.step}`, { x: 0, opacity: 1 });
+          gsap.set(`.${styles.connector}`, { scaleY: 1 });
+          return;
+        }
         gsap.utils.toArray(`.${styles.step}`).forEach((el, i) => {
           gsap.fromTo(el,
             { x: i % 2 === 0 ? -50 : 50, opacity: 0 },

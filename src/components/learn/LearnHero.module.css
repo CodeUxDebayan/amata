@@ -119,4 +119,5 @@
 @media (max-width: 768px) {
   .content { padding: 18vh 6vw 12vh; }
   .leaf1 { display: none; }
+  .title em { margin-left: 0; }
 }

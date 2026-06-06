@@ -57,7 +57,7 @@ export default function Nav({ theme = 'auto' }) {
                 mask: "url('/images/cart-icon.png') no-repeat center / contain",
               }}
             />
-            <span>{lang === 'JP' ? 'サッチェル' : 'Satchel'}</span>
+            <span>{lang === 'JP' ? 'サッチェル' : 'Satchel Bag'}</span>
             {count > 0 && <span className={styles.cartCount}>{count}</span>}
           </button>
         </div>
@@ -85,7 +85,7 @@ export default function Nav({ theme = 'auto' }) {
             className={`${styles.drawerLink} ${styles.drawerCartBtn}`}
             onClick={() => { setMenuOpen(false); setIsOpen(true); }}
           >
-            Satchel {count > 0 && <span className={styles.drawerCartCount}>{count}</span>}
+            Satchel Bag {count > 0 && <span className={styles.drawerCartCount}>{count}</span>}
           </button>
         </nav>
         <div className={styles.drawerTagline}>

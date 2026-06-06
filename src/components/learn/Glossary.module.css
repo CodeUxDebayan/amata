@@ -137,13 +137,56 @@
   color: var(--c-deep);
 }
 
+@media (max-width: 768px) {
+  .section {
+    padding: 6vh 4vw;
+  }
+  .header {
+    margin-bottom: 2rem;
+  }
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .card {
+    padding: 1.25rem 1rem;
+    gap: 0.8rem;
+    opacity: 1 !important;
+  }
+  .termRow {
+    margin-bottom: 0.8rem;
+  }
+  .termName {
+    font-size: 1.15rem;
+  }
+  .langRow {
+    margin-bottom: 0.8rem;
+    padding: 0.75rem;
+    gap: 0.5rem;
+  }
+  .langLabel {
+    font-size: 0.55rem;
+    margin-bottom: 0.25rem;
+  }
+  .nativeText {
+    font-size: 0.9rem;
+  }
+  .transText {
+    font-size: 0.65rem;
+  }
+  .desc {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+  .verticalRule {
+    display: none;
+  }
+}
+
 @media (max-width: 480px) {
-  .card { padding: 2rem 1.5rem; }
   .langRow {
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 0.8rem;
   }
   .langCol { width: 100%; }
-  .verticalRule { display: none; }
-  .termName { font-size: 1.4rem; }
 }

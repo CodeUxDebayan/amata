@@ -74,6 +74,14 @@ export default function Testimonials() {
       if (!active || !sectionRef.current) return;
 
       ctx = gsap.context(() => {
+        const isMobile = window.innerWidth <= 768;
+
+        if (isMobile) {
+          gsap.set([`.${styles.label}`, `.${styles.heading}`], { y: 0, opacity: 1 });
+          gsap.set(`.${styles.card}`, { y: 0, opacity: 1 });
+          return;
+        }
+
         // ── Label + heading scroll entrance ──
         gsap.fromTo(`.${styles.label}`,
           { y: 20, opacity: 0 },

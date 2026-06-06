@@ -97,3 +97,43 @@
   opacity: 0.6;
   margin-top: 0.5rem;
 }
+
+@media (max-width: 768px) {
+  .journey {
+    padding: 10vh 6vw;
+  }
+  .title {
+    margin-bottom: 8vh;
+  }
+  .brushSvg {
+    left: 20px;
+    transform: none;
+  }
+  .step, .step:nth-child(even) {
+    width: 100%;
+    margin-left: 0;
+    justify-content: flex-start;
+    padding-right: 0;
+    padding-left: 50px;
+    text-align: left;
+    margin-bottom: 6vh;
+  }
+  .dot, .step:nth-child(even) .dot {
+    left: 14px;
+    right: auto;
+  }
+  .text {
+    font-size: 1.5rem;
+  }
+  .num {
+    font-size: 1.2rem;
+  }
+  .sub {
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+  }
+  .jp {
+    font-size: 0.65rem;
+    margin-top: 0.3rem;
+  }
+}

@@ -170,3 +170,61 @@
   transform: translateY(-2px);
 }
 
+@media (max-width: 768px) {
+  .products {
+    padding: 8vh 4vw;
+  }
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+  .imgMask {
+    margin-bottom: 0.75rem;
+    border-radius: 12px;
+  }
+  .title {
+    font-size: 1.1rem;
+  }
+  .price {
+    font-size: 0.95rem;
+  }
+  .desc {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 2.1rem;
+  }
+  .actions {
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .addBtn {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.7rem;
+    width: 100%;
+    text-align: center;
+  }
+  .learnLink {
+    font-size: 0.65rem;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  .viewAllRow {
+    margin-top: 5vh;
+  }
+  .viewAllRow .amata-btn {
+    width: auto;
+    max-width: 290px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0.8rem 1.2rem;
+    font-size: 0.78rem;
+  }
+}
+

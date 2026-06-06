@@ -64,5 +64,24 @@
 
 @media (max-width: 768px) {
   .vidMask { aspect-ratio: 16/9; border-radius: 20px; }
-  .certLogos { gap: 2rem; flex-direction: column; }
+  .certLogos {
+    gap: 1.5rem;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 1.5rem;
+  }
+  .certItem {
+    width: calc(50% - 1rem);
+    max-width: 140px;
+    gap: 0.5rem;
+  }
+  .certIconWrapper {
+    width: 70px;
+    height: 70px;
+    padding: 8px;
+  }
+  .certName {
+    font-size: 0.72rem;
+    letter-spacing: 1px;
+  }
 }

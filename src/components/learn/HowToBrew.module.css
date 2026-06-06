@@ -152,7 +152,43 @@
   .steps { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 600px) {
-  .steps { grid-template-columns: 1fr; }
-  .stepCard { animation: none; opacity: 1; }
+@media (max-width: 768px) {
+  .section {
+    padding: 6vh 4vw 8vh;
+  }
+  .steps {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .stepCard {
+    animation: none !important;
+    opacity: 1 !important;
+    padding: 1.25rem 1rem;
+    gap: 0.6rem;
+  }
+  .stepIcon {
+    font-size: 1.6rem;
+  }
+  .stepNum {
+    font-size: 2rem;
+  }
+  .stepTitle {
+    font-size: 1.05rem;
+  }
+  .stepDetail {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+  .tip {
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+  .tipIcon {
+    font-size: 1.1rem;
+  }
+  .tip p {
+    font-size: 0.76rem;
+    line-height: 1.45;
+  }
 }

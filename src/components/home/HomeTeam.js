@@ -21,6 +21,11 @@ export default function HomeTeam() {
       if (!active || !sectionRef.current) return;
 
       ctx = gsap.context(() => {
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+          gsap.set(`.${styles.card}`, { opacity: 1, y: 0 });
+          return;
+        }
         gsap.utils.toArray(`.${styles.card}`).forEach((card) => {
           gsap.fromTo(card,
             { opacity: 0, y: 50 },

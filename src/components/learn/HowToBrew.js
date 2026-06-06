@@ -28,6 +28,11 @@ export default function HowToBrew() {
       gsap.registerPlugin(ScrollTrigger);
       if (!active || !sectionRef.current) return;
       ctx = gsap.context(() => {
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+          gsap.set([`.${styles.header}`, `.${styles.toggle}`, `.${styles.stepCard}`, `.${styles.tip}`], { y: 0, opacity: 1 });
+          return;
+        }
         // Animate Header
         gsap.fromTo(`.${styles.header}`,
           { y: 40, opacity: 0 },

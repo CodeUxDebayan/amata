@@ -63,3 +63,26 @@
   letter-spacing: 2px;
   color: var(--c-terracotta);
 }
+
+@media (max-width: 768px) {
+  .team {
+    padding: 8vh 4vw;
+  }
+  .heading {
+    margin-bottom: 2rem;
+  }
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4vw;
+  }
+  .imgWrap {
+    margin-bottom: 1rem;
+  }
+  .name {
+    font-size: 1.25rem;
+  }
+  .role {
+    font-size: 0.62rem;
+    letter-spacing: 1px;
+  }
+}

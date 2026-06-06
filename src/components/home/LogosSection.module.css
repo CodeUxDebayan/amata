@@ -37,6 +37,7 @@
   letter-spacing: 3px;
   color: var(--c-terracotta);
   font-family: var(--font-sans);
+  text-align: center;
 }
 
 .compliancesGrid {

@@ -68,6 +68,23 @@ export default function FaqBot() {
   const [messages, setMessages] = useState([]);
   const [selectedCat, setSelectedCat] = useState(null);
   const scrollRef = useRef(null);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   // Welcome message on first open
   useEffect(() => {
@@ -212,6 +229,17 @@ export default function FaqBot() {
           <span className={styles.footerTag}>Powered by Amata · アマタ</span>
         </div>
       </div>
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className={styles.scrollTop}
+          aria-label="Scroll to top"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: '20px', height: '20px' }}>
+            <polyline points="18 15 12 9 6 15" />
+          </svg>
+        </button>
+      )}
     </>
   );
 }

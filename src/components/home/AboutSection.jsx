@@ -25,33 +25,41 @@ export default function AboutSection() {
       if (!active || !sectionRef.current) return;
 
       ctx = gsap.context(() => {
-        // Reveal headline words
-        gsap.fromTo('.about-word', 
-          { y: 60, opacity: 0 },
-          {
-            y: 0, opacity: 1, duration: 1, stagger: 0.07, ease: 'power4.out',
-            scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' },
-          }
-        );
+        const isMobile = window.innerWidth <= 900;
 
-        // Reveal body text + link
-        gsap.fromTo([`.${styles.body}`, `.${styles.cta}`], 
-          { y: 30, opacity: 0 },
-          {
-            y: 0, opacity: 1, duration: 0.9, stagger: 0.15, ease: 'power3.out',
-            scrollTrigger: { trigger: sectionRef.current, start: 'top 65%' },
-          }
-        );
+        if (!isMobile) {
+          // Reveal headline words
+          gsap.fromTo('.about-word', 
+            { y: 60, opacity: 0 },
+            {
+              y: 0, opacity: 1, duration: 1, stagger: 0.07, ease: 'power4.out',
+              scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' },
+            }
+          );
+
+          // Reveal body text + link
+          gsap.fromTo([`.${styles.body}`, `.${styles.cta}`], 
+            { y: 30, opacity: 0 },
+            {
+              y: 0, opacity: 1, duration: 0.9, stagger: 0.15, ease: 'power3.out',
+              scrollTrigger: { trigger: sectionRef.current, start: 'top 65%' },
+            }
+          );
+        }
 
         // Stats reveal + count-up
         const statEls = sectionRef.current.querySelectorAll(`.${styles.statBlock}`);
-        gsap.fromTo(statEls, 
-          { y: 40, opacity: 0 },
-          {
-            y: 0, opacity: 1, duration: 0.8, stagger: 0.12, ease: 'power3.out',
-            scrollTrigger: { trigger: `.${styles.stats}`, start: 'top 80%' },
-          }
-        );
+        if (isMobile) {
+          gsap.set(statEls, { y: 0, opacity: 1 });
+        } else {
+          gsap.fromTo(statEls, 
+            { y: 40, opacity: 0 },
+            {
+              y: 0, opacity: 1, duration: 0.8, stagger: 0.12, ease: 'power3.out',
+              scrollTrigger: { trigger: `.${styles.stats}`, start: 'top 80%' },
+            }
+          );
+        }
 
         statEls.forEach((el) => {
           const numEl  = el.querySelector(`.${styles.numDisplay}`);
@@ -60,7 +68,7 @@ export default function AboutSection() {
           const obj = { v: 0 };
           ScrollTrigger.create({
             trigger: el,
-            start: 'top 85%',
+            start: isMobile ? 'top 95%' : 'top 85%',
             once: true,
             onEnter: () =>
               gsap.to(obj, {
@@ -73,18 +81,20 @@ export default function AboutSection() {
         });
 
         // Image parallax
-        const img = sectionRef.current.querySelector(`.${styles.imgInner}`);
-        if (img) {
-          gsap.fromTo(img, 
-            { y: '-12%' },
-            {
-              y: '12%', ease: 'none',
-              scrollTrigger: {
-                trigger: sectionRef.current,
-                start: 'top bottom', end: 'bottom top', scrub: true,
-              },
-            }
-          );
+        if (!isMobile) {
+          const img = sectionRef.current.querySelector(`.${styles.imgInner}`);
+          if (img) {
+            gsap.fromTo(img, 
+              { y: '-12%' },
+              {
+                y: '12%', ease: 'none',
+                scrollTrigger: {
+                  trigger: sectionRef.current,
+                  start: 'top bottom', end: 'bottom top', scrub: true,
+                },
+              }
+            );
+          }
         }
       }, sectionRef);
 
