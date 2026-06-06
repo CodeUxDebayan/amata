@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './LogosSection.module.css';
 
 const compliances = [
@@ -18,7 +19,7 @@ export default function LogosSection() {
           {compliances.map((c, idx) => (
             <Link key={idx} href="/compliances" className={styles.complianceItem}>
               <div className={styles.complianceIconWrapper}>
-                <img src={c.icon} alt={`${c.name} Icon`} className={styles.complianceIcon} />
+                <Image src={c.icon} alt={`${c.name} Icon`} width={120} height={120} className={styles.complianceIcon} />
               </div>
               <span className={styles.complianceName}>{c.name}</span>
             </Link>

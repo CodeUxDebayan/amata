@@ -1,7 +1,7 @@
 /* ── About Section ─────────────────────────────────────── */
 .section {
   position: relative;
-  background: var(--c-ink);
+  background: var(--c-ink-light, #1a3d43);
   overflow: hidden;
   padding: 14vh 8vw;
 }
@@ -9,7 +9,7 @@
 .bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--c-ink-light) 0%, var(--c-ink-purple) 60%, var(--c-ink-green) 100%);
+  background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(184, 105, 58, 0.25) 50%, rgba(255,255,255,0.05) 100%);
   z-index: 0;
 }
 

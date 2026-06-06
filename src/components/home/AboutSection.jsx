@@ -136,7 +136,7 @@ export default function AboutSection() {
         <div className={styles.imgWrap}>
           <div className={styles.imgInner}>
             <Image
-              src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?q=80&w=1364&auto=format&fit=crop"
+              src="/images/morning_harvest.jpg"
               alt="Amata Moroheiya cultivation"
               fill
               sizes="(max-width: 900px) 100vw, 50vw"

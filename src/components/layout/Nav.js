@@ -6,6 +6,8 @@ import styles from './Nav.module.css';
 export default function Nav({ theme = 'auto' }) {
   const { count, setIsOpen } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [currency, setCurrency] = useState('USD');
+  const [lang, setLang] = useState('EN');
 
   // Close menu on route change / resize
   useEffect(() => {
@@ -24,11 +26,25 @@ export default function Nav({ theme = 'auto' }) {
     <>
       <nav className={`${styles.nav} ${styles[theme] || ''}`}>
         <Link href="/" className={styles.logo}>
-          Amata
+          <div className={styles.logoContainer}>
+            <img src="/images/crane_logo.png" alt="Amata Crane Logo" className={`${styles.logoImg} ${styles.logo1}`} />
+            <img src="/images/logo.png" alt="Amata Logo" className={`${styles.logoImg} ${styles.logo2}`} />
+          </div>
         </Link>
 
         {/* Desktop links */}
         <div className={styles.links}>
+          <div className={styles.controls}>
+            <select className={styles.switcher} value={currency} onChange={(e) => setCurrency(e.target.value)} aria-label="Currency">
+              <option value="USD">USD $</option>
+              <option value="INR">INR ₹</option>
+              <option value="YEN">YEN ¥</option>
+            </select>
+            <select className={styles.switcher} value={lang} onChange={(e) => setLang(e.target.value)} aria-label="Language">
+              <option value="EN">EN</option>
+              <option value="JP">JP</option>
+            </select>
+          </div>
           <Link href="/learn" className={styles.link}>Learn</Link>
           <Link href="/journal" className={styles.link}>Journal</Link>
           <button

@@ -18,13 +18,6 @@ function ProductCard({ product }) {
           fill
           sizes="(max-width: 1024px) 100vw, 50vw"
         />
-        <Image
-          src={product.hoverImage}
-          className={styles.imgReveal}
-          alt={`${product.name} – ritual`}
-          fill
-          sizes="(max-width: 1024px) 100vw, 50vw"
-        />
       </Link>
       <div className={styles.head}>
         <h3 className={`serif ${styles.title}`}>{product.name}</h3>

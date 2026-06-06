@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { subscribeEmail } from '../../lib/firestore';
 import styles from './Footer.module.css';
 
@@ -23,7 +24,7 @@ export default function Footer() {
       <div className={styles.overlapGrid}>
         <div className={styles.top}>
           <div className={styles.col}>
-            <h4>Newsletter</h4>
+            <h4 style={{ color: 'var(--c-sand)' }}>Newsletter</h4>
             {joined ? (
               <p className={styles.joinedMsg}>Thank you for joining the circle.</p>
             ) : (
@@ -51,6 +52,16 @@ export default function Footer() {
               </ul>
             </div>
             <div className={styles.col}>
+              <h4>Policies</h4>
+              <ul>
+                <li><Link href="/policies/cancellation-and-refund-policy">Cancellation & Refund</Link></li>
+                <li><Link href="/policies/privacy-policy">Privacy Policy</Link></li>
+                <li><Link href="/policies/shipping-policy">Shipping Policy</Link></li>
+                <li><Link href="/policies/terms-and-conditions">Terms & Conditions</Link></li>
+                <li><Link href="/policies/terms-of-service">Terms of Service</Link></li>
+              </ul>
+            </div>
+            <div className={styles.col}>
               <h4>Connect</h4>
               <ul>
                 <li><a href="#" target="_blank" rel="noopener noreferrer">Instagram</a></li>
@@ -58,13 +69,6 @@ export default function Footer() {
                 <li><Link href="/contact">Contact</Link></li>
               </ul>
             </div>
-          </div>
-        </div>
-
-        <div className={styles.hugeFoooterWrap}>
-          <div className={styles.footerWatermark}>अमृत · 不死 · ॐ</div>
-          <div className={styles.hugeFooter}>
-            <img src="/images/white-logo.png" alt="Amata" />
           </div>
         </div>
       </div>

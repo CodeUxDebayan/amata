@@ -2,7 +2,7 @@
 .fab {
   position: fixed;
   bottom: 2rem;
-  left: 2rem;
+  right: 2rem;
   z-index: 9998;
   width: 58px;
   height: 58px;
@@ -71,7 +71,7 @@
 .panel {
   position: fixed;
   bottom: 6.5rem;
-  left: 2rem;
+  right: 2rem;
   width: min(380px, calc(100vw - 4rem));
   max-height: 580px;
   background: var(--c-white, #fff);
@@ -85,7 +85,7 @@
   opacity: 0;
   pointer-events: none;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
-  transform-origin: bottom left;
+  transform-origin: bottom right;
 }
 
 .panelOpen {
@@ -357,13 +357,13 @@
 @media (max-width: 480px) {
   .fab {
     bottom: 1.5rem;
-    left: 1.5rem;
+    right: 1.5rem;
     width: 52px;
     height: 52px;
   }
   .panel {
     bottom: 5.5rem;
-    left: 1rem;
+    right: 1rem;
     width: calc(100vw - 2rem);
     max-height: 70vh;
   }

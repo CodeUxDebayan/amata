@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 80px;
+  height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,21 +11,51 @@
   z-index: 10000;
   transition: all 0.4s ease;
   pointer-events: none;
-  background: rgba(10, 45, 51, 0.85);
+  background: rgba(40, 75, 81, 0.65);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   color: var(--c-white);
 }
 
 .nav > * { pointer-events: all; }
 
 .logo {
-  font-family: var(--font-brand);
-  font-size: 2.2rem;
-  letter-spacing: 0.1em;
   position: relative;
   z-index: 10001;
+}
+
+.logoContainer {
+  position: relative;
+  width: 140px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.logoImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: fadeLogo 6s infinite;
+}
+
+.logo1 {
+  animation-delay: 0s;
+}
+
+.logo2 {
+  animation-delay: 3s;
+  opacity: 0;
+}
+
+@keyframes fadeLogo {
+  0%, 40% { opacity: 1; }
+  50%, 90% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 /* ── Desktop Links ── */
@@ -33,6 +63,30 @@
   display: flex;
   gap: 3rem;
   align-items: center;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  margin-right: 1.5rem;
+}
+
+.switcher {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--c-white);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-family: var(--font-sans);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  text-align: center;
+}
+.switcher option {
+  background: var(--c-deep);
+  color: var(--c-white);
 }
 
 .link {

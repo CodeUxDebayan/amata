@@ -41,7 +41,7 @@
 
 .emailForm {
   display: flex;
-  border-bottom: 1px solid var(--c-sky);
+  border-bottom: 1px solid var(--c-sand);
   padding-bottom: 1rem;
 }
 .emailInput {
@@ -75,47 +75,7 @@
   font-family: var(--font-serif);
 }
 
-.hugeFoooterWrap {
-  grid-area: 1 / 1;
-  position: relative;
-  text-align: center;
-  margin-bottom: 4rem;
-  z-index: 1;
-  margin-top: auto;
-  padding-top: 10vh;
-}
 
-.footerWatermark {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-jp);
-  font-size: clamp(5rem, 18vw, 20rem);
-  color: rgba(234, 211, 157, 0.055);
-  pointer-events: none;
-  z-index: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  letter-spacing: -0.03em;
-}
-
-.hugeFooter {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 1500px;
-  margin: 0 auto;
-}
-.hugeFooter img {
-  width: auto;
-  height: 300px;
-  display: block;
-  opacity: 0.4;
-  margin: 0 auto 0 0;
-  filter: brightness(0) invert(1) sepia(1) saturate(0%) hue-rotate(214deg) brightness(115%);
-}
 
 .bottom {
   display: flex;
@@ -140,16 +100,6 @@
     justify-content: flex-start;
     gap: 2.5rem;
     flex-wrap: wrap;
-  }
-
-  .hugeFooter img {
-    height: 180px;
-    margin: 0 auto;
-  }
-
-  .hugeFoooterWrap {
-    padding-top: 5vh;
-    margin-bottom: 2rem;
   }
 
   .bottom {

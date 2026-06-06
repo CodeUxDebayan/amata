@@ -69,6 +69,7 @@
   position: relative;
   width: 100%;
   max-width: 1000px;
+  will-change: transform, opacity;
 }
 
 .subtitleJp {
@@ -90,6 +91,7 @@
   max-width: 12ch;
   overflow: visible;
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.65), 0 2px 8px rgba(0, 0, 0, 0.45);
+  font-display: swap;
 }
 
 .meta {
@@ -141,5 +143,14 @@
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50%      { transform: translateY(-30px) rotate(3deg); }
 }
+
+@media (max-width: 900px) {
+  .hero {
+    min-height: unset;
+    aspect-ratio: 16 / 9;
+    padding: 0;
+  }
+}
+
 
 

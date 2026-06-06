@@ -71,7 +71,7 @@ export default function Hero() {
           Pesticide-Free &bull; No Preservatives &bull; Pure by Nature
         </div>
         <h1 ref={titleRef} className={`${styles.title} serif split-text breeze-text`}>
-          Moroheiya<br />Ritual
+          Moroheiya<br />Infusion
         </h1>
         <div className={styles.meta}>
           Master the Gut Brain Axis Naturally
