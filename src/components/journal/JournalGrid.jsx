@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ArticleModal from './ArticleModal';
-import blogsData from '../../../BlogsData.json';
+import blogsData from '../../data/blogs';
 import styles from './JournalGrid.module.css';
 
 const articles = (blogsData.blogs || []).map((blog, index) => {
