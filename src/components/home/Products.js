@@ -1,11 +1,11 @@
 import { useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useCart } from '../../context/CartContext';
+import { useCart, formatPrice } from '../../context/CartContext';
 import styles from './Products.module.css';
 
 function ProductCard({ product }) {
-  const { addItem } = useCart();
+  const { addItem, currency, lang } = useCart();
   const cardRef = useRef(null);
 
   return (
@@ -20,8 +20,12 @@ function ProductCard({ product }) {
         />
       </Link>
       <div className={styles.head}>
-        <h3 className={`serif ${styles.title}`}>{product.name}</h3>
-        <div className={`serif ${styles.price}`}>${product.price}</div>
+        <h3 className={`serif ${styles.title}`}>
+          {lang === 'JP' && product.nameJp ? product.nameJp : product.name}
+        </h3>
+        <div className={`serif ${styles.price}`}>
+          {formatPrice(product.price, currency)}
+        </div>
       </div>
       <p className={styles.desc}>{product.description}</p>
       <div className={styles.actions}>
@@ -130,6 +134,15 @@ export default function Products({ products = [] }) {
       </svg>
 
       <h2 className={`serif ${styles.sectionTitle} split-text`}>The Collections</h2>
+
+      <div className={styles.availabilityRow}>
+        <span>Available on</span>
+        <div className={styles.partnerLogos}>
+          <a href="https://amazon.in/AMATA-Jute-Leaf-Tea-ANTIOXIDANT/dp/B0FC6TVHFC" target="_blank" rel="noopener noreferrer" className={styles.partnerLink}>
+            Amazon
+          </a>
+        </div>
+      </div>
 
       <div className={styles.grid}>
         {products.slice(0, 2).map((p) => <ProductCard key={p.id} product={p} />)}

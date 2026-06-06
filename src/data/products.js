@@ -7,8 +7,8 @@ const products = [
     slug: "ginger-moroheiya-infusion",
     name: "Ginger Moroheiya Infusion",
     nameJp: "生姜モロヘイヤ茶",
-    price: 15,
-    currency: "USD",
+    price: 378,
+    currency: "INR",
     primaryImage: "/images/1.jpg",
     hoverImage:
       "https://images.unsplash.com/photo-1556679343-c7306c1976bc?q=80&w=1528&auto=format&fit=crop",
@@ -40,8 +40,8 @@ const products = [
     slug: "elaichi-moroheiya-infusion",
     name: "Elaichi Moroheiya Infusion",
     nameJp: "エライチモロヘイヤ茶",
-    price: 22,
-    currency: "USD",
+    price: 378,
+    currency: "INR",
     primaryImage: "/images/2.jpg",
     hoverImage:
       "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?q=80&w=1467&auto=format&fit=crop",

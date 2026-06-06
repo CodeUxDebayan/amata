@@ -19,6 +19,7 @@
   object-fit: cover;
   z-index: 0;
   pointer-events: none;
+  filter: blur(2px) brightness(0.7);
 }
 
 .overlay {

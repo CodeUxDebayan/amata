@@ -4,10 +4,8 @@ import { useCart } from '../../context/CartContext';
 import styles from './Nav.module.css';
 
 export default function Nav({ theme = 'auto' }) {
-  const { count, setIsOpen } = useCart();
+  const { count, setIsOpen, currency, setCurrency, lang, setLang } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [currency, setCurrency] = useState('USD');
-  const [lang, setLang] = useState('EN');
 
   // Close menu on route change / resize
   useEffect(() => {
@@ -45,8 +43,8 @@ export default function Nav({ theme = 'auto' }) {
               <option value="JP">JP</option>
             </select>
           </div>
-          <Link href="/learn" className={styles.link}>Learn</Link>
-          <Link href="/journal" className={styles.link}>Journal</Link>
+          <Link href="/learn" className={styles.link}>{lang === 'JP' ? '学ぶ' : 'Learn'}</Link>
+          <Link href="/journal" className={styles.link}>{lang === 'JP' ? 'ジャーナル' : 'Journal'}</Link>
           <button
             className={`${styles.link} ${styles.cartBtn}`}
             onClick={() => setIsOpen(true)}
@@ -59,7 +57,7 @@ export default function Nav({ theme = 'auto' }) {
                 mask: "url('/images/cart-icon.png') no-repeat center / contain",
               }}
             />
-            <span>Satchel</span>
+            <span>{lang === 'JP' ? 'サッチェル' : 'Satchel'}</span>
             {count > 0 && <span className={styles.cartCount}>{count}</span>}
           </button>
         </div>

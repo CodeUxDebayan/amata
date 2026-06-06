@@ -1,6 +1,6 @@
 .products {
-  background: var(--c-light-green);
-  color: var(--c-deep);
+  background: var(--c-dark-cyan);
+  color: var(--c-sand);
   padding: 12vh 4vw;
   position: relative;
   overflow: hidden;
@@ -18,9 +18,9 @@
 
 .sectionTitle {
   font-size: clamp(3rem, 7vw, 6rem);
-  margin-bottom: 8vh;
+  margin-bottom: 4vh;
   text-align: center;
-  color: var(--c-deep);
+  color: var(--c-white);
   position: relative;
 }
 
@@ -87,17 +87,17 @@
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 1rem;
-  border-bottom: 1px solid rgba(10, 45, 51, 0.12);
+  border-bottom: 1px solid rgba(234, 211, 157, 0.15);
   padding-bottom: 1rem;
 }
-.title { font-size: 2.2rem; color: var(--c-deep); letter-spacing: -0.5px; }
-.price { font-size: 1.5rem; color: var(--c-terracotta); font-weight: 500; }
+.title { font-size: 2.2rem; color: var(--c-white); letter-spacing: -0.5px; }
+.price { font-size: 1.5rem; color: var(--c-sand); font-weight: 500; }
 
 .desc {
   font-size: 0.95rem;
   line-height: 1.8;
   margin-bottom: 2rem;
-  color: rgba(10, 45, 51, 0.75);
+  color: rgba(234, 211, 157, 0.75);
 }
 
 .actions {
@@ -118,10 +118,10 @@
   opacity: 0.8;
   transition: opacity 0.3s, letter-spacing 0.4s;
   cursor: none;
-  color: var(--c-deep);
+  color: var(--c-sand);
   font-weight: 500;
 }
-.learnLink:hover { opacity: 1; letter-spacing: 4px; color: var(--c-terracotta); }
+.learnLink:hover { opacity: 1; letter-spacing: 4px; color: var(--c-white); }
 
 .viewAllRow {
   display: flex;
@@ -130,3 +130,43 @@
   position: relative;
   z-index: 10;
 }
+
+.availabilityRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 8vh;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(234, 211, 157, 0.6);
+  position: relative;
+  z-index: 10;
+}
+
+.partnerLogos {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.partnerLink {
+  padding: 8px 24px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(234, 211, 157, 0.2);
+  color: var(--c-sand);
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  cursor: pointer;
+}
+.partnerLink:hover {
+  background: var(--c-sand);
+  color: var(--c-deep);
+  border-color: var(--c-sand);
+  transform: translateY(-2px);
+}
+

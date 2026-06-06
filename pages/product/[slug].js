@@ -3,12 +3,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
 import Layout from '../../src/components/layout/Layout';
-import { useCart } from '../../src/context/CartContext';
+import { useCart, formatPrice } from '../../src/context/CartContext';
 import products, { getProductBySlug } from '../../src/data/products';
 import styles from '../../src/styles/product.module.css';
 
 export default function ProductPage({ product }) {
-  const { addItem } = useCart();
+  const { addItem, currency, lang } = useCart();
   const [activeImg, setActiveImg] = useState(0);
   const heroRef = useRef(null);
 
@@ -86,9 +86,11 @@ export default function ProductPage({ product }) {
         {/* Info */}
         <div className={styles.productInfo}>
           <div className={styles.tag}>{product.certifications[0]}</div>
-          <h1 className={`serif ${styles.title}`}>{product.name}</h1>
-          <div className={styles.nameJp}>{product.nameJp}</div>
-          <div className={styles.price}>${product.price}</div>
+          <h1 className={`serif ${styles.title}`}>
+            {lang === 'JP' && product.nameJp ? product.nameJp : product.name}
+          </h1>
+          <div className={styles.nameJp}>{lang === 'JP' ? '' : product.nameJp}</div>
+          <div className={styles.price}>{formatPrice(product.price, currency)}</div>
           <p className={styles.desc}>{product.longDescription}</p>
 
           <div className={styles.ctaRow}>
@@ -122,8 +124,10 @@ export default function ProductPage({ product }) {
               <div className={styles.recommendImgWrap}>
                 <Image src={p.primaryImage} alt={p.name} className={styles.recommendImg} fill sizes="(max-width: 768px) 100vw, 33vw" />
               </div>
-              <h3 className={`serif ${styles.recommendName}`}>{p.name}</h3>
-              <div className={styles.recommendPrice}>${p.price}</div>
+              <h3 className={`serif ${styles.recommendName}`}>
+                {lang === 'JP' && p.nameJp ? p.nameJp : p.name}
+              </h3>
+              <div className={styles.recommendPrice}>{formatPrice(p.price, currency)}</div>
             </Link>
           ))}
         </div>

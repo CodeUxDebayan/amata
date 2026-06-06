@@ -2,15 +2,35 @@ import { createContext, useContext, useState, useEffect, useCallback } from 'rea
 
 const CartContext = createContext(null);
 
+export function formatPrice(priceInINR, targetCurrency) {
+  if (targetCurrency === 'USD') {
+    // 1 USD = 84 INR
+    const usdPrice = (priceInINR / 84).toFixed(2);
+    return `$${usdPrice}`;
+  }
+  if (targetCurrency === 'YEN') {
+    // 1 INR = 1.85 JPY
+    const yenPrice = Math.round(priceInINR * 1.85);
+    return `¥${yenPrice}`;
+  }
+  return `₹${priceInINR}`;
+}
+
 export function CartProvider({ children }) {
   const [items, setItems] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [currency, setCurrency] = useState('INR');
+  const [lang, setLang] = useState('EN');
 
   // Hydrate from localStorage
   useEffect(() => {
     try {
       const saved = localStorage.getItem('amata-cart');
       if (saved) setItems(JSON.parse(saved));
+      const savedCurrency = localStorage.getItem('amata-currency');
+      if (savedCurrency) setCurrency(savedCurrency);
+      const savedLang = localStorage.getItem('amata-lang');
+      if (savedLang) setLang(savedLang);
     } catch (_) {}
   }, []);
 
@@ -18,6 +38,26 @@ export function CartProvider({ children }) {
   useEffect(() => {
     localStorage.setItem('amata-cart', JSON.stringify(items));
   }, [items]);
+
+  const changeCurrency = useCallback((cur) => {
+    setCurrency(cur);
+    localStorage.setItem('amata-currency', cur);
+  }, []);
+
+  const changeLang = useCallback((l) => {
+    setLang(l);
+    localStorage.setItem('amata-lang', l);
+    if (typeof window !== 'undefined') {
+      if (l === 'JP') {
+        document.cookie = "googtrans=/en/ja; path=/;";
+        document.cookie = "googtrans=/en/ja; path=/; domain=" + window.location.hostname;
+      } else {
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + window.location.hostname;
+      }
+      window.location.reload();
+    }
+  }, []);
 
   const addItem = useCallback((product) => {
     setItems((prev) => {
@@ -48,7 +88,21 @@ export function CartProvider({ children }) {
 
   return (
     <CartContext.Provider
-      value={{ items, addItem, removeItem, updateQty, clearCart, total, count, isOpen, setIsOpen }}
+      value={{
+        items,
+        addItem,
+        removeItem,
+        updateQty,
+        clearCart,
+        total,
+        count,
+        isOpen,
+        setIsOpen,
+        currency,
+        setCurrency: changeCurrency,
+        lang,
+        setLang: changeLang
+      }}
     >
       {children}
     </CartContext.Provider>

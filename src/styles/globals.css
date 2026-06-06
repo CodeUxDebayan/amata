@@ -12,6 +12,7 @@
   --c-sky: #86c5d6;
   --c-matcha: #46770c;
   --c-deep: #0a2d33;
+  --c-dark-cyan: #051d21;
   --c-black: #000000;
   --c-terracotta: #b8693a;
   --c-terracotta-dark: #553721;
@@ -23,6 +24,7 @@
   --c-ink-gold: rgb(29, 32, 17);
   --c-parchment: #dfd0bc;
   --c-light-green: #add8d4;
+  --c-dark-cyan: #5ea4b1;
   --font-serif: 'Shippori Mincho', serif;
   --font-sans: 'Inter', sans-serif;
   --font-jp: 'Noto Serif JP', serif;
@@ -265,4 +267,19 @@ img, video {
   100% {
     transform: translate3d(2px, -5px, 0) rotate(1.2deg);
   }
+}
+
+/* ── HIDE GOOGLE TRANSLATE WIDGETS & BANNERS ── */
+body {
+  top: 0 !important;
+}
+.skiptranslate,
+.goog-te-banner-frame,
+#goog-gt-tt,
+.goog-te-balloon-frame {
+  display: none !important;
+}
+.goog-text-highlight {
+  background: transparent !important;
+  box-shadow: none !important;
 }

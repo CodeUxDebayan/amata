@@ -2,12 +2,12 @@ import { useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Layout from '../src/components/layout/Layout';
-import { useCart } from '../src/context/CartContext';
+import { useCart, formatPrice } from '../src/context/CartContext';
 import products from '../src/data/products';
 import styles from '../src/styles/products.module.css';
 
 function ProductCard({ product }) {
-  const { addItem } = useCart();
+  const { addItem, currency, lang } = useCart();
   const cardRef = useRef(null);
 
   useEffect(() => {
@@ -52,12 +52,14 @@ function ProductCard({ product }) {
         
         <div className={styles.head}>
           <h3 className={`serif ${styles.cardTitle}`}>
-            <Link href={`/product/${product.slug}`}>{product.name}</Link>
+            <Link href={`/product/${product.slug}`}>
+              {lang === 'JP' && product.nameJp ? product.nameJp : product.name}
+            </Link>
           </h3>
-          <div className={styles.price}>${product.price}</div>
+          <div className={styles.price}>{formatPrice(product.price, currency)}</div>
         </div>
         
-        <div className={styles.nameJp}>{product.nameJp}</div>
+        <div className={styles.nameJp}>{lang === 'JP' ? '' : product.nameJp}</div>
         <p className={styles.desc}>{product.description}</p>
         
         <div className={styles.actions}>
