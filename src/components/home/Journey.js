@@ -73,11 +73,17 @@ export default function Journey() {
 
           // 2. Animate step dot active states & video playbacks in sync with the line
           videos.forEach((video, idx) => {
+            // Force browser play permission attributes
+            video.muted = true;
+            video.playsInline = true;
+            video.setAttribute('muted', '');
+            video.setAttribute('playsinline', '');
             video.pause();
 
-            // The video should start scrubbing when the line leaves the previous point
-            // and finish scrubbing exactly when the line reaches the current point.
-            let startTrigger = wrapper;
+            // The first video starts scrubbing when the whole section enters view,
+            // giving it more space and time to register. Subsequent videos start
+            // when the line passes the previous step.
+            let startTrigger = sectionRef.current;
             let startAlign = isMobile ? 'top 80%' : 'top center';
 
             if (idx > 0) {
@@ -99,6 +105,7 @@ export default function Journey() {
                   endTrigger: currentStep,
                   end: endAlign,
                   scrub: 0.15,
+                  invalidateOnRefresh: true,
                 }
               }
             );
