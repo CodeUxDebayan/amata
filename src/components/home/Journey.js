@@ -2,10 +2,10 @@ import { useEffect, useRef } from 'react';
 import styles from './Journey.module.css';
 
 const steps = [
-  { id: 'step01', num: '01', text: 'Cultivation', sub: 'Bengal Deltas',        jp: '栽培 · कृषि' },
-  { id: 'step02', num: '02', text: 'Harvest',     sub: 'Hand-picked at dawn',  jp: '収穫 · लवन' },
-  { id: 'step03', num: '03', text: 'Refinement',  sub: 'Japanese Steaming',    jp: '精製 · संस्कार' },
-  { id: 'step04', num: '04', text: 'The Ritual',  sub: 'In your cup',          jp: '茶道 · यज्ञ' },
+  { id: 'step01', num: '01', text: 'Cultivation', sub: 'Bengal Deltas',        jp: '栽培 · कृषि', video: '/videos/cultivation_icon.mp4' },
+  { id: 'step02', num: '02', text: 'Harvest',     sub: 'Hand-picked at dawn',  jp: '収穫 · लवन', video: '/videos/harvest_icon.mp4' },
+  { id: 'step03', num: '03', text: 'Refinement',  sub: 'Japanese Steaming',    jp: '精製 · संस्कार', video: '/videos/refinement_icon.mp4' },
+  { id: 'step04', num: '04', text: 'The Ritual',  sub: 'In your cup',          jp: '茶道 · यज्ञ', video: '/videos/ritual_icon.mp4' },
 ];
 
 export default function Journey() {
@@ -18,6 +18,7 @@ export default function Journey() {
   useEffect(() => {
     let ctx;
     let active = true;
+    let fallback;
 
     async function init() {
       const { gsap }          = await import('gsap');
@@ -26,7 +27,6 @@ export default function Journey() {
 
       if (!active) return;
 
-      // Build brush SVG path
       const wrapper = wrapperRef.current;
       const svg     = svgRef.current;
       const bgPath  = bgPathRef.current;
@@ -52,31 +52,96 @@ export default function Journey() {
       fillPath.style.strokeDasharray  = len;
       fillPath.style.strokeDashoffset = len;
 
-      ctx = gsap.context(() => {
-        const isMobile = window.innerWidth <= 768;
+      const videos = Array.from(document.querySelectorAll(`.${styles.step} video`));
 
-        gsap.to(fillPath, {
-          strokeDashoffset: 0,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: wrapper,
-            start: isMobile ? 'top 80%' : 'top center',
-            end: isMobile ? 'bottom 80%' : 'bottom center',
-            scrub: true,
-          },
-        });
+      const initTimeline = () => {
+        if (!active) return;
+        ctx = gsap.context(() => {
+          const isMobile = window.innerWidth <= 768;
 
-        document.querySelectorAll(`.${styles.step}`).forEach((step) => {
-          ScrollTrigger.create({
-            trigger: step,
-            start: isMobile ? 'top 80%' : 'center center+=100',
-            onEnter:     () => step.classList.add(styles.active),
-            onLeaveBack: () => step.classList.remove(styles.active),
+          // 1. Animate line drawing from top to bottom
+          gsap.to(fillPath, {
+            strokeDashoffset: 0,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: wrapper,
+              start: isMobile ? 'top 80%' : 'top center',
+              end: isMobile ? 'bottom 80%' : 'bottom center',
+              scrub: true,
+            },
           });
-        });
-      }, sectionRef);
 
-      ScrollTrigger.refresh();
+          // 2. Animate step dot active states & video playbacks in sync with the line
+          videos.forEach((video, idx) => {
+            video.pause();
+
+            // The video should start scrubbing when the line leaves the previous point
+            // and finish scrubbing exactly when the line reaches the current point.
+            let startTrigger = wrapper;
+            let startAlign = isMobile ? 'top 80%' : 'top center';
+
+            if (idx > 0) {
+              startTrigger = videos[idx - 1].closest(`.${styles.step}`);
+              startAlign = isMobile ? 'top 80%' : 'center center';
+            }
+
+            const currentStep = video.closest(`.${styles.step}`);
+            const endAlign = isMobile ? 'top 80%' : 'center center';
+
+            gsap.fromTo(video,
+              { currentTime: 0 },
+              {
+                currentTime: video.duration || 1,
+                ease: 'none',
+                scrollTrigger: {
+                  trigger: startTrigger,
+                  start: startAlign,
+                  endTrigger: currentStep,
+                  end: endAlign,
+                  scrub: 0.15,
+                }
+              }
+            );
+
+            // Activate step indicator as the line reaches each card
+            if (currentStep) {
+              ScrollTrigger.create({
+                trigger: currentStep,
+                start: isMobile ? 'top 80%' : 'center center+=100',
+                onEnter:     () => currentStep.classList.add(styles.active),
+                onLeaveBack: () => currentStep.classList.remove(styles.active),
+              });
+            }
+          });
+        }, sectionRef);
+
+        ScrollTrigger.refresh();
+      };
+
+      // Wait for all video durations to load to ensure frame-accurate scrubbing
+      let loadedCount = 0;
+      if (videos.length === 0) {
+        initTimeline();
+      } else {
+        videos.forEach(v => {
+          if (v.readyState >= 1) {
+            loadedCount++;
+            if (loadedCount === videos.length) initTimeline();
+          } else {
+            v.addEventListener('loadedmetadata', () => {
+              loadedCount++;
+              if (loadedCount === videos.length) initTimeline();
+            });
+          }
+        });
+
+        // Safe fallback in case browser delays loadedmetadata event
+        fallback = setTimeout(() => {
+          if (loadedCount < videos.length) {
+            initTimeline();
+          }
+        }, 800);
+      }
     }
 
     const timer = setTimeout(init, 100);
@@ -84,6 +149,7 @@ export default function Journey() {
     return () => {
       active = false;
       clearTimeout(timer);
+      clearTimeout(fallback);
       ctx?.revert();
     };
   }, []);
@@ -123,17 +189,50 @@ export default function Journey() {
             />
           </svg>
 
-          {steps.map((s) => (
-            <div key={s.id} className={styles.step} id={s.id}>
-              <div className={styles.dot} />
-              <div>
+          {steps.map((s, idx) => {
+            const isEven = idx % 2 !== 0;
+
+            const textBlock = (
+              <div className={styles.textContainer}>
                 <div className={styles.num}>{s.num}</div>
                 <div className={`serif ${styles.text}`}>{s.text}</div>
                 <div className={styles.sub}>{s.sub}</div>
                 <div className={styles.jp}>{s.jp}</div>
               </div>
-            </div>
-          ))}
+            );
+
+            const videoBlock = (
+              <div className={styles.videoContainer}>
+                <video
+                  src={s.video}
+                  className={styles.iconVideo}
+                  muted
+                  playsInline
+                  preload="auto"
+                  controls={false}
+                />
+              </div>
+            );
+
+            return (
+              <div key={s.id} className={styles.step} id={s.id}>
+                {/* Left Col */}
+                <div className={styles.leftSide}>
+                  {isEven ? videoBlock : textBlock}
+                </div>
+
+                {/* Middle Col (Timeline dot anchor) */}
+                <div className={styles.middleCol}>
+                  <div className={styles.dot} />
+                </div>
+
+                {/* Right Col */}
+                <div className={styles.rightSide}>
+                  {isEven ? textBlock : videoBlock}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
