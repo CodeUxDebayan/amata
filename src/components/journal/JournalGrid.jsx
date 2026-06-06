@@ -14,19 +14,30 @@ const articles = (blogsData.blogs || []).map((blog, index) => {
   const readTime = Math.max(3, Math.ceil(wordCount / 200)) + ' min';
   const excerpt = metaDescription || (blog.content ? blog.content.slice(0, 150) + '...' : '');
 
-  // Premium botanical/wellness images matching the content index
-  const img = `https://images.unsplash.com/photo-${[
-    '1522075469751-3a6694fb2f61',
-    '1606149059549-6042addafc52',
-    '1544367567-0f2fcb009e0b',
-    '1501625902148-5231c518d6e3',
-    '1490730141103-6cac27aaab94',
-    '1556679343-c7306c1976bc',
-    '1563911302283-d2bc129e7570',
-    '1518118014377-cecb6c6218f2',
-    '1564890369478-c89ca6d9cde9',
-    '1620860882101-1b29fc438b45'
-  ][index % 10]}?q=80&w=1200&auto=format&fit=crop`;
+  // Map tag to image filename in /images/blog_images/
+  const tagNormalized = primaryKeyword.trim().toLowerCase();
+  
+  let img = '';
+  
+  if (tagNormalized.includes('jute leaf tea vs green tea')) {
+    img = '/images/blog_images/superleaf_infusion.jpeg';
+  } else if (tagNormalized.includes('japanese moroheiya tea ceremony')) {
+    img = '/images/blog_images/japanese_moroheiya_tea_ceremony.jpeg';
+  } else if (tagNormalized.includes('best amata flavours')) {
+    img = 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200&auto=format&fit=crop';
+  } else if (tagNormalized.includes('exotic jute tea blends')) {
+    img = '/images/blog_images/amata_jute_tea_blends.jpeg';
+  } else if (tagNormalized.includes('amata jute tea benefits')) {
+    img = '/images/blog_images/amata_jute_tea_benefits.jpeg';
+  } else if (tagNormalized.includes('functional wellness tea')) {
+    img = '/images/blog_images/functional_wellness_tea.jpeg';
+  } else if (tagNormalized.includes('science-backed health benefits')) {
+    img = '/images/blog_images/science_backed_health_benefits_of_jute_leaf_tea.jpeg';
+  } else if (tagNormalized.includes('sustainability') || tagNormalized.includes('farmer impact')) {
+    img = '/images/blog_images/amata_sustainbility.jpeg';
+  } else {
+    img = '/images/blog_images/amata_jute_tea.jpeg';
+  }
 
   return {
     id: blog.id || `blog-${index}`,

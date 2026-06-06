@@ -149,7 +149,7 @@ export default function ArticleModal({ article, onClose }) {
   if (!article) return null;
 
   return (
-    <div ref={modalRef} className={styles.modal} data-lenis-prevent>
+    <div ref={modalRef} className={styles.modal}>
       <button className={styles.closeBtn} onClick={handleClose} aria-label="Close modal">
         <span>Close</span>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -157,11 +157,18 @@ export default function ArticleModal({ article, onClose }) {
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
-      <div className={styles.content}>
-        <div className={styles.meta}>Journal Entry</div>
-        <h2 className={`serif ${styles.title}`}>{article.title}</h2>
-        <img src={article.img} className={styles.img} alt={article.title} />
-        <div className={styles.body}>{renderBody(article.body)}</div>
+      <div className={styles.scrollWrapper} data-lenis-prevent>
+        <div className={styles.content}>
+          <div className={styles.meta}>Journal Entry</div>
+          <h2 className={`serif ${styles.title}`}>{article.title}</h2>
+          <img src={article.img} className={styles.img} alt={article.title} />
+          <div className={styles.body}>{renderBody(article.body)}</div>
+          <div className={styles.bottomCloseContainer}>
+            <button className="amata-btn" onClick={handleClose}>
+              Close Article
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
