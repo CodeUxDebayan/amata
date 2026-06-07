@@ -72,7 +72,7 @@ export default function Home() {
 
   return (
     <Layout 
-      title="Amata | Premium Prebiotic Moroheiya Teas"
+      title="Amata | Moroheiya Infusion"
       description="Experience the science of the gut-brain axis with Amata's premium organic Moroheiya wellness teas. Bridging Japanese heritage and Ayurvedic wisdom."
       canonical="https://amata.in"
     >

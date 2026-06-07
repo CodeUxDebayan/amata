@@ -23,6 +23,7 @@ export default function Layout({
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
+        <meta name="keywords" content="Moroheiya, Moroheiya tea, Moroheiya infusion, jute leaf tea, prebiotic tea, gut-brain axis, organic jute tea, Amata tea, caffeine free tea, gut health, vagus nerve, Ayurvedic tea, Japanese steamed tea, Egyptian spinach tea" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
 

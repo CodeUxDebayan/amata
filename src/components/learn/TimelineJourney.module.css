@@ -11,7 +11,7 @@
 .step:nth-child(even) { flex-direction: row-reverse; }
 
 .stepContent { width: 42%; opacity: 0; transform: translateY(50px); }
-.stepMedia   { width: 42%; aspect-ratio: 4/3; overflow: hidden; border-radius: 20px; opacity: 0; transform: translateY(50px); }
+.stepMedia   { position: relative; width: 42%; aspect-ratio: 4/3; overflow: hidden; border-radius: 20px; opacity: 0; transform: translateY(50px); }
 .stepMedia img { width: 100%; height: 120%; object-fit: cover; transform: translateY(-10%); }
 .paraImg { display: block; }
 

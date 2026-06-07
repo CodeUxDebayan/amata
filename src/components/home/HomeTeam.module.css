@@ -55,6 +55,26 @@
   font-size: 2.2rem;
   margin-bottom: 0.5rem;
   color: var(--c-deep);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.linkedinLink {
+  color: #0077b5;
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.linkedinLink:hover {
+  transform: scale(1.15);
+  color: var(--c-terracotta);
+}
+
+.linkedinIcon {
+  fill: currentColor;
 }
 
 .role {

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import styles from './TimelineJourney.module.css';
 
 const steps = [
@@ -109,7 +110,14 @@ export default function TimelineJourney() {
             <p className={styles.body}>{s.desc}</p>
           </div>
           <div className={styles.stepMedia}>
-            <img src={s.img} loading="lazy" className={styles.paraImg} alt={s.title} />
+            <Image 
+              src={s.img} 
+              alt={s.title} 
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw" 
+              className={styles.paraImg}
+              style={{ objectFit: 'cover' }}
+            />
           </div>
         </div>
       ))}

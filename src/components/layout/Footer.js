@@ -85,9 +85,13 @@ export default function Footer() {
                 <span className={styles.arrow}></span>
               </h4>
               <ul className={styles.dropdownContent}>
-                <li><a href="#" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                <li><a href="#" target="_blank" rel="noopener noreferrer">Twitter</a></li>
-                <li><Link href="/contact">Contact</Link></li>
+                <li><a href="https://www.instagram.com/amata_moroheiya_brew/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                <li><a href="http://facebook.com/profile.php?id=61567325225798" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                <li>
+                  <a href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '91877395787'}`} target="_blank" rel="noopener noreferrer">
+                    WhatsApp: +{process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '91877395787'}
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
