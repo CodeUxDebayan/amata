@@ -120,3 +120,61 @@
   font-weight: 500;
   color: var(--c-terracotta);
 }
+
+.sizeSelectorSection {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sizeLabel {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--c-deep);
+  opacity: 0.7;
+}
+
+.sizeGroup {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.sizeBtn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  border: 1px solid rgba(10, 45, 51, 0.2);
+  background: transparent;
+  color: var(--c-deep);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sizeBtnActive {
+  background: var(--c-deep);
+  color: var(--c-sand);
+  border-color: var(--c-deep);
+}
+
+.sizeBtnDisabled {
+  opacity: 0.4;
+  text-decoration: line-through;
+  cursor: not-allowed;
+  border-style: dashed;
+}
+
+.sizePieces {
+  font-weight: 500;
+}
+
+.sizeStatus {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+

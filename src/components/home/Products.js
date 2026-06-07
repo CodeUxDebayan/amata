@@ -32,9 +32,11 @@ function ProductCard({ product }) {
         <div className={styles.magneticWrap}>
           <button
             className={`amata-btn amata-btn--sand ${styles.addBtn}`}
-            onClick={() => addItem(product)}
+            onClick={() => product.inStock && addItem(product)}
+            disabled={!product.inStock}
+            style={!product.inStock ? { opacity: 0.5, cursor: 'not-allowed' } : {}}
           >
-            Add to Satchel Bag
+            {product.inStock ? 'Add to Satchel Bag' : 'Out of Stock'}
           </button>
         </div>
         <Link href={`/product/${product.slug}`} className={styles.learnLink}>
@@ -145,7 +147,7 @@ export default function Products({ products = [] }) {
       </div>
 
       <div className={styles.grid}>
-        {products.slice(0, 2).map((p) => <ProductCard key={p.id} product={p} />)}
+        {products.slice(0, 4).map((p) => <ProductCard key={p.id} product={p} />)}
       </div>
 
       <div className={styles.viewAllRow}>

@@ -10,6 +10,7 @@ import styles from '../../src/styles/product.module.css';
 export default function ProductPage({ product }) {
   const { addItem, currency, lang } = useCart();
   const [activeImg, setActiveImg] = useState(0);
+  const [selectedSize, setSelectedSize] = useState(24);
   const heroRef = useRef(null);
 
   useEffect(() => {
@@ -29,6 +30,21 @@ export default function ProductPage({ product }) {
   if (!product) return null;
 
   const images = [product.primaryImage, product.hoverImage];
+  const selectedSizeInfo = product.sizes?.find(s => s.pieces === selectedSize) || { price: product.price, inStock: product.inStock };
+  const currentPrice = selectedSizeInfo.price;
+  const isAvailable = selectedSizeInfo.inStock && product.inStock;
+
+  const handleAddToCart = () => {
+    if (!isAvailable) return;
+    addItem({
+      ...product,
+      id: `${product.id}-${selectedSize}`,
+      name: `${product.name} (${selectedSize} pieces)`,
+      price: currentPrice,
+      weight: `${selectedSize * 2}g (${selectedSize} bags x 2g)`,
+      servings: selectedSize
+    });
+  };
 
   const productSchema = {
     "@context": "https://schema.org/",
@@ -44,9 +60,9 @@ export default function ProductPage({ product }) {
       "@type": "Offer",
       "url": `https://amata.in/product/${product.slug}`,
       "priceCurrency": product.currency || "USD",
-      "price": product.price,
+      "price": currentPrice,
       "itemCondition": "https://schema.org/NewCondition",
-      "availability": product.inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"
+      "availability": isAvailable ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"
     }
   };
 
@@ -90,15 +106,36 @@ export default function ProductPage({ product }) {
             {lang === 'JP' && product.nameJp ? product.nameJp : product.name}
           </h1>
           <div className={styles.nameJp}>{lang === 'JP' ? '' : product.nameJp}</div>
-          <div className={styles.price}>{formatPrice(product.price, currency)}</div>
+          <div className={styles.price}>{formatPrice(currentPrice, currency)}</div>
           <p className={styles.desc}>{product.longDescription}</p>
+
+          {/* Size Selector */}
+          <div className={styles.sizeSelectorSection}>
+            <div className={styles.sizeLabel}>Select Size</div>
+            <div className={styles.sizeGroup}>
+              {product.sizes?.map((sz) => (
+                <button
+                  key={sz.pieces}
+                  type="button"
+                  className={`${styles.sizeBtn} ${selectedSize === sz.pieces ? styles.sizeBtnActive : ''} ${!sz.inStock ? styles.sizeBtnDisabled : ''}`}
+                  onClick={() => sz.inStock && setSelectedSize(sz.pieces)}
+                  disabled={!sz.inStock}
+                >
+                  <span className={styles.sizePieces}>{sz.pieces} Pieces</span>
+                  {!sz.inStock && <span className={styles.sizeStatus}>(Unavailable)</span>}
+                </button>
+              ))}
+            </div>
+          </div>
 
           <div className={styles.ctaRow}>
             <button
               className={`amata-btn amata-btn--sand ${styles.addBtn}`}
-              onClick={() => addItem(product)}
+              onClick={handleAddToCart}
+              disabled={!isAvailable}
+              style={!isAvailable ? { opacity: 0.5, cursor: 'not-allowed' } : {}}
             >
-              Add to Satchel Bag
+              {isAvailable ? 'Add to Satchel Bag' : 'Out of Stock'}
             </button>
           </div>
 
@@ -107,7 +144,7 @@ export default function ProductPage({ product }) {
             <DetailBlock title="Ingredients" items={product.ingredients} />
             <DetailBlock title="Benefits" items={product.benefits} />
             <DetailBlock title="Brewing Guide" text={product.brewing} />
-            <DetailBlock title="Weight / Servings" text={`${product.weight} · ${product.servings} servings`} />
+            <DetailBlock title="Weight / Servings" text={`${selectedSize * 2}g (${selectedSize} tea bags) · ${selectedSize} servings`} />
           </div>
         </div>
       </div>

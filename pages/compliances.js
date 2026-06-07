@@ -7,28 +7,28 @@ const certsData = [
     id: 'bqm-organic',
     title: 'BQM - ORGANIC',
     icon: '/images/icon_cert/BQM.png',
-    image: '/images/BQM - ORGANIC.png',
+    image: '/images/certificates/BQM - ORGANIC.png',
     desc: 'Certified Organic compliance verifying that our cultivation, farming, and processing practices follow strict organic agriculture guidelines without chemical interventions.'
   },
   {
     id: 'bqm-haccp',
     title: 'BQM - HACCP',
     icon: '/images/icon_cert/BQM.png',
-    image: '/images/BQM - HACCP.png',
+    image: '/images/certificates/BQM - HACCP.png',
     desc: 'Hazard Analysis Critical Control Point certification assuring the highest standard of food safety controls, monitoring, and quality checkpoints at every production phase.'
   },
   {
     id: 'whogmp',
     title: 'WHOGMP',
     icon: '/images/icon_cert/Screenshot 2026-06-03 220055.png',
-    image: '/images/WHOGMP.png',
+    image: '/images/certificates/WHOGMP.png',
     desc: 'WHO Good Manufacturing Practices certification validating quality consistency and manufacturing protocols to meet stringent international standards.'
   },
   {
     id: 'fssai',
     title: 'FSSAI',
     icon: '/images/icon_cert/FSSAI.png',
-    image: '/images/FSSAI.png',
+    image: '/images/certificates/FSSAI.png',
     desc: 'Food Safety and Standards Authority of India licensing ensuring food purity, hygienic packaging, and adherence to Indian food safety regulations.'
   }
 ];

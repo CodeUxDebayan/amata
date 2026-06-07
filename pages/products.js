@@ -65,9 +65,11 @@ function ProductCard({ product }) {
         <div className={styles.actions}>
           <button
             className={`amata-btn amata-btn--sand ${styles.addBtn}`}
-            onClick={() => addItem(product)}
+            onClick={() => product.inStock && addItem(product)}
+            disabled={!product.inStock}
+            style={!product.inStock ? { opacity: 0.5, cursor: 'not-allowed' } : {}}
           >
-            Add to Satchel Bag
+            {product.inStock ? 'Add to Satchel Bag' : 'Out of Stock'}
           </button>
           <Link href={`/product/${product.slug}`} className={styles.learnLink}>
             Explore &rarr;

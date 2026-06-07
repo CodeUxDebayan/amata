@@ -9,9 +9,8 @@ const products = [
     nameJp: "生姜モロヘイヤ茶",
     price: 378,
     currency: "INR",
-    primaryImage: "/images/1.jpg",
-    hoverImage:
-      "https://images.unsplash.com/photo-1556679343-c7306c1976bc?q=80&w=1528&auto=format&fit=crop",
+    primaryImage: "/images/products/ginger.jpg",
+    hoverImage: "/images/products/ginger.jpg",
     description:
       "A warming blend of hand-picked Moroheiya leaves infused with organic ginger root. Specially designed to balance the gut-brain axis, stimulate digestion, and provide a comforting, spicy finish.",
     longDescription:
@@ -28,12 +27,16 @@ const products = [
       "100% caffeine-free sustainable clean energy",
     ],
     brewing:
-      "Steep 1-2 tsp in 200ml fresh water at 80°C (176°F) for 3-5 minutes. Perfect as a morning warming ritual or an iced summer refresh.",
-    weight: "50g",
-    servings: 25,
+      "Steep 1 tea bag in 200ml fresh water at 80°C (176°F) for 3-5 minutes. Perfect as a morning warming ritual or an iced summer refresh.",
+    weight: "48g (24 bags x 2g)",
+    servings: 24,
     certifications: ["USDA Organic", "JAS Certified", "India Organic"],
     inStock: true,
     featured: true,
+    sizes: [
+      { pieces: 12, inStock: false, price: 210 },
+      { pieces: 24, inStock: true, price: 378 }
+    ]
   },
   {
     id: "elaichi-moroheiya-infusion",
@@ -42,9 +45,8 @@ const products = [
     nameJp: "エライチモロヘイヤ茶",
     price: 378,
     currency: "INR",
-    primaryImage: "/images/2.jpg",
-    hoverImage:
-      "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?q=80&w=1467&auto=format&fit=crop",
+    primaryImage: "/images/products/elaichi.jpg",
+    hoverImage: "/images/products/elaichi.jpg",
     description:
       "Our signature Moroheiya infusion base enhanced with aromatic Kerala green elaichi. A fragrant, soothing brew that fosters gut-brain harmony, balances doshas, and refreshes the senses.",
     longDescription:
@@ -61,78 +63,162 @@ const products = [
       "Rich in natural antioxidants, chlorophyll, and vitamins",
     ],
     brewing:
-      "Steep 1-2 tsp in 200ml hot water at 80°C (176°F) for 4-5 minutes. Exceptional as a grounding evening wind-down ritual.",
-    weight: "50g",
-    servings: 25,
+      "Steep 1 tea bag in 200ml hot water at 80°C (176°F) for 4-5 minutes. Exceptional as a grounding evening wind-down ritual.",
+    weight: "48g (24 bags x 2g)",
+    servings: 24,
     certifications: ["USDA Organic", "JAS Certified", "India Organic"],
     inStock: true,
     featured: true,
+    sizes: [
+      { pieces: 12, inStock: false, price: 210 },
+      { pieces: 24, inStock: true, price: 378 }
+    ]
   },
   {
-    id: "pure-moroheiya-infusion",
-    slug: "pure-moroheiya-infusion",
-    name: "Pure Moroheiya Infusion",
-    nameJp: "プレーンモロヘイヤ茶",
-    price: 18,
-    currency: "USD",
-    primaryImage: "https://images.unsplash.com/photo-1597481499750-3e6b22637e12?q=80&w=1470&auto=format&fit=crop",
-    hoverImage:
-      "https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?q=80&w=1528&auto=format&fit=crop",
+    id: "honey-moroheiya-infusion",
+    slug: "honey-moroheiya-infusion",
+    name: "Honey Moroheiya Infusion",
+    nameJp: "ハニーモロヘイヤ茶",
+    price: 378,
+    currency: "INR",
+    primaryImage: "/images/products/honey.jpg",
+    hoverImage: "/images/products/honey.jpg",
     description:
-      "Our flagship pristine Moroheiya leaf infusion. A highly nutrient-dense, caffeine-free brew showcasing the pure, earthy essence of shade-grown botanicals for deep gut nourishment.",
+      "A naturally sweet, smooth blend combining the earthy depth of Moroheiya leaves with natural honey granules. A soothing remedy to coat and calm the digestive tract.",
     longDescription:
-      "Our Pure Moroheiya Infusion is the ultimate elixir for the gut-brain axis. Made of 100% certified organic Moroheiya leaves, shade-grown in mineral-dense soils and steamed using heritage Japanese techniques. Packed with dietary fibers, prebiotic polysaccharides, and raw antioxidants, this smooth, emerald infusion acts as a daily preventive ritual to strengthen gut barrier integrity and induce deep mental relaxation.",
-    ingredients: [
-      "100% hand-picked organic Moroheiya leaves",
-      "Pure botanical simplicity",
-    ],
-    benefits: [
-      "Maximal delivery of prebiotic polysaccharides",
-      "Strengthens gut barrier & microbiome health",
-      "Induces natural deep rest and stress relief",
-      "Packed with calcium, iron, and vitamins A, B, and C",
-    ],
-    brewing:
-      "Steep 1-2 tsp in 200ml water at 80°C (176°F) for 3 minutes. Perfect as a grounding, daily preventative ritual.",
-    weight: "50g",
-    servings: 25,
-    certifications: ["USDA Organic", "JAS Certified", "India Organic"],
-    inStock: true,
-    featured: false,
-  },
-  {
-    id: "mint-moroheiya-infusion",
-    slug: "mint-moroheiya-infusion",
-    name: "Mint Moroheiya Infusion",
-    nameJp: "薄荷モロヘイヤ茶",
-    price: 20,
-    currency: "USD",
-    primaryImage: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?q=80&w=1440&auto=format&fit=crop",
-    hoverImage:
-      "https://images.unsplash.com/photo-1594631252845-29fc4cc8cfa9?q=80&w=1374&auto=format&fit=crop",
-    description:
-      "A cooling, refreshing blend of Moroheiya leaves and organic peppermint. Ideal for digestive cooling, daytime focus, and clearing mental clutter.",
-    longDescription:
-      "Marrying the prebiotic goodness and earthy depth of Moroheiya with the crisp, refreshing sensation of organic Himalayan peppermint, the Mint Moroheiya Infusion is a restorative tonic. Designed to calm digestive heat (Pitta) and clear mental fog, this caffeine-free blend delivers sustainable vitality and clean focus by reinforcing healthy gut-to-brain vagal signaling.",
+      "Our Honey Moroheiya Infusion is a beautifully balanced blend, combining the earthy, nutrient-rich base of organic Moroheiya leaves with natural, crystallized honey granules. This caffeine-free infusion provides a smooth, gentle sweetness that coats the digestive tract, encouraging healthy gut barrier function. Formulated with prebiotic fibers, it acts as a calming elixir that helps harmonize the stomach and quiet the mind, making it the perfect restorative afternoon or evening ceremony.",
     ingredients: [
       "Hand-picked organic Moroheiya leaves",
-      "Organic peppermint leaves",
-      "Cooling botanical essences",
+      "Natural honey granules",
+      "Sweet botanical extract"
     ],
     benefits: [
-      "Cools digestive tract & balances Pitta excess",
-      "Sustained daytime focus & mental clarity",
-      "Nourishes prebiotic-loving gut flora",
-      "Promotes fresh breath and light stomach comfort",
+      "Soothes and coats the digestive lining",
+      "Delivers gentle, natural sweetness without refined sugar",
+      "Rich in prebiotic polysaccharides for gut health",
+      "Induces a state of calm and mental relaxation"
     ],
     brewing:
-      "Steep 1-2 tsp in 200ml fresh water at 80°C (176°F) for 3-4 minutes. Sensational iced or cold-brewed.",
-    weight: "50g",
-    servings: 25,
+      "Steep 1 tea bag in 200ml fresh water at 80°C (176°F) for 3-4 minutes. Enjoy warm to experience full aromatic sweetness.",
+    weight: "48g (24 bags x 2g)",
+    servings: 24,
     certifications: ["USDA Organic", "JAS Certified", "India Organic"],
-    inStock: true,
-    featured: false,
+    inStock: false,
+    featured: true,
+    sizes: [
+      { pieces: 12, inStock: false, price: 210 },
+      { pieces: 24, inStock: false, price: 378 }
+    ]
   },
+  {
+    id: "citrus-moroheiya-infusion",
+    slug: "citrus-moroheiya-infusion",
+    name: "Citrus Moroheiya Infusion",
+    nameJp: "シトラスモロヘイヤ茶",
+    price: 378,
+    currency: "INR",
+    primaryImage: "/images/products/citrus.jpg",
+    hoverImage: "/images/products/citrus.jpg",
+    description:
+      "A bright, zesty blend of premium Moroheiya leaves infused with organic orange peel and lemon peel. Revitalizes your senses and supports daily detoxification.",
+    longDescription:
+      "Wake up your senses and support your body's natural digestive processes with our Citrus Moroheiya Infusion. We combine organic, shade-grown Moroheiya leaves with sun-dried orange peel, lemon peel, and pure citrus botanical oils. This bright, uplifting blend is rich in vitamin C and active bioflavonoids, boosting gut motility and daily detoxification. 100% caffeine-free, it provides a clean, zesty burst of energy while feeding key prebiotic-loving flora.",
+    ingredients: [
+      "Hand-picked organic Moroheiya leaves",
+      "Organic orange peel",
+      "Organic lemon peel",
+      "Natural citrus oils"
+    ],
+    benefits: [
+      "Supports daily liver detoxification and gut motility",
+      "Rich in protective bioflavonoids and antioxidant Vitamin C",
+      "Uplifts mental energy and focus without caffeine",
+      "Zesty, refreshing flavor profile"
+    ],
+    brewing:
+      "Steep 1 tea bag in 200ml fresh water at 80°C (176°F) for 3-4 minutes. Refreshing both hot and iced.",
+    weight: "48g (24 bags x 2g)",
+    servings: 24,
+    certifications: ["USDA Organic", "JAS Certified", "India Organic"],
+    inStock: false,
+    featured: true,
+    sizes: [
+      { pieces: 12, inStock: false, price: 210 },
+      { pieces: 24, inStock: false, price: 378 }
+    ]
+  },
+  {
+    id: "cinnamon-moroheiya-infusion",
+    slug: "cinnamon-moroheiya-infusion",
+    name: "Cinnamon Moroheiya Infusion",
+    nameJp: "シナモンモロヘイヤ茶",
+    price: 378,
+    currency: "INR",
+    primaryImage: "/images/products/cinnamon.jpg",
+    hoverImage: "/images/products/cinnamon.jpg",
+    description:
+      "A sweet, warming blend of premium Moroheiya leaves and high-grade organic cinnamon bark. A comforting tea that helps regulate metabolic health and supports digestion.",
+    longDescription:
+      "A comforting and earthy blend, our Cinnamon Moroheiya Infusion pairs the nutrient-dense profile of Moroheiya with premium, sweet organic cinnamon bark (Ceylon type). Renowned in Ayurveda for stimulating the digestive fire (Agni) and helping regulate metabolic function and blood sugar levels. Highly rich in prebiotic polysaccharides, it coats the stomach, relieves bloating, and serves as a warming, caffeine-free wellness ritual for any time of day.",
+    ingredients: [
+      "Hand-picked organic Moroheiya leaves",
+      "Organic cinnamon bark pieces",
+      "Natural spice extract"
+    ],
+    benefits: [
+      "Supports healthy metabolic function and insulin sensitivity",
+      "Stimulates digestive fire (Agni) and reduces system bloating",
+      "Delivers high prebiotic fibers to nourish beneficial bacteria",
+      "Warming, naturally sweet spice profile"
+    ],
+    brewing:
+      "Steep 1 tea bag in 200ml hot water at 80°C (176°F) for 4 minutes. A wonderful post-meal digestif.",
+    weight: "48g (24 bags x 2g)",
+    servings: 24,
+    certifications: ["USDA Organic", "JAS Certified", "India Organic"],
+    inStock: false,
+    featured: false,
+    sizes: [
+      { pieces: 12, inStock: false, price: 210 },
+      { pieces: 24, inStock: false, price: 378 }
+    ]
+  },
+  {
+    id: "lemongrass-moroheiya-infusion",
+    slug: "lemongrass-moroheiya-infusion",
+    name: "Lemongrass Moroheiya Infusion",
+    nameJp: "レモングラスモロヘイヤ茶",
+    price: 378,
+    currency: "INR",
+    primaryImage: "/images/products/lemongrass.jpg",
+    hoverImage: "/images/products/lemongrass.jpg",
+    description:
+      "A citrusy, refreshing blend of nutrient-dense Moroheiya leaves and organic cut lemongrass. Perfect for cooling down, boosting immunity, and uplifting your mood.",
+    longDescription:
+      "Indulge in a crisp, refreshing cup of Lemongrass Moroheiya Infusion. Combining the prebiotic-rich base of Moroheiya with high-grade organic cut lemongrass, this infusion delivers a citrusy, aromatic escape that helps cool down excess Pitta (heat) in the body and mind. It supports immune defenses, improves digestive ease, and provides a clear, calm headspace without caffeine.",
+    ingredients: [
+      "Hand-picked organic Moroheiya leaves",
+      "Organic cut lemongrass",
+      "Fresh botanical essences"
+    ],
+    benefits: [
+      "Cools the digestive tract and supports immune health",
+      "Relieves daily stress and clears mental clutter",
+      "Feeds prebiotic-loving gut flora for overall well-being",
+      "Clean, bright citrus notes"
+    ],
+    brewing:
+      "Steep 1 tea bag in 200ml hot water at 80°C (176°F) for 3-5 minutes. Excellent served hot or over ice on a warm day.",
+    weight: "48g (24 bags x 2g)",
+    servings: 24,
+    certifications: ["USDA Organic", "JAS Certified", "India Organic"],
+    inStock: false,
+    featured: false,
+    sizes: [
+      { pieces: 12, inStock: false, price: 210 },
+      { pieces: 24, inStock: false, price: 378 }
+    ]
+  }
 ];
 
 export default products;
