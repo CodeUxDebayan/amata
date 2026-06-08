@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import ArticleModal from './ArticleModal';
-import blogsData from '../../../BlogsData.json';
+import blogsData from '../../data/blogs';
 import styles from './JournalCarousel.module.css';
 
 const articles = (blogsData.blogs || []).map((blog, index) => {
