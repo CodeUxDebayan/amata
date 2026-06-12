@@ -46,15 +46,15 @@ const faqData = {
     },
     {
       q: "Are your products organic?",
-      a: "Yes. All Amata products are certified organic under USDA, JAS (Japan), and India Organic standards. We use zero pesticides, zero synthetic fertilisers, and practice regenerative agriculture.",
+      a: "BMQ certified + Zero pesticide, No farmentation, Zero synthetic fertilizer, completely natural.",
     },
     {
-      q: "What's in the Ginger Jute Tea?",
-      a: "Hand-picked Moroheiya leaves, organic ginger root, and a touch of natural citrus peel. Nothing artificial — ever.",
+      q: "What's in the Ginger Jute Infusion?",
+      a: "Hand-picked Moroheiya (Jute) leaves, organic ginger root, and a touch of natural citrus peel. Nothing artificial — ever.",
     },
     {
-      q: "What's in the Elaichi Jute Tea?",
-      a: "Our signature Moroheiya base enhanced with aromatic green elaichi (Elaichi) pods from Kerala. The blend balances digestive fire while refreshing the senses.",
+      q: "What's in the Elaichi Jute Infusion?",
+      a: "Our signature Moroheiya Jute base enhanced with aromatic green elaichi (Elaichi) pods from Kerala. The blend balances digestive fire while refreshing the senses.",
     },
   ],
   shipping: [

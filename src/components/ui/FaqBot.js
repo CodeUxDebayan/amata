@@ -90,7 +90,7 @@ export default function FaqBot() {
   useEffect(() => {
     if (open && messages.length === 0) {
       setMessages([
-        { type: 'bot', text: 'Namaste 🙏 I\'m Amata\'s tea guide. What would you like to know?' },
+        { type: 'bot', text: 'Namaste 🙏 I\'m Amata\'s Brewer Master Guide. What would you like to know?' },
       ]);
     }
   }, [open]);
@@ -155,7 +155,7 @@ export default function FaqBot() {
         <div className={styles.header}>
           <div className={styles.headerAvatar}>A</div>
           <div>
-            <div className={styles.headerName}>Amata Guide</div>
+            <div className={styles.headerName}>Brewer Master Guide</div>
             <div className={styles.headerStatus}>
               <span className={styles.statusDot} />
               Online · 茶の案内

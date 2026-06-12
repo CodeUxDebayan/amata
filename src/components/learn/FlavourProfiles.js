@@ -36,7 +36,55 @@ const blends = [
     notes: ['Floral', 'Aromatic', 'Cooling', 'Bittersweet'],
     wheel: ['🌸 Green cardamom', '🌺 Floral musk', '🍃 Herbal green', '✨ Sweet finish'],
     brew: { temp: '78°C', time: '3–4 min', ratio: '1.5 tsp / 200ml' },
-    desc: 'Green Elaichi (cardamom) pods from Kerala\'s Cardamom Hills marry the prebiotic Moroheiya base with an aromatic complexity that cools the mind and settles the stomach. The perfect evening companion.',
+    desc: 'Green Elaichi (cardamom) pods from Kerala\'s Cardamom Hills marry the prebiotic Moroheiya Jute Leaves base with an aromatic complexity that cools the mind and settles the stomach. The perfect evening companion.',
+  },
+  {
+    id: 'honey',
+    name: 'Honey',
+    nameJp: 'ハニー',
+    tagline: 'Sweet Comfort',
+    color: '#b38b36',
+    bg: '#fdfbf6',
+    notes: ['Sweet', 'Smooth', 'Coating', 'Soothing'],
+    wheel: ['🍯 Natural nectar', '🌼 Meadow sweet', '🍃 Earthy core', '✨ Golden finish'],
+    brew: { temp: '80°C', time: '3–4 min', ratio: '2 tsp / 200ml' },
+    desc: 'A naturally sweet, smooth blend combining the earthy depth of Moroheiya Jute Leaves with natural honey granules. A soothing remedy to coat and calm the digestive tract.',
+  },
+  {
+    id: 'citrus',
+    name: 'Citrus',
+    nameJp: 'シトラス',
+    tagline: 'Bright & Zesty',
+    color: '#c57e2a',
+    bg: '#fef9f2',
+    notes: ['Zesty', 'Bright', 'Refreshing', 'Clean'],
+    wheel: ['🍋 Lemon peel', '🍊 Orange burst', '🌿 Fresh herb', '✨ Crisp finish'],
+    brew: { temp: '80°C', time: '3–4 min', ratio: '2 tsp / 200ml' },
+    desc: 'A bright, zesty blend of premium Moroheiya Jute Leaves infused with organic orange peel and lemon peel. Revitalizes your senses and supports daily detoxification.',
+  },
+  {
+    id: 'cinnamon',
+    name: 'Cinnamon',
+    nameJp: 'シナモン',
+    tagline: 'Warming Spice',
+    color: '#965b3c',
+    bg: '#f9f5f3',
+    notes: ['Warming', 'Sweet spice', 'Comforting', 'Rich'],
+    wheel: ['🪵 Cinnamon bark', '🍂 Autumn spice', '🍃 Deep earth', '✨ Lingering sweet'],
+    brew: { temp: '80°C', time: '4 min', ratio: '2 tsp / 200ml' },
+    desc: 'A sweet, warming blend of premium Moroheiya Jute Leaves and high-grade organic cinnamon bark. A comforting tea that helps regulate metabolic health and supports digestion.',
+  },
+  {
+    id: 'lemongrass',
+    name: 'Lemongrass',
+    nameJp: 'レモングラス',
+    tagline: 'Cooling Refresh',
+    color: '#6b8e23',
+    bg: '#f5f8f1',
+    notes: ['Citrusy', 'Crisp', 'Cooling', 'Uplifting'],
+    wheel: ['🌱 Lemon grass', '🍃 Cool herb', '💧 Fresh dew', '✨ Light finish'],
+    brew: { temp: '80°C', time: '3–5 min', ratio: '2 tsp / 200ml' },
+    desc: 'A citrusy, refreshing blend of nutrient-dense Moroheiya Jute Leaves and organic cut lemongrass. Perfect for cooling down, boosting immunity, and uplifting your mood.',
   },
 ];
 
@@ -75,7 +123,7 @@ export default function FlavourProfiles() {
       <div className={styles.header}>
         <p className={styles.eyebrow}>Flavour Profiles · 風味プロファイル</p>
         <h2 className={`serif ${styles.title}`}>
-          Three Blends,<br /><em>One Philosophy</em>
+          Different Blends,<br /><em>One Philosophy</em>
         </h2>
       </div>
 

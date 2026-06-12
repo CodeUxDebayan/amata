@@ -1,39 +1,52 @@
-// Razorpay order creation placeholder — see integrations.md for full implementation
-
-import { createOrder } from '../../../src/lib/firestore';
+import Razorpay from 'razorpay';
+import { adminDb } from '../../../src/lib/firebase-admin';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
 
-  const { amount, items, address } = req.body;
+  const { amount, items, address, uid } = req.body;
 
   if (!amount || !items?.length || !address) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
-  // --- Razorpay integration goes here (see integrations.md) ---
-  // const Razorpay = require('razorpay');
-  // const rzp = new Razorpay({
-  //   key_id: process.env.RAZORPAY_KEY_ID,
-  //   key_secret: process.env.RAZORPAY_KEY_SECRET,
-  // });
-  // const rzpOrder = await rzp.orders.create({
-  //   amount: Math.round(amount * 100), // paise
-  //   currency: 'INR',
-  //   receipt: `receipt_${Date.now()}`,
-  // });
+  const isProd = process.env.NEXT_PUBLIC_PRODUCTION === 'TRUE';
+  const key_id = isProd ? process.env.RAZORPAY_PROD_KEY_ID : process.env.RAZORPAY_TEST_KEY_ID;
+  const key_secret = isProd ? process.env.RAZORPAY_PROD_KEY_SECRET : process.env.RAZORPAY_TEST_KEY_SECRET;
 
-  // Placeholder Firestore order record
+  if (!key_id || !key_secret) {
+    return res.status(500).json({ error: 'Razorpay keys are not configured properly' });
+  }
+
+  const rzp = new Razorpay({ key_id, key_secret });
+
   try {
-    const orderId = await createOrder({
+    const rzpOrder = await rzp.orders.create({
+      amount: Math.round(amount * 100), // convert to paise
+      currency: 'INR',
+      receipt: `receipt_${Date.now()}`,
+    });
+
+    const orderData = {
+      uid: uid || 'guest',
       amount,
       items,
       address,
       status: 'pending',
       createdAt: new Date().toISOString(),
-      // razorpayOrderId: rzpOrder.id,
+      razorpayOrderId: rzpOrder.id,
+    };
+
+    const orderRef = await adminDb.collection('orders').add(orderData);
+
+    return res.status(200).json({ 
+      success: true, 
+      orderId: orderRef.id, 
+      razorpayOrderId: rzpOrder.id,
+      amount: rzpOrder.amount,
+      currency: rzpOrder.currency,
+      key_id
     });
-    return res.status(200).json({ success: true, orderId });
   } catch (err) {
     console.error('[create-order]', err);
     return res.status(500).json({ error: 'Failed to create order' });

@@ -2,7 +2,6 @@ import Head from 'next/head';
 import Nav from './Nav';
 import Footer from './Footer';
 import CartModal from '../cart/CartModal';
-import Cursor from '../ui/Cursor';
 import Noise from '../ui/Noise';
 import BgmToggle from '../ui/BgmToggle';
 import WhatsAppButton from '../ui/WhatsAppButton';
@@ -43,7 +42,6 @@ export default function Layout({
         {canonical && <link rel="canonical" href={canonical} />}
       </Head>
 
-      <Cursor />
       <Noise />
       <BgmToggle />
       <Nav theme={navTheme} />

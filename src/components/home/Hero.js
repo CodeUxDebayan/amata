@@ -37,7 +37,6 @@ export default function Hero() {
       gsap.registerPlugin(ScrollTrigger);
 
       ctx = gsap.context(() => {
-        // Hero scroll-out
         gsap.to(`.${styles.left}`, {
           opacity: 0, y: -40,
           scrollTrigger: {
@@ -45,6 +44,12 @@ export default function Hero() {
             start: '20% top', end: 'bottom 20%', scrub: true,
           },
         });
+        
+        // Hero title fade up
+        gsap.fromTo(titleRef.current,
+          { opacity: 0, y: 40 },
+          { opacity: 1, y: 0, duration: 1.5, ease: 'power3.out', delay: 0.2 }
+        );
         
         // No right image mask to animate anymore
       }, sectionRef);
@@ -70,14 +75,14 @@ export default function Hero() {
         <div className={styles.subtitleJp}>
           Pesticide-Free &bull; No Preservatives &bull; Pure by Nature
         </div>
-        <h1 ref={titleRef} className={`${styles.title} serif split-text breeze-text`}>
-          Moroheiya<br />Infusion
+        <h1 ref={titleRef} className={`${styles.title} serif`}>
+          Moroheiya (Jute Leaves)<br />Infusion
         </h1>
         <div className={styles.meta}>
           Master the Gut Brain Axis Naturally
         </div>
         <div style={{ marginTop: '3rem' }}>
-          <Link href="#products" className="amata-btn amata-btn--glass">Discover the Ritual</Link>
+          <Link href="#products" className="amata-btn amata-btn--glass">Explore all Moroheiya /Jute tea blends</Link>
         </div>
       </div>
     </section>
