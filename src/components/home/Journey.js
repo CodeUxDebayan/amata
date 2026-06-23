@@ -2,10 +2,10 @@ import { useEffect, useRef } from 'react';
 import styles from './Journey.module.css';
 
 const steps = [
-  { id: 'step01', num: '01', text: 'Cultivation', sub: 'Bengal Deltas',        jp: '栽培 · कृषि', video: '/videos/cultivation_icon.mp4' },
-  { id: 'step02', num: '02', text: 'Harvest',     sub: 'Hand-picked at dawn',  jp: '収穫 · लवन', video: '/videos/harvest_icon.mp4' },
-  { id: 'step03', num: '03', text: 'Refinement',  sub: 'Japanese Steaming',    jp: '精製 · संस्कार', video: '/videos/refinement_icon.mp4' },
-  { id: 'step04', num: '04', text: 'The Ritual',  sub: 'In your cup',          jp: '茶道 · यज्ञ', video: '/videos/ritual_icon.mp4' },
+  { id: 'step01', num: '01', text: 'Cultivation', sub: 'Bengal Deltas',        jp: '栽培 · कृषि', image: '/images/journey_icons/cultivation.png' },
+  { id: 'step02', num: '02', text: 'Harvest',     sub: 'Hand-picked at dawn',  jp: '収穫 · लवन', image: '/images/journey_icons/harvest.png' },
+  { id: 'step03', num: '03', text: 'Refinement',  sub: 'Japanese Steaming',    jp: '精製 · संस्कार', image: '/images/journey_icons/refinement.png' },
+  { id: 'step04', num: '04', text: 'The Ritual',  sub: 'In your cup',          jp: '茶道 · यज्ञ', image: '/images/journey_icons/ritual.png' },
 ];
 
 export default function Journey() {
@@ -18,7 +18,6 @@ export default function Journey() {
   useEffect(() => {
     let ctx;
     let active = true;
-    let fallback;
 
     async function init() {
       const { gsap }          = await import('gsap');
@@ -52,7 +51,7 @@ export default function Journey() {
       fillPath.style.strokeDasharray  = len;
       fillPath.style.strokeDashoffset = len;
 
-      const videos = Array.from(document.querySelectorAll(`.${styles.step} video`));
+      const icons = Array.from(document.querySelectorAll(`.${styles.step} .${styles.iconImg}`));
 
       const initTimeline = () => {
         if (!active) return;
@@ -71,33 +70,23 @@ export default function Journey() {
             },
           });
 
-          // 2. Animate step dot active states & video playbacks in sync with the line
-          videos.forEach((video, idx) => {
-            // Force browser play permission attributes
-            video.muted = true;
-            video.playsInline = true;
-            video.setAttribute('muted', '');
-            video.setAttribute('playsinline', '');
-            video.pause();
-
-            // The first video starts scrubbing when the whole section enters view,
-            // giving it more space and time to register. Subsequent videos start
-            // when the line passes the previous step.
+          // 2. Animate step dot active states & icon fades in sync with the line
+          icons.forEach((icon, idx) => {
             let startTrigger = sectionRef.current;
             let startAlign = isMobile ? 'top 80%' : 'top center';
 
             if (idx > 0) {
-              startTrigger = videos[idx - 1].closest(`.${styles.step}`);
+              startTrigger = icons[idx - 1].closest(`.${styles.step}`);
               startAlign = isMobile ? 'top 80%' : 'center center';
             }
 
-            const currentStep = video.closest(`.${styles.step}`);
+            const currentStep = icon.closest(`.${styles.step}`);
             const endAlign = isMobile ? 'top 80%' : 'center center';
 
-            gsap.fromTo(video,
-              { currentTime: 0 },
+            gsap.fromTo(icon,
+              { opacity: 0 },
               {
-                currentTime: video.duration || 1,
+                opacity: 1,
                 ease: 'none',
                 scrollTrigger: {
                   trigger: startTrigger,
@@ -125,30 +114,8 @@ export default function Journey() {
         ScrollTrigger.refresh();
       };
 
-      // Wait for all video durations to load to ensure frame-accurate scrubbing
-      let loadedCount = 0;
-      if (videos.length === 0) {
-        initTimeline();
-      } else {
-        videos.forEach(v => {
-          if (v.readyState >= 1) {
-            loadedCount++;
-            if (loadedCount === videos.length) initTimeline();
-          } else {
-            v.addEventListener('loadedmetadata', () => {
-              loadedCount++;
-              if (loadedCount === videos.length) initTimeline();
-            });
-          }
-        });
-
-        // Safe fallback in case browser delays loadedmetadata event
-        fallback = setTimeout(() => {
-          if (loadedCount < videos.length) {
-            initTimeline();
-          }
-        }, 800);
-      }
+      // Since images don't require the same metadata loading, initialize timeline immediately
+      initTimeline();
     }
 
     const timer = setTimeout(init, 100);
@@ -156,7 +123,6 @@ export default function Journey() {
     return () => {
       active = false;
       clearTimeout(timer);
-      clearTimeout(fallback);
       ctx?.revert();
     };
   }, []);
@@ -208,15 +174,12 @@ export default function Journey() {
               </div>
             );
 
-            const videoBlock = (
-              <div className={styles.videoContainer}>
-                <video
-                  src={s.video}
-                  className={styles.iconVideo}
-                  muted
-                  playsInline
-                  preload="auto"
-                  controls={false}
+            const imageBlock = (
+              <div className={styles.iconContainer}>
+                <img
+                  src={s.image}
+                  className={styles.iconImg}
+                  alt={s.text}
                 />
               </div>
             );
@@ -225,7 +188,7 @@ export default function Journey() {
               <div key={s.id} className={styles.step} id={s.id}>
                 {/* Left Col */}
                 <div className={styles.leftSide}>
-                  {isEven ? videoBlock : textBlock}
+                  {isEven ? imageBlock : textBlock}
                 </div>
 
                 {/* Middle Col (Timeline dot anchor) */}
@@ -235,7 +198,7 @@ export default function Journey() {
 
                 {/* Right Col */}
                 <div className={styles.rightSide}>
-                  {isEven ? textBlock : videoBlock}
+                  {isEven ? textBlock : imageBlock}
                 </div>
               </div>
             );

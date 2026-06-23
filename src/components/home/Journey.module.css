@@ -125,7 +125,7 @@
   margin-top: 0.5rem;
 }
 
-.videoContainer {
+.iconContainer {
   width: 120px;
   height: 120px;
   border-radius: 50%;
@@ -138,15 +138,15 @@
   box-shadow: 0 10px 30px rgba(10, 45, 51, 0.05);
 }
 
-.leftSide .videoContainer {
+.leftSide .iconContainer {
   margin-right: 2rem;
 }
 
-.rightSide .videoContainer {
+.rightSide .iconContainer {
   margin-left: 2rem;
 }
 
-.iconVideo {
+.iconImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -165,14 +165,14 @@
     grid-template-columns: 1fr 36px 1fr;
     margin-bottom: 8vh;
   }
-  .videoContainer {
+  .iconContainer {
     width: 70px;
     height: 70px;
   }
-  .leftSide .videoContainer {
+  .leftSide .iconContainer {
     margin-right: 0.5rem;
   }
-  .rightSide .videoContainer {
+  .rightSide .iconContainer {
     margin-left: 0.5rem;
   }
   .text {

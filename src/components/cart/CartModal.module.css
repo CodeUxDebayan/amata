@@ -45,7 +45,7 @@
   transition: transform 0.3s;
   padding: 0.5rem;
   opacity: 0.6;
-  cursor: none;
+  cursor: pointer;
 }
 .closeBtn:hover { transform: rotate(90deg); opacity: 1; }
 
@@ -101,7 +101,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: none;
+  cursor: pointer;
   transition: background 0.2s;
   color: var(--c-deep);
 }
@@ -112,7 +112,7 @@
   color: var(--c-deep);
   opacity: 0.4;
   transition: opacity 0.3s;
-  cursor: none;
+  cursor: pointer;
   flex-shrink: 0;
 }
 .removeBtn:hover { opacity: 1; }

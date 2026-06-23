@@ -113,7 +113,7 @@
   opacity: 0;
   animation: word-breathe 5s ease-in-out infinite;
   text-decoration: none;
-  cursor: none;
+  cursor: pointer;
   transition: color 0.3s;
 }
 .word:nth-child(1) { color: var(--c-sand); }

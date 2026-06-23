@@ -1,0 +1,91 @@
+.section {
+  padding: 10vh 4vw;
+  background: var(--c-white);
+  color: var(--c-deep);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--c-terracotta);
+  margin-bottom: 1rem;
+  display: block;
+  text-align: center;
+}
+
+.headline {
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: var(--c-deep);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.intro {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 4rem;
+  text-align: justify;
+}
+
+.pillarsTitle {
+  font-size: 2rem;
+  color: var(--c-matcha);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.pillar h4 {
+  font-size: 1.25rem;
+  color: var(--c-terracotta);
+  margin-bottom: 0.5rem;
+  font-family: var(--font-serif);
+}
+
+.pillar p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.standard {
+  background: var(--c-parchment);
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.standard h3 {
+  font-size: 1.8rem;
+  color: var(--c-deep);
+  margin-bottom: 1rem;
+}
+
+.standard p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.conclusion {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  text-align: center;
+  font-family: var(--font-serif);
+  color: var(--c-deep);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.italic {
+  font-style: italic;
+}

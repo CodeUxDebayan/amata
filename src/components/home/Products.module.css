@@ -54,7 +54,7 @@
   position: relative;
   border-radius: 16px;
   display: block;
-  cursor: none;
+  cursor: pointer;
   box-shadow: 0 10px 40px rgba(10, 45, 51, 0.05);
 }
 .imgPrimary {
@@ -117,7 +117,7 @@
   letter-spacing: 2px;
   opacity: 0.8;
   transition: opacity 0.3s, letter-spacing 0.4s;
-  cursor: none;
+  cursor: pointer;
   color: var(--c-sand);
   font-weight: 500;
 }

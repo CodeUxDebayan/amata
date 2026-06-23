@@ -55,9 +55,7 @@ body {
 }
 
 @media (pointer: fine) {
-  body { cursor: none; }
-  a    { cursor: none; }
-  button { cursor: none; }
+  /* cursor styles removed for default visible cursor */
 }
 
 h1, h2, h3, h4, .serif {

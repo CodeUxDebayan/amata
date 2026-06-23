@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Layout from '../src/components/layout/Layout';
 import LearnHero from '../src/components/learn/LearnHero';
 import ThePlant from '../src/components/learn/ThePlant';
+import AboutAmata from '../src/components/learn/AboutAmata';
 import WhySpecial from '../src/components/learn/WhySpecial';
 import FlavourProfiles from '../src/components/learn/FlavourProfiles';
 import GutBrain from '../src/components/learn/GutBrain';
@@ -33,22 +34,8 @@ export default function LearnPage() {
       if (!active || !pageRef.current) return;
 
       ctx = gsap.context(() => {
-        // Global scroll reveal for all sections that don't already have complex internal triggers
-        // Or to just ensure every top-level section container animates in.
-        const sections = gsap.utils.toArray('section');
-        sections.forEach((sec) => {
-          gsap.fromTo(sec, 
-            { y: 50, opacity: 0 },
-            {
-              y: 0, opacity: 1, duration: 1, ease: 'power3.out',
-              scrollTrigger: {
-                trigger: sec,
-                start: 'top 85%',
-                toggleActions: 'play reverse play reverse',
-              }
-            }
-          );
-        });
+        // Global scroll reveal removed to prevent conflicts with internal section triggers
+        // and scroll height calculation issues.
       }, pageRef);
     }
 
@@ -70,6 +57,9 @@ export default function LearnPage() {
       >
         {/* 1. Cinematic hero: What is Moroheiya? */}
         <LearnHero />
+
+        {/* About Amata Section */}
+        <AboutAmata />
 
         {/* 2. The Plant — botanical story */}
         <ThePlant />

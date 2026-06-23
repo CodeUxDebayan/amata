@@ -40,7 +40,7 @@
   border-radius: 100px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: none;
+  cursor: pointer;
 }
 .soundToggle:hover {
   background: rgba(10, 45, 51, 0.5);

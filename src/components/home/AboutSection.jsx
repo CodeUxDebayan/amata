@@ -136,8 +136,8 @@ export default function AboutSection() {
             Our botanical blends are specifically formulated to nourish prebiotic pathways and <strong>master the gut-brain axis naturally</strong>. By optimizing vagal signaling and microbial diversity, we invite you to experience sustained mental clarity, grounded energy, and physical tranquility.
           </p>
 
-          <Link href="/learn" className={styles.cta}>
-            <span>Our full story</span>
+          <Link href="/learn#about-amata" className={styles.cta}>
+            <span>About Us</span>
             <ArrowRight size={16} weight="bold" />
           </Link>
         </div>

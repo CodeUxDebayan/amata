@@ -17,26 +17,30 @@ const articles = (blogsData.blogs || []).map((blog, index) => {
   // Map tag to image filename in /images/blog_images/
   const tagNormalized = primaryKeyword.trim().toLowerCase();
   
-  let img = '';
+  let img = blog.image || '';
   
-  if (tagNormalized.includes('jute leaf tea vs green tea')) {
-    img = '/images/blog_images/superleaf_infusion.jpeg';
-  } else if (tagNormalized.includes('japanese moroheiya tea ceremony')) {
-    img = '/images/blog_images/japanese_moroheiya_tea_ceremony.jpeg';
-  } else if (tagNormalized.includes('best amata flavours')) {
-    img = 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200&auto=format&fit=crop';
-  } else if (tagNormalized.includes('exotic jute tea blends')) {
-    img = '/images/blog_images/amata_jute_tea_blends.jpeg';
-  } else if (tagNormalized.includes('amata jute tea benefits')) {
-    img = '/images/blog_images/amata_jute_tea_benefits.jpeg';
-  } else if (tagNormalized.includes('functional wellness tea')) {
-    img = '/images/blog_images/functional_wellness_tea.jpeg';
-  } else if (tagNormalized.includes('science-backed health benefits')) {
-    img = '/images/blog_images/science_backed_health_benefits_of_jute_leaf_tea.jpeg';
-  } else if (tagNormalized.includes('sustainability') || tagNormalized.includes('farmer impact')) {
-    img = '/images/blog_images/amata_sustainbility.jpeg';
-  } else {
-    img = '/images/blog_images/amata_jute_tea.jpeg';
+  if (!img) {
+    if (tagNormalized.includes('jute leaf tea vs green tea')) {
+      img = '/images/blog_images/superleaf_infusion.jpeg';
+    } else if (tagNormalized.includes('japanese moroheiya tea ceremony')) {
+      img = '/images/blog_images/japanese_moroheiya_tea_ceremony.jpeg';
+    } else if (tagNormalized.includes('gut-brain')) {
+      img = '/images/blog_images/gut-brain.png';
+    } else if (tagNormalized.includes('best amata flavours')) {
+      img = 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200&auto=format&fit=crop';
+    } else if (tagNormalized.includes('exotic jute tea blends')) {
+      img = '/images/blog_images/amata_jute_tea_blends.jpeg';
+    } else if (tagNormalized.includes('amata jute tea benefits')) {
+      img = '/images/blog_images/amata_jute_tea_benefits.jpeg';
+    } else if (tagNormalized.includes('functional wellness tea')) {
+      img = '/images/blog_images/functional_wellness_tea.jpeg';
+    } else if (tagNormalized.includes('science-backed health benefits')) {
+      img = '/images/blog_images/science_backed_health_benefits_of_jute_leaf_tea.jpeg';
+    } else if (tagNormalized.includes('sustainability') || tagNormalized.includes('farmer impact')) {
+      img = '/images/blog_images/amata_sustainbility.jpeg';
+    } else {
+      img = '/images/blog_images/amata_jute_tea.jpeg';
+    }
   }
 
   return {

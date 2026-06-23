@@ -69,6 +69,7 @@ export default
     },
     {
       "id": "blog-05",
+      "image": "/images/blog_images/gut-brain.png",
       "title": "The Gut-Brain Axis: How AMATA Jute Tea Heals Your Second Brain Naturally ",
       "meta_title": "Gut-Brain Axis Tea | AMATA Jute Tea for Digestive Wellness ",
       "seo_keywords": {

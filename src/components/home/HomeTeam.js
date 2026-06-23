@@ -5,17 +5,35 @@ import styles from './HomeTeam.module.css';
 
 const members = [
   { 
-    img: '/images/team/niloy.jpg', 
-    name: 'Niloy Guha Roy', 
-    role: 'Co-Founder · Visionary', 
+    img: '/images/team/Mr. Nilay Guha Roy, CEO.jpeg', 
+    name: 'Mr. Nilay Guha Roy', 
+    role: 'CEO', 
     linkedin: 'https://www.linkedin.com/in/nilay-guha-roy-603817311/' 
   },
   { 
-    img: '/images/team/roman.jpg', 
-    name: 'Roman Nath',     
-    role: 'Co-Founder · Alchemist', 
+    img: '/images/team/Mr. Roman Nath, CFO.jpeg', 
+    name: 'Mr. Roman Nath',     
+    role: 'CFO', 
     linkedin: 'https://www.linkedin.com/in/roman-nath-22b459408/' 
   },
+  { 
+    img: '/images/team/Dr. Abhipriya Chatterjee, CMO, QC, R&D Head.jpeg', 
+    name: 'Dr. Abhipriya Chatterjee',     
+    role: 'CMO, QC, R&D Head',
+    linkedin: null
+  },
+  { 
+    img: '/images/team/Mr. Tapan Nath, COO.jpeg', 
+    name: 'Mr. Tapan Nath',     
+    role: 'COO',
+    linkedin: null
+  },
+  { 
+    img: '/images/team/Mrs. Barnali Nath, CIO.jpeg', 
+    name: 'Mrs. Barnali Nath',     
+    role: 'CIO',
+    linkedin: null
+  }
 ];
 
 export default function HomeTeam() {

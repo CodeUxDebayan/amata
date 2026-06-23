@@ -135,7 +135,7 @@ export default function Products({ products = [] }) {
         <line x1="338" y1="62"  x2="62"  y2="338" stroke="#b8693a" strokeWidth=".3" opacity=".5" />
       </svg>
 
-      <h2 className={`serif ${styles.sectionTitle} split-text`}>Our Moroheiya Jute Leaf Collections</h2>
+      <h2 className={`serif ${styles.sectionTitle} split-text`}>Assorted Infusions</h2>
 
       <div className={styles.availabilityRow}>
         <span>Available on</span>
