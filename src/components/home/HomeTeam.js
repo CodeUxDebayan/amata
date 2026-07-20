@@ -33,6 +33,12 @@ const members = [
     name: 'Mrs. Barnali Nath',     
     role: 'CIO',
     linkedin: null
+  },
+  { 
+    img: '/images/team/Ms. Kanika Bose, BDM.jpeg', 
+    name: 'Ms. Kanika Bose',     
+    role: 'BDM',
+    linkedin: null
   }
 ];
 
