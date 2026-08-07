@@ -30,7 +30,7 @@ const products = [
       "Steep 1 tea bag in 200ml fresh water at 80°C (176°F) for 3-5 minutes. Perfect as a morning warming ritual or an iced summer refresh.",
     weight: "48g (24 bags x 2g)",
     servings: 24,
-    certifications: ["USDA Organic", "JAS Certified", "India Organic"],
+    certifications: ["BMQ Organic certified", "JAS Certified", "India Organic"],
     inStock: true,
     featured: true,
     sizes: [
@@ -66,7 +66,7 @@ const products = [
       "Steep 1 tea bag in 200ml hot water at 80°C (176°F) for 4-5 minutes. Exceptional as a grounding evening wind-down ritual.",
     weight: "48g (24 bags x 2g)",
     servings: 24,
-    certifications: ["USDA Organic", "JAS Certified", "India Organic"],
+    certifications: ["BMQ Organic certified", "JAS Certified", "India Organic"],
     inStock: true,
     featured: true,
     sizes: [
@@ -102,7 +102,7 @@ const products = [
       "Steep 1 tea bag in 200ml fresh water at 80°C (176°F) for 3-4 minutes. Enjoy warm to experience full aromatic sweetness.",
     weight: "48g (24 bags x 2g)",
     servings: 24,
-    certifications: ["USDA Organic", "JAS Certified", "India Organic"],
+    certifications: ["BMQ Organic certified", "JAS Certified", "India Organic"],
     inStock: false,
     featured: true,
     sizes: [
@@ -139,7 +139,7 @@ const products = [
       "Steep 1 tea bag in 200ml fresh water at 80°C (176°F) for 3-4 minutes. Refreshing both hot and iced.",
     weight: "48g (24 bags x 2g)",
     servings: 24,
-    certifications: ["USDA Organic", "JAS Certified", "India Organic"],
+    certifications: ["BMQ Organic certified", "JAS Certified", "India Organic"],
     inStock: false,
     featured: true,
     sizes: [
@@ -175,7 +175,7 @@ const products = [
       "Steep 1 tea bag in 200ml hot water at 80°C (176°F) for 4 minutes. A wonderful post-meal digestif.",
     weight: "48g (24 bags x 2g)",
     servings: 24,
-    certifications: ["USDA Organic", "JAS Certified", "India Organic"],
+    certifications: ["BMQ Organic certified", "JAS Certified", "India Organic"],
     inStock: false,
     featured: false,
     sizes: [
@@ -211,7 +211,7 @@ const products = [
       "Steep 1 tea bag in 200ml hot water at 80°C (176°F) for 3-5 minutes. Excellent served hot or over ice on a warm day.",
     weight: "48g (24 bags x 2g)",
     servings: 24,
-    certifications: ["USDA Organic", "JAS Certified", "India Organic"],
+    certifications: ["BMQ Organic certified", "JAS Certified", "India Organic"],
     inStock: false,
     featured: false,
     sizes: [

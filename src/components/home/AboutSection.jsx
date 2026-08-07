@@ -6,7 +6,7 @@ import styles from './AboutSection.module.css';
 
 const stats = [
   { value: 4800, suffix: '+', label: 'Rituals adopted', sub: 'Across India & Japan' },
-  { value: 100,  suffix: '%', label: 'Certified organic', sub: 'USDA · JAS · India Organic' },
+  { value: 100,  suffix: '%', label: 'Pesticide free', sub: 'Preservative free · Natural · BQM Organic certified' },
   { value: 3,    suffix: '×', label: 'Prebiotic fibre', sub: 'vs. leading green teas' },
 ];
 

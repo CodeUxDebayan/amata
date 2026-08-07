@@ -5,13 +5,16 @@ This document contains instructions for updating, adding, and managing the blogs
 ## How to Manage Blogs
 
 ### 1. File Location
+
 All blog data is stored in the following files:
+
 * **Primary JavaScript file**: `g:/Code/CLIENTS/Amata/amata-in/src/data/blogs.js`
 * **JSON Backup file**: `g:/Code/CLIENTS/Amata/amata-in/BlogsData.json`
 
 Both files should be kept in sync so that any utility scripts or potential future features reading the JSON directly will have matching content.
 
 ### 2. Adding a New Blog Post
+
 To add a new blog post, insert a new object into the `blogs` array in `src/data/blogs.js` (and `BlogsData.json`). Here is the expected structure of a blog object:
 
 ```json
@@ -32,7 +35,8 @@ To add a new blog post, insert a new object into the `blogs` array in `src/data/
 }
 ```
 
-#### Fields Reference:
+#### Fields Reference
+
 * `id` *(string)*: Unique identifier (e.g., `blog-10`).
 * `title` *(string)*: The title of the article displayed on the card and in the modal.
 * `seo_keywords` *(object)*: Contains a `primary_keyword` and a list of `secondary_keywords` used by the app to dynamically color tags and assist search visibility.

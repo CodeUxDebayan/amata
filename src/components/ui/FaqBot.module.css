@@ -169,6 +169,7 @@
 .messages {
   flex: 1;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   padding: 1.2rem;
   display: flex;
   flex-direction: column;
@@ -298,6 +299,7 @@
   border-top: 1px solid rgba(10,45,51,0.06);
   max-height: 180px;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   flex-shrink: 0;
   scrollbar-width: thin;
 }

@@ -118,7 +118,7 @@ export default function Philosophy() {
           Harmonizing the <strong>Gut-Brain Axis</strong> through the ritualistic consumption of organic, nutrient-dense botanicals.
         </p>
         <div style={{ marginTop: '2.5rem' }}>
-          <Link href="/learn" className="amata-btn amata-btn--sand">
+          <Link href="/learn#about-amata" className="amata-btn amata-btn--sand">
             Know Our Journey →
           </Link>
         </div>
@@ -133,7 +133,7 @@ export default function Philosophy() {
           as if it will never<br />
           come again."
         </blockquote>
-        <div className={styles.attr}>— The Way of Tea · 茶道 · Chado</div>
+        <div className={styles.attr}>— The Way of Wellness · 茶道 · Chado</div>
       </div>
 
       <PhiloMandala elementRef={mandalaRef} />

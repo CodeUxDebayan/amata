@@ -20,11 +20,11 @@ const faqData = {
   health: [
     {
       q: "What are the gut health benefits?",
-      a: "Moroheiya is rich in prebiotic polysaccharides that feed beneficial gut bacteria. This supports microbiome diversity, reduces bloating, enhances nutrient absorption, and strengthens the gut-brain axis via the vagus nerve.",
+      a: "Moroheiya is rich in soluble fibre and prebiotic polysaccharides that feed beneficial gut bacteria. This supports microbiome diversity, reduces bloating, enhances nutrient absorption, and strengthens the gut-brain axis via the vagus nerve.",
     },
     {
       q: "Will it help with sleep?",
-      a: "Yes. The short-chain fatty acids produced during digestion of Moroheiya's prebiotic fiber send calming signals to the brain via the vagus nerve, facilitating deeper REM sleep cycles.",
+      a: "Yes. It is rich in magnesium. The short-chain fatty acids produced during digestion of Moroheiya's prebiotic fiber send calming signals to the brain via the vagus nerve, facilitating deeper REM sleep cycles.",
     },
     {
       q: "Is it safe during pregnancy?",
@@ -32,11 +32,11 @@ const faqData = {
     },
     {
       q: "Does it contain caffeine?",
-      a: "No. Amata Moroheiya tea is completely caffeine-free, making it perfect for evening consumption and those sensitive to stimulants.",
+      a: "No. Amata Moroheiya Infusion is completely caffeine-free, making it perfect for evening consumption and those sensitive to stimulants.",
     },
     {
       q: "Can children drink it?",
-      a: "Yes, Moroheiya tea is gentle and caffeine-free. For children under 12, we suggest half the adult serving size. Its natural vitamins A, C, and E make it a nourishing choice for young ones.",
+      a: "Yes, Moroheiya Infusion is gentle and caffeine-free. For children under 12, we suggest half the adult serving size. Its natural vitamins A, C, and E make it a nourishing choice for young ones.",
     },
   ],
   ingredients: [
@@ -46,7 +46,7 @@ const faqData = {
     },
     {
       q: "Are your products organic?",
-      a: "BMQ certified + Zero pesticide, No farmentation, Zero synthetic fertilizer, completely natural.",
+      a: "BMQ Organic certified + Zero pesticide, No fermentation, Zero synthetic fertilizer, completely natural.",
     },
     {
       q: "What's in the Ginger Jute Infusion?",
@@ -60,15 +60,15 @@ const faqData = {
   shipping: [
     {
       q: "Where do you ship?",
-      a: "We currently ship across India, Japan, and select regions in North America and Europe. We're expanding to more regions every quarter.",
+      a: "We currently ship across India.",
     },
     {
       q: "How long does delivery take?",
-      a: "Domestic orders (India & Japan) arrive within 3-5 business days. International orders typically take 7-14 business days. All orders include tracking.",
+      a: "Orders arrive within 3-5 business days. All orders include tracking.",
     },
     {
       q: "What is your return policy?",
-      a: "If you're not satisfied with your Amata experience, contact us within 14 days of delivery. We offer full refunds or exchanges on unopened products.",
+      a: "No return and refund.",
     },
     {
       q: "Is the packaging eco-friendly?",

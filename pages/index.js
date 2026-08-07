@@ -64,7 +64,7 @@ export default function Home() {
         "name": "Are your products organic?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. All Amata products are certified organic under USDA, JAS (Japan), and India Organic standards. We use zero pesticides, zero synthetic fertilisers, and practice regenerative agriculture."
+          "text": "Yes. All Amata products are BMQ Organic certified, JAS (Japan), and India Organic standards. We use zero pesticides, zero synthetic fertilisers, and practice regenerative agriculture."
         }
       }
     ]

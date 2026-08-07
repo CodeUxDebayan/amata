@@ -33,11 +33,6 @@ export default function Nav({ theme = 'auto' }) {
         {/* Desktop links */}
         <div className={styles.links}>
           <div className={styles.controls}>
-            <select className={styles.switcher} value={currency} onChange={(e) => setCurrency(e.target.value)} aria-label="Currency">
-              <option value="USD">USD $</option>
-              <option value="INR">INR ₹</option>
-              <option value="YEN">YEN ¥</option>
-            </select>
             <select className={styles.switcher} value={lang} onChange={(e) => setLang(e.target.value)} aria-label="Language">
               <option value="EN">EN</option>
               <option value="JP">JP</option>

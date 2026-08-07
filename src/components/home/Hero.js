@@ -82,7 +82,7 @@ export default function Hero() {
           Master the Gut Brain Axis Naturally
         </div>
         <div style={{ marginTop: '3rem' }}>
-          <Link href="#products" className="amata-btn amata-btn--glass">Explore all Moroheiya /Jute tea blends</Link>
+          <Link href="#products" className="amata-btn amata-btn--glass">Explore all Moroheiya / Jute infusion blends</Link>
         </div>
       </div>
     </section>

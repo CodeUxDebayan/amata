@@ -3,16 +3,6 @@ import { createContext, useContext, useState, useEffect, useCallback } from 'rea
 const CartContext = createContext(null);
 
 export function formatPrice(priceInINR, targetCurrency) {
-  if (targetCurrency === 'USD') {
-    // 1 USD = 84 INR
-    const usdPrice = (priceInINR / 84).toFixed(2);
-    return `$${usdPrice}`;
-  }
-  if (targetCurrency === 'YEN') {
-    // 1 INR = 1.85 JPY
-    const yenPrice = Math.round(priceInINR * 1.85);
-    return `¥${yenPrice}`;
-  }
   return `₹${priceInINR}`;
 }
 

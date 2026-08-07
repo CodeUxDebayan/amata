@@ -92,6 +92,11 @@ export default function Footer() {
                     WhatsApp: +{process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '91877395787'}
                   </a>
                 </li>
+                <li>
+                  <a href="mailto:contact@amatajutetea.com" target="_blank" rel="noopener noreferrer">
+                    Email: contact@amatajutetea.com
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
