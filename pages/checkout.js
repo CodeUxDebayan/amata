@@ -286,8 +286,6 @@ export default function CheckoutPage() {
                   <label>Country</label>
                   <select name="country" value={form.country} onChange={handleFormChange} required className={styles.input}>
                     <option value="India">India</option>
-                    <option value="United States">United States</option>
-                    <option value="Japan">Japan</option>
                   </select>
                 </div>
                 <div className={styles.field} style={{ maxWidth: '120px' }}>
