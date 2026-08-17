@@ -150,7 +150,7 @@ export default function FaqBot() {
       </button>
 
       {/* Panel */}
-      <div className={`${styles.panel} ${open ? styles.panelOpen : ''}`} role="dialog" aria-label="Amata FAQ Assistant" aria-hidden={!open}>
+      <div className={`${styles.panel} ${open ? styles.panelOpen : ''}`} role="dialog" aria-label="Amata FAQ Assistant" aria-hidden={!open} data-lenis-prevent>
         {/* Header */}
         <div className={styles.header}>
           <div className={styles.headerAvatar}>A</div>

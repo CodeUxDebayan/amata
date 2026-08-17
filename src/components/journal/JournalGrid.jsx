@@ -57,70 +57,21 @@ const articles = (blogsData.blogs || []).map((blog, index) => {
 });
 
 export default function JournalGrid() {
-  const [modal, setModal] = useState(null);
-
-  const featured = articles.find((a) => a.featured);
-  const rest = articles.filter((a) => !a.featured);
-
   return (
     <section className={styles.section}>
-      <div className={styles.inner}>
-        {/* Featured article */}
-        {featured && (
-          <article
-            className={styles.featured}
-            onClick={() => setModal(featured)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === 'Enter' && setModal(featured)}
-            aria-label={`Read: ${featured.title}`}
-          >
-            <div className={styles.featImg}>
-              <img src={featured.img} alt={featured.title} loading="lazy" className={styles.featImgEl} />
-              <div className={styles.featOverlay} />
-              <div className={styles.featContent}>
-                <span className={styles.tag} style={{ background: featured.tagColor }}>{featured.tag}</span>
-                <h2 className={`serif ${styles.featTitle}`}>{featured.title}</h2>
-                <p className={styles.featExcerpt}>{featured.excerpt}</p>
-                <div className={styles.featMeta}>
-                  <span className={styles.readMore}>Read Entry →</span>
-                  <span className={styles.readTime}>{featured.readTime} read</span>
-                </div>
-              </div>
-            </div>
-          </article>
-        )}
-
-        {/* Grid of smaller cards */}
-        <div className={styles.grid}>
-          {rest.map((article) => (
-            <article
-              key={article.id}
-              className={styles.card}
-              onClick={() => setModal(article)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => e.key === 'Enter' && setModal(article)}
-              aria-label={`Read: ${article.title}`}
-            >
-              <div className={styles.cardImg}>
-                <img src={article.img} alt={article.title} loading="lazy" className={styles.cardImgEl} />
-              </div>
-              <div className={styles.cardBody}>
-                <span className={styles.tag} style={{ background: article.tagColor }}>{article.tag}</span>
-                <h3 className={`serif ${styles.cardTitle}`}>{article.title}</h3>
-                <p className={styles.cardExcerpt}>{article.excerpt}</p>
-                <div className={styles.cardFooter}>
-                  <span className={styles.readMore}>Read Entry →</span>
-                  <span className={styles.readTime}>{article.readTime} read</span>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
+      <div className={styles.comingSoon}>
+        <svg className={styles.comingSoonLeaf} viewBox="0 0 120 200" xmlns="http://www.w3.org/2000/svg">
+          <path d="M60 0 C100 50 110 120 60 200 C10 120 20 50 60 0 Z" fill="var(--c-deep, #0a2d33)" />
+          <path d="M60 40 C80 80 85 130 60 180 C35 130 40 80 60 40 Z" fill="var(--c-sand, #ead39d)" />
+        </svg>
+        <h2 className={`serif ${styles.comingSoonTitle}`}>Coming Soon!</h2>
+        <p className={styles.comingSoonSubtitle}>
+          The tea masters are currently compiling insights, research, and stories on prebiotic wellness, the gut-brain axis, and the art of Corchorus olitorius.
+        </p>
+        <p className={styles.comingSoonJp}>
+          近日公開 · 記事が作成中ですので、しばらくお待ちください
+        </p>
       </div>
-
-      {modal && <ArticleModal article={modal} onClose={() => setModal(null)} />}
     </section>
   );
 }

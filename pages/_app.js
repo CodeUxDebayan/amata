@@ -24,6 +24,7 @@ function SmoothScroll() {
         wheelMultiplier: 0.8,
         smoothWheel: true,
       });
+      window.lenis = lenis;
 
       lenis.on('scroll', () => {
         ScrollTrigger.update();
@@ -38,8 +39,21 @@ function SmoothScroll() {
 
       // Settle layout offsets
       setTimeout(() => {
-        if (isActive) ScrollTrigger.refresh();
+        if (isActive) {
+          ScrollTrigger.refresh();
+          lenis.resize();
+        }
       }, 350);
+
+      // Handle custom fonts loading dynamically
+      if (document.fonts) {
+        document.fonts.ready.then(() => {
+          if (isActive) {
+            ScrollTrigger.refresh();
+            lenis.resize();
+          }
+        });
+      }
     }
 
     init();
@@ -59,6 +73,7 @@ function SmoothScroll() {
       window.removeEventListener('resize', handleSettle);
       if (lenis) {
         lenis.destroy();
+        delete window.lenis;
       }
       if (tickerCallback) {
         import('gsap').then(({ gsap }) => {
@@ -77,6 +92,7 @@ function SmoothScroll() {
       setTimeout(async () => {
         const { ScrollTrigger } = await import('gsap/ScrollTrigger');
         ScrollTrigger.refresh();
+        window.lenis?.resize();
       }, 400);
     };
 

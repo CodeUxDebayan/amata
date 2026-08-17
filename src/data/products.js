@@ -9,8 +9,12 @@ const products = [
     nameJp: "生姜モロヘイヤ茶",
     price: 378,
     currency: "INR",
-    primaryImage: "/images/products/ginger.jpg",
-    hoverImage: "/images/products/ginger.jpg",
+    primaryImage: "/images/products/ginger/ginger.jpg",
+    hoverImage: "/images/products/ginger/WhatsApp Image 2026-08-17 at 8.28.59 PM.jpeg",
+    images: [
+      "/images/products/ginger/ginger.jpg",
+      "/images/products/ginger/WhatsApp Image 2026-08-17 at 8.28.59 PM.jpeg"
+    ],
     description:
       "A warming blend of hand-picked Moroheiya leaves infused with organic ginger root. Specially designed to balance the gut-brain axis, stimulate digestion, and provide a comforting, spicy finish.",
     longDescription:
@@ -45,8 +49,12 @@ const products = [
     nameJp: "エライチモロヘイヤ茶",
     price: 378,
     currency: "INR",
-    primaryImage: "/images/products/elaichi.jpg",
-    hoverImage: "/images/products/elaichi.jpg",
+    primaryImage: "/images/products/elaichi/elaichi.jpg",
+    hoverImage: "/images/products/elaichi/WhatsApp Image 2026-08-17 at 8.28.59 PM.jpeg",
+    images: [
+      "/images/products/elaichi/elaichi.jpg",
+      "/images/products/elaichi/WhatsApp Image 2026-08-17 at 8.28.59 PM.jpeg"
+    ],
     description:
       "Our signature Moroheiya infusion base enhanced with aromatic Kerala green elaichi. A fragrant, soothing brew that fosters gut-brain harmony, balances doshas, and refreshes the senses.",
     longDescription:

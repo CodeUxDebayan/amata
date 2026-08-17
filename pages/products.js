@@ -100,9 +100,9 @@ export default function ProductsPage() {
 
   return (
     <Layout 
-      title="Amata | Prebiotic Moroheiya Infusions Collection"
-      description="Browse the full collection of Amata's organic Moroheiya infusions, including Ginger, Elaichi, Mint, and Pure. Formulated for gut health and mental clarity."
-      canonical="https://amata.in/products"
+      title="Amata | Organic Moroheiya Jute Tea Collection"
+      description="Explore Amata's organic prebiotic Jute Leaf Tea collection, featuring custom Moroheiya blends like Ginger, Elaichi, Honey, and Citrus for gut-brain wellness."
+      canonical="https://amatajutetea.com/products"
     >
       <div ref={pageRef} className={styles.page}>
         <header className={styles.header}>

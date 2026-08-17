@@ -13,6 +13,8 @@ export default function ProductPage({ product }) {
   const [selectedSize, setSelectedSize] = useState(24);
   const heroRef = useRef(null);
 
+  const images = product?.images || (product ? [product.primaryImage, product.hoverImage] : []);
+
   useEffect(() => {
     let ctx;
     async function init() {
@@ -27,9 +29,20 @@ export default function ProductPage({ product }) {
     return () => ctx?.revert();
   }, []);
 
-  if (!product) return null;
+  useEffect(() => {
+    if (!product || images.length <= 1) return;
 
-  const images = [product.primaryImage, product.hoverImage];
+    const isSlideProduct = product.slug?.includes('elaichi') || product.slug?.includes('ginger');
+    if (!isSlideProduct) return;
+
+    const interval = setInterval(() => {
+      setActiveImg((prev) => (prev + 1) % images.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [activeImg, images.length, product]);
+
+  if (!product) return null;
   const selectedSizeInfo = product.sizes?.find(s => s.pieces === selectedSize) || { price: product.price, inStock: product.inStock };
   const currentPrice = selectedSizeInfo.price;
   const isAvailable = selectedSizeInfo.inStock && product.inStock;
@@ -51,14 +64,14 @@ export default function ProductPage({ product }) {
     "@type": "Product",
     "name": product.name,
     "image": [
-      product.primaryImage.startsWith('http') ? product.primaryImage : `https://amata.in${product.primaryImage}`,
-      product.hoverImage.startsWith('http') ? product.hoverImage : `https://amata.in${product.hoverImage}`
+      product.primaryImage.startsWith('http') ? product.primaryImage : `https://amatajutetea.com${product.primaryImage}`,
+      product.hoverImage.startsWith('http') ? product.hoverImage : `https://amatajutetea.com${product.hoverImage}`
     ],
     "description": product.description,
     "sku": product.id,
     "offers": {
       "@type": "Offer",
-      "url": `https://amata.in/product/${product.slug}`,
+      "url": `https://amatajutetea.com/product/${product.slug}`,
       "priceCurrency": product.currency || "USD",
       "price": currentPrice,
       "itemCondition": "https://schema.org/NewCondition",
@@ -72,7 +85,7 @@ export default function ProductPage({ product }) {
       description={product.description}
       ogImage={product.primaryImage}
       ogType="product"
-      canonical={`https://amata.in/product/${product.slug}`}
+      canonical={`https://amatajutetea.com/product/${product.slug}`}
     >
       <Head>
         <script

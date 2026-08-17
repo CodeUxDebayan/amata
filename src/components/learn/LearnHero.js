@@ -1,8 +1,22 @@
-import { useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './LearnHero.module.css';
 
 export default function LearnHero() {
   const sectionRef = useRef(null);
+  
+  const slides = [
+    '/images/Corchorus_olitorius.jpg',
+    '/images/Corchorus_olitorius_2.jpg',
+    '/images/learn_slider/WhatsApp Image 2026-08-12 at 2.53.29 PM.jpeg'
+  ];
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [slides.length]);
 
   useEffect(() => {
     let ctx;
@@ -45,7 +59,18 @@ export default function LearnHero() {
   return (
     <section ref={sectionRef} className={styles.hero}>
       {/* Background layers */}
-      <div className={styles.bg} />
+      {slides.map((slide, idx) => (
+        <div
+          key={idx}
+          className={styles.bg}
+          style={{
+            backgroundImage: `url('${slide}')`,
+            opacity: currentSlide === idx ? 1 : 0,
+            transition: 'opacity 1.5s ease-in-out',
+            zIndex: currentSlide === idx ? 0 : -1,
+          }}
+        />
+      ))}
       <div className={styles.bgOverlay} />
 
       {/* Floating botanical accents */}

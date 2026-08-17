@@ -213,3 +213,46 @@
 @media (max-width: 480px) {
   .featured { aspect-ratio: 1; }
 }
+
+/* Coming Soon Section */
+.comingSoon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8vh 4vw;
+  max-width: 800px;
+  margin: 0 auto;
+  gap: 1.5rem;
+}
+.comingSoonTitle {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--c-deep);
+  line-height: 1.2;
+}
+.comingSoonSubtitle {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(10, 45, 51, 0.7);
+  max-width: 600px;
+}
+.comingSoonJp {
+  font-family: var(--font-jp);
+  font-size: 0.9rem;
+  color: var(--c-terracotta);
+  opacity: 0.85;
+  letter-spacing: 0.1em;
+  margin-top: 0.5rem;
+}
+.comingSoonLeaf {
+  width: 60px;
+  height: 60px;
+  opacity: 0.15;
+  margin-bottom: 1rem;
+  animation: floatLeaf 4s ease-in-out infinite alternate;
+}
+@keyframes floatLeaf {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-10px) rotate(5deg); }
+}

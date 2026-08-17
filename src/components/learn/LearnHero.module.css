@@ -11,7 +11,9 @@
 .bg {
   position: absolute;
   inset: 0;
-  background: url('/images/Corchorus_olitorius.jpg') no-repeat center / cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .bgOverlay {

@@ -367,17 +367,17 @@ export default function CheckoutPage() {
             <div className={styles.form}>
               <h2 className={`serif ${styles.formTitle}`}>Payment</h2>
               <p className={styles.payInfo}>
-                You will be redirected to a secure Razorpay checkout page to complete your payment.
+                We are currently steeping our systems and aligning our payment gateways. Secure ordering will be online shortly.
               </p>
               <div className={styles.payNote}>
-                <span>🔒</span> SSL secured · Your card details never touch our servers.
+                <span>🌱</span> Grounding our roots · Pre-orders opening soon.
               </div>
               <button
                 className={`amata-btn amata-btn--sand ${styles.submitBtn}`}
-                onClick={handleRazorpay}
-                disabled={loading}
+                disabled={true}
+                style={{ opacity: 0.6, cursor: 'not-allowed' }}
               >
-                {loading ? 'Processing…' : `Pay ₹${total.toFixed(2)} with Razorpay`}
+                Steeping in Preparation · Launching Soon
               </button>
               <button className={styles.backBtn} onClick={() => setStep(user ? 'address' : 'otp')}>← Back</button>
             </div>

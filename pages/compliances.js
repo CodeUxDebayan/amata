@@ -38,9 +38,9 @@ export default function CompliancesPage() {
 
   return (
     <Layout
-      title="Amata | Quality Certifications & Compliances"
-      description="View our global quality standard certifications, including BQM Organic, HACCP, WHO GMP, and FSSAI, ensuring the highest purity of our Moroheiya tea."
-      canonical="https://amata.in/compliances"
+      title="Amata | Certified Organic Jute Tea & Compliances"
+      description="View Amata's certified purity credentials and compliances, ensuring our organic Moroheiya Jute Tea meets global BQM, JAS, and FSSAI standards."
+      canonical="https://amatajutetea.com/compliances"
     >
       <section className={styles.section}>
         <div className={styles.inner}>

@@ -10,6 +10,7 @@ import GutBrain from '../src/components/learn/GutBrain';
 import TimelineJourney from '../src/components/learn/TimelineJourney';
 import HowToBrew from '../src/components/learn/HowToBrew';
 import Glossary from '../src/components/learn/Glossary';
+import LabSection from '../src/components/learn/LabSection';
 import styles from '../src/styles/learn.module.css';
 
 const compliances = [
@@ -37,6 +38,15 @@ export default function LearnPage() {
         // Global scroll reveal removed to prevent conflicts with internal section triggers
         // and scroll height calculation issues.
       }, pageRef);
+
+      // Force refresh of ScrollTrigger and Lenis at intervals as page content loads
+      for (const delay of [200, 600, 1200, 2000, 4000]) {
+        setTimeout(() => {
+          if (!active) return;
+          ScrollTrigger.refresh();
+          window.lenis?.resize();
+        }, delay);
+      }
     }
 
     const timer = setTimeout(init, 200);
@@ -51,9 +61,9 @@ export default function LearnPage() {
   return (
     <div ref={pageRef}>
       <Layout 
-        title="Amata | The Science of Moroheiya & The Gut-Brain Axis"
-        description="Learn about Moroheiya, the immortal prebiotic herb. Discover how Amata's organic infusions stimulate the gut-brain axis, optimize gut barrier integrity, and improve vagal tone."
-        canonical="https://amata.in/learn"
+        title="Amata | The Science of Moroheiya Jute Tea & Gut-Brain Axis"
+        description="Discover the science behind Moroheiya Jute Tea. Learn how our organic prebiotic Jute Leaf infusions support the gut-brain axis, vagus nerve, and microbiome."
+        canonical="https://amatajutetea.com/learn"
       >
         {/* 1. Cinematic hero: What is Moroheiya? */}
         <LearnHero />
@@ -98,6 +108,9 @@ export default function LearnPage() {
             </div>
           </div>
         </section>
+
+        {/* Lab Testing Section */}
+        <LabSection />
 
         {/* 9. Glossary — existing component (kept, audited for mobile) */}
         <Glossary />

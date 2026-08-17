@@ -29,8 +29,8 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Amata",
-    "url": "https://amata.in",
-    "logo": "https://amata.in/images/white-logo.png",
+    "url": "https://amatajutetea.com",
+    "logo": "https://amatajutetea.com/images/white-logo.png",
     "description": "Amata is a premium organic prebiotic Moroheiya wellness tea brand. We optimize the gut-brain axis with Ayurvedic ingredients and Japanese tea culture.",
     "contactPoint": {
       "@type": "ContactPoint",
@@ -72,9 +72,9 @@ export default function Home() {
 
   return (
     <Layout 
-      title="Amata | Moroheiya Infusion"
-      description="Experience the science of the gut-brain axis with Amata's premium organic Moroheiya wellness teas. Bridging Japanese heritage and Ayurvedic wisdom."
-      canonical="https://amata.in"
+      title="Amata | Organic Moroheiya Jute Tea & Prebiotic Infusions"
+      description="Amata is a premium organic prebiotic Moroheiya Jute Tea brand. Discover our range of gut-friendly herbal infusions bridging Japanese heritage and Ayurvedic wisdom."
+      canonical="https://amatajutetea.com"
     >
       <Head>
         <script

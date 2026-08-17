@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Nav from './Nav';
 import Footer from './Footer';
@@ -17,6 +18,29 @@ export default function Layout({
   ogType = 'website',
   canonical
 }) {
+  const [resolvedCanonical, setResolvedCanonical] = useState(canonical);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const host = window.location.hostname;
+      if (canonical) {
+        if (host.includes('amatajutetea.com')) {
+          setResolvedCanonical(canonical.replace('amata.in', 'amatajutetea.com'));
+        } else if (host.includes('localhost') || host.includes('127.0.0.1')) {
+          setResolvedCanonical(canonical);
+        } else {
+          try {
+            const urlObj = new URL(canonical);
+            urlObj.hostname = host;
+            setResolvedCanonical(urlObj.toString());
+          } catch (_) {
+            setResolvedCanonical(canonical);
+          }
+        }
+      }
+    }
+  }, [canonical]);
+
   return (
     <>
       <Head>
@@ -35,7 +59,7 @@ export default function Layout({
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={ogImage} />
-        {canonical && <meta property="og:url" content={canonical} />}
+        {resolvedCanonical && <meta property="og:url" content={resolvedCanonical} />}
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -43,7 +67,7 @@ export default function Layout({
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={ogImage} />
 
-        {canonical && <link rel="canonical" href={canonical} />}
+        {resolvedCanonical && <link rel="canonical" href={resolvedCanonical} />}
       </Head>
 
       <Noise />
