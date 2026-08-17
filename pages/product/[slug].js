@@ -17,16 +17,24 @@ export default function ProductPage({ product }) {
 
   useEffect(() => {
     let ctx;
+    let active = true;
     async function init() {
       const { gsap }          = await import('gsap');
       const { ScrollTrigger } = await import('gsap/ScrollTrigger');
       gsap.registerPlugin(ScrollTrigger);
+      if (!active) return;
       ctx = gsap.context(() => {
-        gsap.from(`.${styles.productInfo} > *`, { y: 40, opacity: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out', delay: 0.3 });
+        gsap.fromTo(`.${styles.productInfo} > *`, 
+          { y: 40, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.8, stagger: 0.12, ease: 'power3.out', delay: 0.3 }
+        );
       }, heroRef);
     }
     init();
-    return () => ctx?.revert();
+    return () => {
+      active = false;
+      ctx?.revert();
+    };
   }, []);
 
   useEffect(() => {
