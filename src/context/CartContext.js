@@ -41,9 +41,31 @@ export function CartProvider({ children }) {
       if (l === 'JP') {
         document.cookie = "googtrans=/en/ja; path=/;";
         document.cookie = "googtrans=/en/ja; path=/; domain=" + window.location.hostname;
+        
+        // Also set on apex/parent domain if applicable
+        const parts = window.location.hostname.split('.');
+        if (parts.length > 2) {
+          const parentDomain = parts.slice(-2).join('.');
+          document.cookie = "googtrans=/en/ja; path=/; domain=." + parentDomain;
+          document.cookie = "googtrans=/en/ja; path=/; domain=" + parentDomain;
+        }
       } else {
-        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + window.location.hostname;
+        // Clear googtrans cookie for all possible domains and paths
+        const hostname = window.location.hostname;
+        const domains = ['', hostname, '.' + hostname];
+        
+        const parts = hostname.split('.');
+        if (parts.length > 2) {
+          const parentDomain = parts.slice(-2).join('.');
+          domains.push(parentDomain);
+          domains.push('.' + parentDomain);
+        }
+        
+        domains.forEach(domain => {
+          const domainStr = domain ? `; domain=${domain}` : '';
+          document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/${domainStr}`;
+          document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${domainStr}`;
+        });
       }
       window.location.reload();
     }

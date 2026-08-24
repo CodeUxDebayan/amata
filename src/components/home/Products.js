@@ -161,7 +161,7 @@ export default function Products({ products = [] }) {
 
       <div className={styles.viewAllRow}>
         <Link href="/products" className="amata-btn amata-btn--sand">
-          Explore all Moroheiya / Jute tea blends &rarr;
+          Explore all Moroheiya / Jute blends &rarr;
         </Link>
       </div>
     </section>
