@@ -225,167 +225,86 @@ export default function CheckoutPage() {
   }
 
   return (
-    <Layout title="Amata | Checkout" hideFooter>
+    <Layout title="Amata | Checkout (Coming Soon)" hideFooter>
       <div className={styles.page}>
         <div className={styles.formCol}>
-          <div className={styles.stepsBreadcrumb}>
-            {['address', 'otp', 'payment'].map((s, i) => {
-               // Skip OTP step if user is logged in
-               if (user && s === 'otp') return null;
-               return (
-                <span
-                  key={s}
-                  className={`${styles.breadcrumbStep} ${step === s ? styles.breadcrumbActive : ''} ${STEPS.indexOf(step) > i + 1 ? styles.breadcrumbDone : ''}`}
-                >
-                  {s.charAt(0).toUpperCase() + s.slice(1)}
-                  {i < 2 && (!user || s !== 'address') && <span className={styles.breadcrumbSep}> › </span>}
-                </span>
-               );
-            })}
+          <div className={styles.comingSoonNotice}>
+            <span className={styles.noticeBadge}>STORE PREVIEW MODE</span>
+            <h2 className={`serif ${styles.noticeTitle}`}>Direct Checkout & Payment Gateway Coming Soon</h2>
+            <p className={styles.noticeText}>
+              We are currently steeping our backend payment gateways and international shipping integrations. Direct web ordering will be live soon! In the meantime, you can purchase Amata Moroheiya Teas directly on Amazon.
+            </p>
+
+            <div className={styles.amazonBox}>
+              <div className={styles.amazonBoxHeader}>
+                <span className={styles.amazonTag}>RECOMMENDED ORDER METHOD</span>
+                <h3 className={`serif ${styles.amazonTitle}`}>Shop Amata Jute Tea on Amazon</h3>
+                <p className={styles.amazonSub}>
+                  Instant dispatch, prime shipping, and secure payment via Amazon.
+                </p>
+              </div>
+
+              <a
+                href="https://amazon.in/AMATA-Jute-Leaf-Tea-ANTIOXIDANT/dp/B0FC6TVHFC"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.amazonLinkBtn}
+              >
+                <img src="/images/amazon-icon.svg" alt="Amazon Logo" className={styles.amazonIconImg} />
+                <span>Buy directly on Amazon</span>
+                <span>↗</span>
+              </a>
+            </div>
           </div>
 
-          {step === 'address' && (
-            <form onSubmit={handleAddressNext} className={styles.form}>
-              <h2 className={`serif ${styles.formTitle}`}>Delivery Address</h2>
-              {user && <p style={{marginBottom: '1rem', color: 'var(--amata-moss)'}}>Logged in as {user.email || user.phoneNumber}</p>}
+          <div className={styles.stepsBreadcrumb}>
+            <span className={`${styles.breadcrumbStep} ${styles.breadcrumbActive}`}>
+              Preview Address & Checkout
+            </span>
+          </div>
 
-              <div className={styles.row}>
-                <div className={styles.field}>
-                  <label>Full Name</label>
-                  <input name="name" value={form.name} onChange={handleFormChange} required placeholder="Arjun Sharma" />
-                </div>
-                <div className={styles.field}>
-                  <label>Phone</label>
-                  <input name="phone" value={form.phone} onChange={handleFormChange} required placeholder="+91 98765 43210" />
-                </div>
-              </div>
+          <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
+            <h2 className={`serif ${styles.formTitle}`}>Delivery Address Preview</h2>
+            <p style={{ marginBottom: '1.5rem', opacity: 0.7, fontSize: '0.88rem' }}>
+              Direct web address submission is currently paused. Please use Amazon for instant checkout.
+            </p>
 
+            <div className={styles.row}>
               <div className={styles.field}>
-                <label>Email</label>
-                <input name="email" type="email" value={form.email} onChange={handleFormChange} required placeholder="you@example.com" />
+                <label>Full Name</label>
+                <input name="name" value={form.name} onChange={handleFormChange} placeholder="Arjun Sharma" />
               </div>
-
               <div className={styles.field}>
-                <label>Address</label>
-                <input name="address" value={form.address} onChange={handleFormChange} required placeholder="Street, Building, Flat" />
+                <label>Phone</label>
+                <input name="phone" value={form.phone} onChange={handleFormChange} placeholder="+91 98765 43210" />
               </div>
-
-              <div className={styles.row}>
-                <div className={styles.field}>
-                  <label>City</label>
-                  <input name="city" value={form.city} onChange={handleFormChange} required />
-                </div>
-                <div className={styles.field}>
-                  <label>State</label>
-                  <input name="state" value={form.state} onChange={handleFormChange} required />
-                </div>
-              </div>
-
-              <div className={styles.row}>
-                <div className={styles.field}>
-                  <label>Country</label>
-                  <select name="country" value={form.country} onChange={handleFormChange} required className={styles.input}>
-                    <option value="India">India</option>
-                  </select>
-                </div>
-                <div className={styles.field} style={{ maxWidth: '120px' }}>
-                  <label>PIN/ZIP</label>
-                  <input name="pincode" value={form.pincode} onChange={handleFormChange} required placeholder="400001" />
-                </div>
-              </div>
-
-              {!user && (
-                <div className={styles.otpChoice}>
-                  <p className={styles.otpLabel}>Verify via</p>
-                  <div className={styles.otpBtns}>
-                    <button
-                      type="button"
-                      className={`${styles.otpBtn} ${otpMethod === 'whatsapp' ? styles.otpBtnActive : ''}`}
-                      onClick={() => setOtpMethod('whatsapp')}
-                    >
-                      📱 WhatsApp
-                    </button>
-                    <button
-                      type="button"
-                      className={`${styles.otpBtn} ${otpMethod === 'email' ? styles.otpBtnActive : ''}`}
-                      onClick={() => setOtpMethod('email')}
-                    >
-                      ✉️ Email
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              <button type="submit" className={`amata-btn amata-btn--sand ${styles.submitBtn}`}>
-                {user ? 'Continue to Payment →' : 'Continue to Verify →'}
-              </button>
-            </form>
-          )}
-
-          {step === 'otp' && !user && (
-            <div className={styles.form}>
-              <h2 className={`serif ${styles.formTitle}`}>Verify Identity</h2>
-              <p className={styles.otpInfo}>
-                {otpSent
-                  ? `A code has been sent to your ${otpMethod === 'email' ? form.email : form.phone} via ${otpMethod === 'email' ? 'email' : 'WhatsApp'}.`
-                  : `We'll send a one-time code to your ${otpMethod === 'email' ? 'email' : 'WhatsApp'} to confirm your identity.`}
-              </p>
-              {!otpSent ? (
-                <button
-                  className={`amata-btn amata-btn--sand ${styles.submitBtn}`}
-                  onClick={sendOtp}
-                  disabled={loading}
-                >
-                  {loading ? 'Sending…' : `Send OTP via ${otpMethod === 'email' ? 'Email' : 'WhatsApp'}`}
-                </button>
-              ) : (
-                <form onSubmit={verifyOtp} className={styles.otpForm}>
-                  <div className={styles.field}>
-                    <label>Enter OTP</label>
-                    <input
-                      value={otp}
-                      onChange={(e) => setOtp(e.target.value)}
-                      placeholder="6-digit code"
-                      maxLength={6}
-                      required
-                      className={styles.otpInput}
-                    />
-                  </div>
-                  <button type="submit" className={`amata-btn amata-btn--sand ${styles.submitBtn}`} disabled={loading}>
-                    {loading ? 'Verifying…' : 'Verify & Continue'}
-                  </button>
-                  <button type="button" className={styles.resendBtn} onClick={sendOtp}>Resend OTP</button>
-                </form>
-              )}
-              <button className={styles.backBtn} onClick={() => { setStep('address'); setOtpSent(false); setOtp(''); }}>
-                ← Back
-              </button>
             </div>
-          )}
 
-          {step === 'payment' && (
-            <div className={styles.form}>
-              <h2 className={`serif ${styles.formTitle}`}>Payment</h2>
-              <p className={styles.payInfo}>
-                We are currently steeping our systems and aligning our payment gateways. Secure ordering will be online shortly.
-              </p>
-              <div className={styles.payNote}>
-                <span>🌱</span> Grounding our roots · Pre-orders opening soon.
-              </div>
-              <button
-                className={`amata-btn amata-btn--sand ${styles.submitBtn}`}
-                disabled={true}
-                style={{ opacity: 0.6, cursor: 'not-allowed' }}
-              >
-                Steeping in Preparation · Launching Soon
-              </button>
-              <button className={styles.backBtn} onClick={() => setStep(user ? 'address' : 'otp')}>← Back</button>
+            <div className={styles.field}>
+              <label>Email</label>
+              <input name="email" type="email" value={form.email} onChange={handleFormChange} placeholder="you@example.com" />
             </div>
-          )}
+
+            <div className={styles.field}>
+              <label>Address</label>
+              <input name="address" value={form.address} onChange={handleFormChange} placeholder="Street, Building, Flat" />
+            </div>
+
+            <a
+              href="https://amazon.in/AMATA-Jute-Leaf-Tea-ANTIOXIDANT/dp/B0FC6TVHFC"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.amazonLinkBtn}
+              style={{ marginTop: '1.5rem', width: '100%' }}
+            >
+              <img src="/images/amazon-icon.svg" alt="Amazon" className={styles.amazonIconImg} />
+              <span>Checkout on Amazon Instead</span>
+            </a>
+          </form>
         </div>
 
         <div className={styles.summaryCol}>
-          <h3 className={`serif ${styles.summaryTitle}`}>Order Summary</h3>
+          <h3 className={`serif ${styles.summaryTitle}`}>Satchel Bag Summary</h3>
           <div className={styles.summaryItems}>
             {items.map((item) => (
               <div key={item.id} className={styles.summaryItem}>
@@ -401,6 +320,12 @@ export default function CheckoutPage() {
           <div className={styles.summaryTotal}>
             <span className="serif">Total</span>
             <span className="serif">₹{total.toFixed(2)}</span>
+          </div>
+
+          <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+            <Link href="/" className="amata-btn amata-btn--sand" style={{ display: 'block', width: '100%' }}>
+              ← Return to Main Site
+            </Link>
           </div>
         </div>
       </div>

@@ -1,0 +1,167 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 45, 51, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 99998;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 520px;
+  background: var(--c-sand);
+  color: var(--c-deep);
+  border-radius: 20px;
+  padding: 2.5rem 2rem 2rem;
+  z-index: 99999;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(184, 105, 58, 0.25);
+  animation: modalUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: rgba(10, 45, 51, 0.06);
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-deep);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.closeBtn:hover {
+  background: rgba(10, 45, 51, 0.15);
+  transform: scale(1.05);
+}
+
+.badgeRow {
+  margin-bottom: 1rem;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  color: #b8693a;
+  background: rgba(184, 105, 58, 0.12);
+  padding: 0.35rem 0.85rem;
+  border-radius: 100px;
+}
+
+.title {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+  color: var(--c-deep);
+}
+
+.message {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: rgba(10, 45, 51, 0.8);
+  margin-bottom: 1.75rem;
+}
+
+.amazonCard {
+  background: #232F3E;
+  color: #FFFFFF;
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 153, 0, 0.3);
+}
+
+.amazonCardHeader {
+  margin-bottom: 1.25rem;
+}
+
+.amazonCardTag {
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  color: #FF9900;
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.amazonCardTitle {
+  font-size: 1.25rem;
+  color: #FFFFFF;
+  margin-bottom: 0.35rem;
+}
+
+.amazonCardSub {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  line-height: 1.4;
+}
+
+.amazonBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: #FFD814;
+  color: #0F1111;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 14px rgba(255, 216, 20, 0.4);
+}
+.amazonBtn:hover {
+  background: #F7CA00;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 216, 20, 0.55);
+}
+
+.amazonIcon {
+  height: 22px;
+  width: auto;
+  object-fit: contain;
+}
+
+.actions {
+  text-align: center;
+}
+
+.continueBtn {
+  background: none;
+  border: none;
+  color: rgba(10, 45, 51, 0.7);
+  font-size: 0.85rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.continueBtn:hover {
+  color: var(--c-deep);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalUp {
+  from { opacity: 0; transform: translate(-50%, -46%) scale(0.95); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}

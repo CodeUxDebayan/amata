@@ -59,16 +59,31 @@ export default function CartModal() {
         </div>
 
         <div className={styles.footer}>
+          <div className={styles.comingSoonBanner}>
+            <span>⚡</span> Direct Checkout & Shipping Gateway under process. Order now on Amazon!
+          </div>
+
           <div className={styles.total}>
             <span className="serif">Subtotal</span>
-            <span className="serif">${total.toFixed(2)}</span>
+            <span className="serif">₹{total.toFixed(2)}</span>
           </div>
+
+          <a
+            href="https://amazon.in/AMATA-Jute-Leaf-Tea-ANTIOXIDANT/dp/B0FC6TVHFC"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.amazonCheckoutBtn}
+          >
+            <img src="/images/amazon-icon.svg" alt="Amazon Logo" className={styles.amazonBtnIcon} />
+            <span>Buy directly on Amazon</span>
+          </a>
+
           <Link
             href="/checkout"
-            className={`amata-btn amata-btn--sand ${styles.checkoutBtn}`}
+            className={styles.checkoutSoonBtn}
             onClick={() => setIsOpen(false)}
           >
-            Checkout
+            Direct Checkout (Coming Soon)
           </Link>
         </div>
       </div>

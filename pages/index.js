@@ -32,11 +32,49 @@ export default function Home() {
     "url": "https://amatajutetea.com",
     "logo": "https://amatajutetea.com/images/white-logo.png",
     "description": "Amata is a premium organic prebiotic Moroheiya wellness tea brand. We optimize the gut-brain axis with Ayurvedic ingredients and Japanese tea culture.",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+91-0000000000",
-      "contactType": "customer service"
-    }
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+81-70-9105-3657",
+        "contactType": "Japan Office",
+        "areaServed": "JP",
+        "email": "contact@amatajutetea.com"
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "+91-8777395787",
+        "contactType": "India Headquarters",
+        "areaServed": "IN",
+        "email": "contact@amatajutetea.com"
+      }
+    ],
+    "address": [
+      {
+        "@type": "PostalAddress",
+        "name": "Presidency Limited",
+        "streetAddress": "124 City Road",
+        "addressLocality": "London",
+        "postalCode": "EC1V 2NX",
+        "addressCountry": "United Kingdom"
+      },
+      {
+        "@type": "PostalAddress",
+        "name": "MARUNOUCHIBUSSAN CO.LTD",
+        "streetAddress": "12-4 Kasuga Ashiya",
+        "addressRegion": "Hyogo",
+        "postalCode": "6590021",
+        "addressCountry": "Japan"
+      },
+      {
+        "@type": "PostalAddress",
+        "name": "Amata Jute Tea LLP",
+        "streetAddress": "Arch Square, Block EP & GP, Unit 201, Salt Lake City, Sector-V",
+        "addressLocality": "Kolkata",
+        "addressRegion": "West Bengal",
+        "postalCode": "700091",
+        "addressCountry": "India"
+      }
+    ]
   };
 
   const faqSchema = {

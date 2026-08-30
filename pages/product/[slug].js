@@ -149,7 +149,21 @@ export default function ProductPage({ product }) {
             </div>
           </div>
 
+          <div className={styles.noticeBanner}>
+            <span>⚡</span> Direct payment & shipping gateways are currently under development. Order on Amazon for fast delivery!
+          </div>
+
           <div className={styles.ctaRow}>
+            <a
+              href="https://amazon.in/AMATA-Jute-Leaf-Tea-ANTIOXIDANT/dp/B0FC6TVHFC"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.amazonCtaBtn}
+            >
+              <img src="/images/amazon-icon.svg" alt="Amazon Logo" className={styles.amazonCtaIcon} />
+              <span>Buy on Amazon</span>
+            </a>
+
             <button
               className={`amata-btn amata-btn--sand ${styles.addBtn}`}
               onClick={handleAddToCart}

@@ -19,7 +19,7 @@
   text-shadow: 0 4px 12px rgba(10, 45, 51, 0.8);
 }
 @media (min-width: 1024px) {
-  .top { grid-template-columns: 1fr 1fr; }
+  .top { grid-template-columns: 1fr 2fr; }
 }
 
 .col h4 {
@@ -71,11 +71,59 @@
 .fLinks {
   display: flex;
   justify-content: flex-end;
-  gap: 4rem;
+  gap: 3rem;
   font-family: var(--font-serif);
+  flex-wrap: wrap;
 }
 
+.officesCol {
+  max-width: 280px;
+}
 
+.officeBlock {
+  margin-bottom: 1.2rem;
+}
+.officeBlock:last-child {
+  margin-bottom: 0;
+}
+.officeCountry {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--c-sky);
+  margin-bottom: 0.25rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+.officeName {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--c-sand);
+  margin-bottom: 0.2rem;
+  line-height: 1.3;
+}
+.officeAddr {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  color: var(--c-sand);
+  line-height: 1.4;
+  margin-bottom: 0.2rem;
+}
+.officeContact {
+  font-size: 0.82rem;
+  opacity: 0.85;
+  color: var(--c-sand);
+  line-height: 1.3;
+}
+.officeContact a {
+  color: var(--c-sand);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: opacity 0.2s;
+}
+.officeContact a:hover {
+  opacity: 1;
+}
 
 .bottom {
   display: flex;
@@ -108,6 +156,10 @@
 
   .col {
     width: 100%;
+  }
+
+  .officesCol {
+    max-width: 100%;
   }
 
   .dropdownHeader {
@@ -145,7 +197,7 @@
   }
 
   .open .dropdownContent {
-    max-height: 350px;
+    max-height: 600px;
     opacity: 1;
     pointer-events: auto;
     padding-top: 1rem;

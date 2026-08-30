@@ -106,6 +106,46 @@
   color: var(--c-white);
 }
 
+.badgeSoon {
+  font-size: 0.58rem;
+  background: rgba(234, 211, 157, 0.25);
+  color: var(--c-sand);
+  padding: 2px 6px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-left: 3px;
+  font-weight: 600;
+}
+
+.navAmazonBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #FFD814;
+  color: #0F1111;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(255, 216, 20, 0.3);
+}
+.navAmazonBtn:hover {
+  background: #F7CA00;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 216, 20, 0.5);
+}
+
+.navAmazonIcon {
+  height: 14px;
+  width: auto;
+  object-fit: contain;
+}
+
 .cartBtn {
   display: flex;
   align-items: center;
@@ -206,6 +246,26 @@
   align-items: center;
   gap: 1rem;
   text-align: left;
+}
+
+.drawerAmazonBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #FFD814;
+  color: #0F1111;
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  padding: 0.85rem 1.75rem;
+  border-radius: 100px;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  width: fit-content;
+}
+.drawerAmazonBtn .navAmazonIcon {
+  height: 22px;
 }
 
 .drawerCartCount {

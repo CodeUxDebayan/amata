@@ -63,17 +63,23 @@ function ProductCard({ product }) {
         <p className={styles.desc}>{product.description}</p>
         
         <div className={styles.actions}>
+          <a
+            href="https://amazon.in/AMATA-Jute-Leaf-Tea-ANTIOXIDANT/dp/B0FC6TVHFC"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.amazonCardBtn}
+          >
+            <img src="/images/amazon-icon.svg" alt="Amazon Logo" className={styles.amazonCardIcon} />
+            <span>Buy on Amazon</span>
+          </a>
           <button
             className={`amata-btn amata-btn--sand ${styles.addBtn}`}
             onClick={() => product.inStock && addItem(product)}
             disabled={!product.inStock}
             style={!product.inStock ? { opacity: 0.5, cursor: 'not-allowed' } : {}}
           >
-            {product.inStock ? 'Add to Satchel Bag' : 'Out of Stock'}
+            {product.inStock ? 'Add to Satchel' : 'Out of Stock'}
           </button>
-          <Link href={`/product/${product.slug}`} className={styles.learnLink}>
-            Explore &rarr;
-          </Link>
         </div>
       </div>
     </div>

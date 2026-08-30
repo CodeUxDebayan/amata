@@ -54,8 +54,10 @@ const content = [
   "We reserve the right to update these Terms at any time. Changes will be effective upon posting on the Site.",
   "Your continued use of the Site after changes constitutes acceptance.",
   "1.11 Contact Us",
-  "For any questions regarding these Terms, please contact:",
-  "Amata Jute Tea LLP, Arch Square, Block EP & GP, Unit 201, Salt Lake City, Sector-V, Kolkata, West Bengal — 700091, India. Email: contact@amatajutetea.com | Phone: +91 877 739 5787"
+  "For any questions regarding these Terms, please contact our global offices:",
+  "India HQ: Amata Jute Tea LLP, Arch Square, Block EP & GP, Unit 201, Salt Lake City, Sector-V, Kolkata, West Bengal — 700091, India. Email: contact@amatajutetea.com | Phone: +91 877 739 5787",
+  "UK Office: Presidency Limited, 124 City Road, London EC1V 2NX, United Kingdom",
+  "Japan Office: MARUNOUCHIBUSSAN CO.LTD, 12-4 Kasuga Ashiya Hyogo, 6590021, Japan | Ph: +81-70-9105-3657 | Email: contact@amatajutetea.com"
 ];
 
 export default function TermsOfService() {

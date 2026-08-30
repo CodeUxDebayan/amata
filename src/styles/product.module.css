@@ -25,8 +25,47 @@
 .price { font-family: var(--font-serif); font-size: 2rem; color: var(--c-deep); }
 .desc { font-size: 1rem; line-height: 1.9; opacity: 0.75; max-width: 500px; }
 
-.ctaRow { display: flex; gap: 1.5rem; align-items: center; }
-.addBtn { padding: 1.2rem 3rem; }
+.noticeBanner {
+  background: rgba(184, 105, 58, 0.12);
+  color: #b8693a;
+  border: 1px dashed rgba(184, 105, 58, 0.4);
+  border-radius: 12px;
+  padding: 0.85rem 1.15rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  font-weight: 500;
+  max-width: 520px;
+}
+
+.ctaRow { display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap; }
+.addBtn { padding: 1rem 2rem; }
+
+.amazonCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: #FFD814;
+  color: #0F1111;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 1rem 2.25rem;
+  border-radius: 100px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(255, 216, 20, 0.4);
+  transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+}
+.amazonCtaBtn:hover {
+  background: #F7CA00;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 216, 20, 0.55);
+}
+
+.amazonCtaIcon {
+  height: 20px;
+  width: auto;
+  object-fit: contain;
+}
 
 .details { border-top: 1px solid rgba(10,45,51,0.1); margin-top: 1rem; }
 .detailBlock { border-bottom: 1px solid rgba(10,45,51,0.1); }

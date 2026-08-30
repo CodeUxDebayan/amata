@@ -38,19 +38,23 @@ function ProductCard({ product }) {
       </div>
       <p className={styles.desc}>{product.description}</p>
       <div className={styles.actions}>
-        <div className={styles.magneticWrap}>
-          <button
-            className={`amata-btn amata-btn--sand ${styles.addBtn}`}
-            onClick={() => product.inStock && addItem(product)}
-            disabled={!product.inStock}
-            style={!product.inStock ? { opacity: 0.5, cursor: 'not-allowed' } : {}}
-          >
-            {product.inStock ? 'Add to Satchel Bag' : 'Out of Stock'}
-          </button>
-        </div>
-        <Link href={`/product/${product.slug}`} className={styles.learnLink}>
-          Learn more →
-        </Link>
+        <a
+          href="https://amazon.in/AMATA-Jute-Leaf-Tea-ANTIOXIDANT/dp/B0FC6TVHFC"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.amazonCardBtn}
+        >
+          <img src="/images/amazon-icon.svg" alt="Amazon Logo" className={styles.amazonCardIcon} />
+          <span>Buy on Amazon</span>
+        </a>
+        <button
+          className={`amata-btn amata-btn--sand ${styles.addBtn}`}
+          onClick={() => product.inStock && addItem(product)}
+          disabled={!product.inStock}
+          style={!product.inStock ? { opacity: 0.5, cursor: 'not-allowed' } : {}}
+        >
+          {product.inStock ? 'Add' : 'Out'}
+        </button>
       </div>
     </div>
   );
@@ -147,10 +151,11 @@ export default function Products({ products = [] }) {
       <h2 className={`serif ${styles.sectionTitle} split-text`}>Assorted Infusions</h2>
 
       <div className={styles.availabilityRow}>
-        <span>Available on</span>
+        <span>Instant Checkout Available on</span>
         <div className={styles.partnerLogos}>
-          <a href="https://amazon.in/AMATA-Jute-Leaf-Tea-ANTIOXIDANT/dp/B0FC6TVHFC" target="_blank" rel="noopener noreferrer" className={styles.partnerLink}>
-            Amazon
+          <a href="https://amazon.in/AMATA-Jute-Leaf-Tea-ANTIOXIDANT/dp/B0FC6TVHFC" target="_blank" rel="noopener noreferrer" className={styles.partnerAmazonLink}>
+            <img src="/images/amazon-icon.svg" alt="Amazon Logo" className={styles.partnerAmazonIcon} />
+            <span>Buy on Amazon</span>
           </a>
         </div>
       </div>

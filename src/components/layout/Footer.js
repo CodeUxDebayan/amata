@@ -11,6 +11,7 @@ export default function Footer() {
     explore: false,
     policies: false,
     connect: false,
+    offices: false,
   });
 
   const toggleSection = (section) => {
@@ -98,6 +99,31 @@ export default function Footer() {
                   </a>
                 </li>
               </ul>
+            </div>
+            <div className={`${styles.col} ${styles.officesCol} ${openSections.offices ? styles.open : ''}`}>
+              <h4 onClick={() => toggleSection('offices')} className={styles.dropdownHeader}>
+                Global Offices
+                <span className={styles.arrow}></span>
+              </h4>
+              <div className={styles.dropdownContent}>
+                <div className={styles.officeBlock}>
+                  <h5 className={styles.officeCountry}>UK Office</h5>
+                  <p className={styles.officeName}>Presidency Limited</p>
+                  <p className={styles.officeAddr}>124 City Road, London EC1V 2NX, United Kingdom</p>
+                </div>
+                <div className={styles.officeBlock}>
+                  <h5 className={styles.officeCountry}>Japan Office</h5>
+                  <p className={styles.officeName}>MARUNOUCHIBUSSAN CO.LTD</p>
+                  <p className={styles.officeAddr}>12-4 Kasuga Ashiya Hyogo, 6590021, Japan</p>
+                  <p className={styles.officeContact}>Ph: <a href="tel:+817091053657">+81-70-9105-3657</a></p>
+                  <p className={styles.officeContact}>Email: <a href="mailto:contact@amatajutetea.com">contact@amatajutetea.com</a></p>
+                </div>
+                <div className={styles.officeBlock}>
+                  <h5 className={styles.officeCountry}>India HQ</h5>
+                  <p className={styles.officeName}>Amata Jute Tea LLP</p>
+                  <p className={styles.officeAddr}>Arch Square, Block EP & GP, Unit 201, Salt Lake City, Sector-V, Kolkata — 700091</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
